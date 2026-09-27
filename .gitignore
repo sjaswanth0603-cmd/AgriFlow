@@ -1,0 +1,25 @@
+# Compiled class files & build artifacts
+bin/
+target/
+*.class
+
+# Log files
+*.log
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# VS Code settings
+.vscode/
+
+# OS generated files
+Thumbs.db
+.DS_Store

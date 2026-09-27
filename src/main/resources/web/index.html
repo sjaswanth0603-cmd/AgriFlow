@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriFlow – Smart Farm Management Platform (Modules 1 to 3)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="brand">
+        <h1>🌾 AgriFlow Platform</h1>
+        <p class="subtitle">Smart Farm Management & Optimization &bull; <strong>Modules 1 to 3 (CO1, CO2, CO3)</strong></p>
+      </div>
+      <div class="header-badges">
+        <div class="status-badge" id="server-status">
+          <span class="dot"></span> Java Core Active
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="nav-tabs container">
+    <button class="tab-btn active" onclick="switchTab('overview')">🌾 Syllabus Overview</button>
+    <button class="tab-btn" onclick="switchTab('m1')">🔍 M1: String Searching (CO1)</button>
+    <button class="tab-btn" onclick="switchTab('m2')">📑 M2: Suffix Structures (CO2)</button>
+    <button class="tab-btn" onclick="switchTab('m3')">🧬 M3: Advanced Dynamic Programming (CO3)</button>
+  </nav>
+
+  <main class="container">
+
+    <!-- ================================================================= -->
+    <!-- TAB: SYLLABUS OVERVIEW                                            -->
+    <!-- ================================================================= -->
+    <section id="tab-overview" class="tab-content active">
+      <div class="card">
+        <div class="hero-banner">
+          <h2>🌾 Smart Agriculture Powered by Advanced Algorithms</h2>
+          <p class="hero-desc">
+            AgriFlow demonstrates how fundamental computer science algorithms solve real-world agricultural engineering challenges.
+            This release is scoped specifically for <strong>Modules 1, 2, and 3 (Course Outcomes CO1, CO2, and CO3)</strong>.
+          </p>
+        </div>
+
+        <h3 class="section-title">📋 Modules 1 to 3 Syllabus & Algorithm Mapping</h3>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Module & CO</th>
+                <th>Algorithm</th>
+                <th>Agricultural Problem Solved</th>
+                <th>Time Complexity</th>
+                <th>Space Complexity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="4"><strong>M1: String Algorithms<br>(CO1)</strong></td>
+                <td><span class="badge badge-algo">Knuth-Morris-Pratt (KMP)</span></td>
+                <td>Fast scan of disease symptoms and varieties in field logs without pointer backtracking</td>
+                <td><code>O(N + M)</code></td>
+                <td><code>O(M)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Z-Algorithm</span></td>
+                <td>Identifies recurring disease phrases and periodic sensor patterns in text logs</td>
+                <td><code>O(N + M)</code></td>
+                <td><code>O(N + M)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Rabin-Karp Rolling Hash</span></td>
+                <td>Rapid verification of seed batch barcodes and chemical container serials</td>
+                <td><code>Avg O(N + M)</code></td>
+                <td><code>O(1)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Aho-Corasick Automaton</span></td>
+                <td>Simultaneous multi-pathogen screening across lengthy agronomy bulletins in one pass</td>
+                <td><code>O(N + &sum;M + Z)</code></td>
+                <td><code>O(&sum;M &times; &Sigma;)</code></td>
+              </tr>
+
+              <tr>
+                <td rowspan="3"><strong>M2: Suffix Structures<br>(CO2)</strong></td>
+                <td><span class="badge badge-algo">Suffix Array (Prefix Doubling)</span></td>
+                <td>Compact lexical index of agricultural research documents for logarithmic search</td>
+                <td><code>O(N log&sup2; N)</code></td>
+                <td><code>O(N)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Kasai's LCP Array</span></td>
+                <td>Detects duplicated agricultural treatment protocols and shared recommendations in linear time</td>
+                <td><code>O(N)</code></td>
+                <td><code>O(N)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Suffix Automaton (DAWG)</span></td>
+                <td>Instantaneous <code>O(M)</code> pattern existence queries and distinct substring counting</td>
+                <td><code>O(N) build, O(M) query</code></td>
+                <td><code>O(N) states</code></td>
+              </tr>
+
+              <tr>
+                <td rowspan="5"><strong>M3: Advanced DP<br>(CO3)</strong></td>
+                <td><span class="badge badge-algo">Levenshtein & Damerau Distance</span></td>
+                <td>Auto-corrects misspelled farmer voice and SMS text queries (e.g. <em>"fertlzr"</em> &rarr; <em>"fertilizer"</em>)</td>
+                <td><code>O(N &times; M)</code></td>
+                <td><code>O(N &times; M)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Needleman-Wunsch Aligner</span></td>
+                <td>Global crop DNA sequence alignment (e.g. wild ancestral wheat vs drought-resistant hybrid)</td>
+                <td><code>O(N &times; M)</code></td>
+                <td><code>O(N &times; M)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Smith-Waterman Aligner</span></td>
+                <td>Local sequence alignment to isolate conserved disease-resistance genetic motifs</td>
+                <td><code>O(N &times; M)</code></td>
+                <td><code>O(N &times; M)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Bitmask DP Optimizer</span></td>
+                <td>Max-profit multi-crop portfolio selection under land acreage, water budget, and crop synergies</td>
+                <td><code>O(2&#8319; &times; N)</code></td>
+                <td><code>O(2&#8319;)</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-algo">Matrix Chain Multiplication (MCM)</span></td>
+                <td>Minimizes scalar operations for chaining drone LIDAR, satellite NDVI, and field sensor matrices</td>
+                <td><code>O(K&sup3;)</code></td>
+                <td><code>O(K&sup2;)</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="actions" style="margin-top: 24px;">
+          <button class="btn btn-primary" onclick="switchTab('m1')">Go to Module 1: String Searching &rarr;</button>
+          <button class="btn btn-secondary" onclick="runAutomatedSuite()">⚡ Run Automated Test Suite</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 1 (STRING SEARCHING)                                  -->
+    <!-- ================================================================= -->
+    <section id="tab-m1" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 1: Crop & Disease String Search (CO1)</h2>
+          <span class="badge badge-mod">Outcome: CO1</span>
+        </div>
+        <p class="desc">Scans field diagnostic logs, agronomy papers, and barcode logs using <strong>KMP, Z-Algorithm, Rabin-Karp, and Aho-Corasick</strong>.</p>
+        
+        <div class="presets-row">
+          <span class="preset-label">Quick Presets:</span>
+          <button class="btn-chip" onclick="presetM1('blight')">🌾 Foliage Blight Outbreak</button>
+          <button class="btn-chip" onclick="presetM1('batch')">🏷️ Chemical & Seed Batch Codes</button>
+          <button class="btn-chip" onclick="presetM1('multi')">🔬 Multi-Pathogen Screening</button>
+        </div>
+
+        <div class="form-group">
+          <label for="m1-text">Agricultural Field Inspection Report Text:</label>
+          <textarea id="m1-text" rows="4">Field inspection in Sector 7 identified early blight on potato foliage. Late blight was also detected on tomato leaves in Zone B. Immediate copper fungicide treatment recommended.</textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="m1-pattern">Search Keyword / Disease Terms (comma-separated for Aho-Corasick):</label>
+            <input type="text" id="m1-pattern" value="blight">
+          </div>
+          <div class="form-group flex-1">
+            <label for="m1-algo">Algorithm Engine:</label>
+            <select id="m1-algo">
+              <option value="kmp">Knuth-Morris-Pratt (KMP)</option>
+              <option value="z">Z-Algorithm</option>
+              <option value="rabin">Rabin-Karp Rolling Hash</option>
+              <option value="aho">Aho-Corasick (Multi-Pattern)</option>
+              <option value="compare">⚡ Compare All 4 Algorithms</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" onclick="runM1()">Run String Search</button>
+          <button class="btn btn-secondary" onclick="runM1Compare()">Side-by-Side Benchmark</button>
+        </div>
+
+        <!-- M1 Results -->
+        <div class="result-box" id="m1-result" style="display:none;">
+          <div class="result-header">
+            <h3 id="m1-res-title">Search Results</h3>
+            <span class="badge" id="m1-res-badge">0 matches</span>
+          </div>
+
+          <!-- Highlighted Text Display -->
+          <div id="m1-highlight-container" style="display:none;">
+            <label class="sub-label">Document with Highlighted Matches:</label>
+            <div class="text-highlight-box" id="m1-highlight-box"></div>
+          </div>
+
+          <!-- Output Details -->
+          <pre id="m1-output"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 2 (SUFFIX STRUCTURES)                                 -->
+    <!-- ================================================================= -->
+    <section id="tab-m2" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 2: Suffix Structures & Document Analysis (CO2)</h2>
+          <span class="badge badge-mod">Outcome: CO2</span>
+        </div>
+        <p class="desc">Lexical document indexing and repeated treatment discovery using <strong>Suffix Array, Kasai's LCP Array, and Suffix Automaton (DAWG)</strong>.</p>
+        
+        <div class="presets-row">
+          <span class="preset-label">Document Presets:</span>
+          <button class="btn-chip" onclick="presetM2('fertilizer')">🌿 Potassium Fertilizer Bulletin</button>
+          <button class="btn-chip" onclick="presetM2('soil')">🧪 Soil Micro-Nutrient Protocol</button>
+        </div>
+
+        <div class="form-group">
+          <label for="m2-text">Agricultural Research or Advisory Bulletin:</label>
+          <textarea id="m2-text" rows="4">Apply organic potassium fertilizer during early flowering. Soil inspection required. Apply organic potassium fertilizer during early flowering for maximum fruit set.</textarea>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" onclick="runM2()">Analyze Suffix Structures & LCP</button>
+        </div>
+
+        <div class="result-box" id="m2-result" style="display:none;">
+          <h3>Suffix Structures & Duplication Discovery</h3>
+          <pre id="m2-output"></pre>
+
+          <!-- Top Suffixes Table -->
+          <div id="m2-table-container" style="display:none; margin-top:16px;">
+            <label class="sub-label">Lexicographically Sorted Suffixes (Preview):</label>
+            <table class="data-table" id="m2-sa-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Starting Position</th>
+                  <th>Suffix Text Preview</th>
+                </tr>
+              </thead>
+              <tbody id="m2-sa-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Suffix Automaton Interactive Query -->
+        <div class="sub-section">
+          <h3>⚡ Interactive Suffix Automaton Pattern Query (O(M) Query Time)</h3>
+          <p class="desc">Tests if any agricultural phrase or keyword exists in the indexed document in linear query time proportional only to pattern length.</p>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m2-query-pattern">Pattern Substring to Query:</label>
+              <input type="text" id="m2-query-pattern" value="potassium">
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-secondary" onclick="runM2Query()" style="width: 100%;">Check Existence (O(M))</button>
+            </div>
+          </div>
+          <div class="result-box" id="m2-query-result" style="display:none;">
+            <pre id="m2-query-output"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 3 (ADVANCED DYNAMIC PROGRAMMING)                      -->
+    <!-- ================================================================= -->
+    <section id="tab-m3" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 3: Advanced Dynamic Programming (CO3)</h2>
+          <span class="badge badge-mod">Outcome: CO3</span>
+        </div>
+        <p class="desc">Crop DNA Alignment, Multi-Crop Bitmask Optimization, Typo Autocorrection, and Matrix Chain Multiplication.</p>
+        
+        <!-- 3.1 DNA Alignment -->
+        <div class="sub-section">
+          <h3>3.1 Crop DNA Sequence Alignment</h3>
+          <p class="desc">Compares crop genomic sequences: Global Alignment (Needleman-Wunsch) or Local Motif Discovery (Smith-Waterman).</p>
+          
+          <div class="presets-row">
+            <span class="preset-label">Genomic Presets:</span>
+            <button class="btn-chip" onclick="presetM3DNA('drought')">🌾 Drought-Resistant Hybrid vs Ancestral Rice</button>
+            <button class="btn-chip" onclick="presetM3DNA('motif')">🧬 Conserved Fungal Resistance Allele</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m3-seq1">Genomic Strand 1 (Wild / Ancestral Variety):</label>
+              <input type="text" id="m3-seq1" value="ATGCGTACAGTAGCTAGCT">
+            </div>
+            <div class="form-group">
+              <label for="m3-seq2">Genomic Strand 2 (Cultivar Hybrid):</label>
+              <input type="text" id="m3-seq2" value="ATGCTACGGTAGCTAGCT">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="m3-align-type">Alignment Mode:</label>
+            <select id="m3-align-type">
+              <option value="global">Global Alignment &bull; Needleman-Wunsch (Full Sequence Identity)</option>
+              <option value="local">Local Alignment &bull; Smith-Waterman (Conserved Disease-Resistance Motif)</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="runM3Align()">Align Crop DNA Sequences</button>
+          <div class="result-box" id="m3-align-result" style="display:none;">
+            <pre id="m3-align-output" class="mono-box"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 3.2 Bitmask DP -->
+        <div class="sub-section">
+          <h3>3.2 Bitmask DP: Optimal Multi-Crop Portfolio Optimization</h3>
+          <p class="desc">Selects the optimal subset of candidate crops to maximize projected harvest profit without exceeding land acreage or water budgets, accounting for companion planting synergies.</p>
+          
+          <div class="table-responsive" style="margin-bottom: 12px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Crop Variety</th>
+                  <th>Land Needed</th>
+                  <th>Water Needed</th>
+                  <th>Projected Profit</th>
+                  <th>Agronomic Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Organic Wheat</td><td>30 Acres</td><td>40 kL</td><td>$12,000</td><td>Staple grain</td></tr>
+                <tr><td>Soybean</td><td>25 Acres</td><td>25 kL</td><td>$9,500</td><td>Nitrogen-fixing legume (+ $2,000 synergy with Wheat)</td></tr>
+                <tr><td>Sweet Corn</td><td>35 Acres</td><td>55 kL</td><td>$14,000</td><td>High-demand summer crop</td></tr>
+                <tr><td>Tomatoes</td><td>15 Acres</td><td>30 kL</td><td>$11,000</td><td>Intensive horticulture</td></tr>
+                <tr><td>Alfalfa</td><td>20 Acres</td><td>20 kL</td><td>$6,000</td><td>Livestock fodder</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m3-land">Max Farm Land Limit (Acres):</label>
+              <input type="number" id="m3-land" value="65" min="10" max="200">
+            </div>
+            <div class="form-group">
+              <label for="m3-water">Max Irrigation Water Budget (kL):</label>
+              <input type="number" id="m3-water" value="85" min="10" max="300">
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="runM3Bitmask()">Solve Optimal Crop Portfolio (Bitmask DP)</button>
+          <div class="result-box" id="m3-bitmask-result" style="display:none;">
+            <pre id="m3-bitmask-output"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 3.3 Levenshtein Autocorrect -->
+        <div class="sub-section">
+          <h3>3.3 Farmer Voice/SMS Typo Autocorrection (Levenshtein & Damerau)</h3>
+          <p class="desc">Detects typographical errors and key slips in farmer queries and suggests the nearest agronomic dictionary term.</p>
+          
+          <div class="presets-row">
+            <span class="preset-label">Test Common Typos:</span>
+            <button class="btn-chip" onclick="setM3Query('fertlzr')">fertlzr</button>
+            <button class="btn-chip" onclick="setM3Query('tmtos')">tmtos</button>
+            <button class="btn-chip" onclick="setM3Query('blite')">blite</button>
+            <button class="btn-chip" onclick="setM3Query('potasium')">potasium</button>
+            <button class="btn-chip" onclick="setM3Query('irigation')">irigation</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m3-query">Farmer Input Query:</label>
+              <input type="text" id="m3-query" value="fertlzr">
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-secondary" onclick="runM3Autocorrect()" style="width: 100%;">Autocorrect Query</button>
+            </div>
+          </div>
+          <div class="result-box" id="m3-autocorrect-result" style="display:none;">
+            <pre id="m3-autocorrect-output"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 3.4 Matrix Chain Multiplication -->
+        <div class="sub-section">
+          <h3>3.4 Matrix Chain Multiplication (MCM) Geo-Sensor Pipeline</h3>
+          <p class="desc">Minimizes scalar multiplications when chaining drone LIDAR elevations, soil probe vectors, satellite NDVI bands, and yield projections.</p>
+          
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m3-mcm-dims">Matrix Dimensions Array (dims):</label>
+              <input type="text" id="m3-mcm-dims" value="10, 100, 5, 50, 1">
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-secondary" onclick="runM3Mcm()" style="width: 100%;">Optimize Geo-Pipeline</button>
+            </div>
+          </div>
+          <div class="result-box" id="m3-mcm-result" style="display:none;">
+            <pre id="m3-mcm-output"></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer container">
+    <p>🌾 AgriFlow Smart Farm Management System &bull; Java Core &bull; Advanced DSA Modules 1 to 3 (CO1, CO2, CO3)</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
