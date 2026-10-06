@@ -7,7 +7,7 @@ This version is specifically configured and scoped for **Modules 1, 2, and 3 (Co
 
 ---
 
-## 📋 Syllabus & Algorithm Mapping (Modules 1 to 3)
+## 📋 Syllabus & Algorithm Mapping (Modules 1 to 3).
 
 | Module & Outcome | Algorithm | Agricultural Problem Solved | Time Complexity | Space Complexity |
 | :--- | :--- | :--- | :--- | :--- |
