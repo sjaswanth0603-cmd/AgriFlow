@@ -1,15 +1,15 @@
 @echo off
-title AgriFlow - Smart Farm Management & Optimization (Modules 1 to 3)
+title AgriFlow - Smart Farm Management & Optimization (Modules 1 to 6)
 echo ==================================================================
 echo    🌾 AgriFlow - Smart Farm Management & Optimization Platform 🌾
-echo                 Modules 1 to 3 (CO1, CO2, CO3) Core
+echo                 Modules 1 to 6 (CO1 to CO6) Full Suite
 echo ==================================================================
 echo.
 
 if not exist "bin" mkdir bin
 
-echo [1/3] Compiling Java codebase (Modules M1 to M3 + Embedded Server)...
-javac -encoding UTF-8 -d bin src\main\java\com\agriflow\m1_strings\*.java src\main\java\com\agriflow\m2_suffix\*.java src\main\java\com\agriflow\m3_dp\*.java src\main\java\com\agriflow\server\*.java src\main\java\com\agriflow\Main.java
+echo [1/3] Compiling Java codebase (Modules M1 to M6 + Embedded Server)...
+javac -encoding UTF-8 -d bin src\main\java\com\agriflow\m1_strings\*.java src\main\java\com\agriflow\m2_suffix\*.java src\main\java\com\agriflow\m3_dp\*.java src\main\java\com\agriflow\m4_flow\*.java src\main\java\com\agriflow\m5_np\*.java src\main\java\com\agriflow\m6_parallel\*.java src\main\java\com\agriflow\server\*.java src\main\java\com\agriflow\Main.java
 
 if %ERRORLEVEL% NEQ 0 (
     echo.

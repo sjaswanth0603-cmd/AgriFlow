@@ -376,8 +376,332 @@ function runM3Mcm() {
     .catch(err => alert("Error optimizing MCM: " + err));
 }
 
+// =========================================================================
+// MODULE 4: NETWORK FLOW & MATCHING
+// =========================================================================
+
+function runM4MaxFlow() {
+  const algo = document.getElementById('m4-algo').value;
+
+  fetch(`/api/m4/maxflow?algo=${algo}`)
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m4-flow-result');
+      const out = document.getElementById('m4-flow-output');
+      const bContainer = document.getElementById('m4-bottlenecks-container');
+      const bTbody = document.getElementById('m4-bottlenecks-tbody');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   CANAL NETWORK MAXIMUM FLOW & MIN-CUT ANALYSIS (CO4)\n`;
+      outText += `==================================================================\n`;
+      outText += `Algorithm Engine       : ${data.algorithm}\n`;
+      outText += `Maximum Flow Delivered : ${data.maxFlow} kL/hr (from Reservoir to Farm Plots)\n`;
+      outText += `Execution Time         : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      outText += `Network Vertices       : ${data.nodes.join(' -> ')}\n`;
+      outText += `Min-Cut Bottlenecks    : ${data.bottlenecks.length} critical canal segments saturated\n`;
+      out.textContent = outText;
+
+      if (data.bottlenecks && data.bottlenecks.length > 0) {
+        bContainer.style.display = 'block';
+        bTbody.innerHTML = '';
+        data.bottlenecks.forEach(b => {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td><strong>${escapeHtml(b.from)}</strong></td><td><strong>${escapeHtml(b.to)}</strong></td><td><code>${b.capacity} kL/hr</code></td>`;
+          bTbody.appendChild(row);
+        });
+      } else {
+        bContainer.style.display = 'none';
+      }
+    })
+    .catch(err => alert("Error computing Max Flow: " + err));
+}
+
+function runM4Bipartite() {
+  fetch('/api/m4/bipartite')
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m4-match-result');
+      const out = document.getElementById('m4-match-output');
+      const mContainer = document.getElementById('m4-match-table-container');
+      const mTbody = document.getElementById('m4-match-tbody');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   BIPARTITE MACHINERY ALLOCATION (HOPCROFT-KARP / FLOW) (CO4)\n`;
+      outText += `==================================================================\n`;
+      outText += `Total Requesting Farms : ${data.totalFarms}\n`;
+      outText += `Successfully Matched   : ${data.matchedCount} out of ${data.totalFarms} farms (100% optimum)\n`;
+      outText += `Matching Time          : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      out.textContent = outText;
+
+      if (data.assignments && data.assignments.length > 0) {
+        mContainer.style.display = 'block';
+        mTbody.innerHTML = '';
+        data.assignments.forEach(a => {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td>🌾 <strong>${escapeHtml(a.farm)}</strong></td><td>🚜 <span class="badge badge-algo">${escapeHtml(a.equipment)}</span></td>`;
+          mTbody.appendChild(row);
+        });
+      } else {
+        mContainer.style.display = 'none';
+      }
+    })
+    .catch(err => alert("Error matching machinery: " + err));
+}
+
+// =========================================================================
+// MODULE 5: NP-COMPLETENESS & APPROXIMATION
+// =========================================================================
+
+function runM5Sat() {
+  fetch('/api/m5/sat')
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m5-sat-result');
+      const out = document.getElementById('m5-sat-output');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   CROP ROTATION 3-SAT (DPLL) & CLIQUE REDUCTION (CO5)\n`;
+      outText += `==================================================================\n`;
+      outText += `Satisfiability Status  : ${data.satisfiable ? '✅ SATISFIABLE (Valid rotation plan found)' : '❌ UNSATISFIABLE'}\n`;
+      outText += `Solving Time (DPLL)    : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      outText += `Agronomic Rules Checked: ${data.ruleCount} 3-CNF clauses\n\n`;
+      outText += `Optimal Boolean Variable Model:\n`;
+      for (const [v, val] of Object.entries(data.model)) {
+        outText += `  • ${pad(v, 20)} = ${val ? 'TRUE (Approved)' : 'FALSE (Rejected)'}\n`;
+      }
+      outText += `\nNP-Completeness Reduction:\n`;
+      outText += `  • Reduced 3-CNF Formula to CLIQUE Problem\n`;
+      outText += `  • Generated ${data.cliqueVertices} gadget vertices in polynomial time O(K²)\n`;
+      outText += `  • Proves agricultural rotation scheduling is NP-Hard via Karp Reduction.\n`;
+      out.textContent = outText;
+    })
+    .catch(err => alert("Error solving 3-SAT: " + err));
+}
+
+function runM5VertexCover() {
+  fetch('/api/m5/vertexcover')
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m5-vc-result');
+      const out = document.getElementById('m5-vc-output');
+      const vcContainer = document.getElementById('m5-vc-table-container');
+      const vcList = document.getElementById('m5-vc-list');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   2-APPROXIMATION VERTEX COVER WATCHTOWER PLACEMENT (CO5)\n`;
+      outText += `==================================================================\n`;
+      outText += `Total Road Junctions   : ${data.totalJunctions}\n`;
+      outText += `Total Perimeter Roads  : ${data.totalRoads} pathways\n`;
+      outText += `Towers Deployed        : ${data.towerCount} watchtower stations\n`;
+      outText += `Approximation Guarantee: |C| <= 2 * |C*| (At most 2x optimal minimum)\n`;
+      outText += `Computation Time       : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      out.textContent = outText;
+
+      if (data.towers && data.towers.length > 0) {
+        vcContainer.style.display = 'block';
+        vcList.innerHTML = '';
+        data.towers.forEach(t => {
+          const li = document.createElement('li');
+          li.innerHTML = `📡 <strong>${escapeHtml(t)}</strong> (Surveillance & Drone Base)`;
+          vcList.appendChild(li);
+        });
+      } else {
+        vcContainer.style.display = 'none';
+      }
+    })
+    .catch(err => alert("Error running Vertex Cover: " + err));
+}
+
+// =========================================================================
+// MODULE 6: RANDOMIZED & PARALLEL TELEMETRY
+// =========================================================================
+
+function runM6Reservoir() {
+  const k = document.getElementById('m6-reservoir-k').value;
+  const streamSize = document.getElementById('m6-stream-size').value;
+
+  fetch(`/api/m6/reservoir?k=${k}&streamSize=${streamSize}`)
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m6-reservoir-result');
+      const out = document.getElementById('m6-reservoir-output');
+      const sContainer = document.getElementById('m6-sample-table-container');
+      const sTbody = document.getElementById('m6-sample-tbody');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   RESERVOIR SAMPLING (ALGORITHM R) STREAMING TELEMETRY (CO6)\n`;
+      outText += `==================================================================\n`;
+      outText += `Total Stream Processed : ${data.totalStream.toLocaleString()} continuous sensor readings\n`;
+      outText += `Reservoir Memory Limit : ${data.sampleSize} items (O(k) constant space)\n`;
+      outText += `Execution Time         : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      outText += `Uniform Probability    : Each reading had exactly ${data.sampleSize}/${data.totalStream.toLocaleString()} chance\n`;
+      out.textContent = outText;
+
+      if (data.sample && data.sample.length > 0) {
+        sContainer.style.display = 'block';
+        sTbody.innerHTML = '';
+        data.sample.forEach(r => {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td><code>${escapeHtml(r.sensorId)}</code></td><td>${r.moisture.toFixed(1)}%</td><td>${r.temperature.toFixed(1)} °C</td>`;
+          sTbody.appendChild(row);
+        });
+      } else {
+        sContainer.style.display = 'none';
+      }
+    })
+    .catch(err => alert("Error running Reservoir Sampling: " + err));
+}
+
+function runM6Blelloch() {
+  fetch('/api/m6/blelloch')
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m6-blelloch-result');
+      const out = document.getElementById('m6-blelloch-output');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   BLELLOCH WORK-EFFICIENT PARALLEL PREFIX SCAN (CO6)\n`;
+      outText += `==================================================================\n`;
+      outText += `Daily Rainfall (mm)   : ${data.daily}\n`;
+      outText += `Exclusive Prefix Scan : ${data.exclusive}\n`;
+      outText += `Inclusive Prefix Scan : ${data.inclusive}\n`;
+      outText += `Work Complexity       : O(N) operations via Up-Sweep & Down-Sweep tree\n`;
+      outText += `Span / Depth          : O(log N) parallel steps\n`;
+      outText += `Scan Execution Time   : ${data.timeNs.toLocaleString()} ns\n`;
+      out.textContent = outText;
+    })
+    .catch(err => alert("Error running Blelloch Scan: " + err));
+}
+
+function runM6Brent() {
+  const work = document.getElementById('m6-brent-work').value;
+  const depth = document.getElementById('m6-brent-depth').value;
+  const cores = document.getElementById('m6-brent-cores').value;
+
+  fetch(`/api/m6/brent?work=${work}&depth=${depth}&cores=${cores}`)
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m6-brent-result');
+      const out = document.getElementById('m6-brent-output');
+      const bContainer = document.getElementById('m6-brent-table-container');
+      const bTbody = document.getElementById('m6-brent-tbody');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   BRENT'S THEOREM MULTI-CORE SCALING (CO6)\n`;
+      outText += `==================================================================\n`;
+      outText += `Total Work T₁ (Operations) : ${Number(data.work).toLocaleString()}\n`;
+      outText += `Critical Path Depth T∞     : ${data.depth} steps\n`;
+      outText += `Brent's Inequality         : Tp <= (T₁ - T∞)/p + T∞\n`;
+      outText += `Evaluation Time            : ${data.timeNs.toLocaleString()} ns\n`;
+      out.textContent = outText;
+
+      if (data.scaling && data.scaling.length > 0) {
+        bContainer.style.display = 'block';
+        bTbody.innerHTML = '';
+        data.scaling.forEach(s => {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td><strong>${s.cores} Cores</strong></td><td>${s.timeBound.toFixed(0)} steps</td><td><span class="badge badge-success">${s.speedup.toFixed(2)}x</span></td><td>${s.efficiency.toFixed(1)}%</td>`;
+          bTbody.appendChild(row);
+        });
+      } else {
+        bContainer.style.display = 'none';
+      }
+    })
+    .catch(err => alert("Error running Brent Analyzer: " + err));
+}
+
+function setM6Prime(val) {
+  document.getElementById('m6-prime-num').value = val;
+  runM6Prime();
+}
+
+function runM6Prime() {
+  const num = encodeURIComponent(document.getElementById('m6-prime-num').value);
+
+  fetch(`/api/m6/millerrabin?number=${num}`)
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m6-prime-result');
+      const out = document.getElementById('m6-prime-output');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   MILLER-RABIN PROBABILISTIC PRIMALITY TEST (CO6)\n`;
+      outText += `==================================================================\n`;
+      outText += `Tested Serial Number   : ${data.number}\n`;
+      outText += `Primality Verdict      : ${data.isPrime ? '✅ PROBABLE PRIME (Cryptographically Valid Seed Batch)' : '❌ COMPOSITE (Invalid Batch Serial)'}\n`;
+      outText += `Independent Rounds (k) : ${data.iterations}\n`;
+      outText += `Error Probability Bound: <= 4^(-${data.iterations}) ≈ 9.54e-7 (< 0.0001%)\n`;
+      outText += `Verification Time      : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      out.textContent = outText;
+    })
+    .catch(err => alert("Error running Miller-Rabin: " + err));
+}
+
+function runM6Reduce() {
+  fetch('/api/m6/reduce?count=50000')
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m6-reduce-result');
+      const out = document.getElementById('m6-reduce-output');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   FORK-JOIN PARALLEL SENSOR REDUCE (CO6)\n`;
+      outText += `==================================================================\n`;
+      outText += `Sensors Aggregated     : ${data.count.toLocaleString()} field telemetry probes\n`;
+      outText += `Minimum Reading        : ${data.min.toFixed(2)} °C\n`;
+      outText += `Maximum Reading        : ${data.max.toFixed(2)} °C\n`;
+      outText += `Average Temperature    : ${data.avg.toFixed(2)} °C\n`;
+      outText += `Sum of Telemetry       : ${data.sum.toFixed(2)}\n`;
+      outText += `Parallel Reduce Time   : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      out.textContent = outText;
+    })
+    .catch(err => alert("Error running Parallel Reduce: " + err));
+}
+
+function runM6QuickSort() {
+  fetch('/api/m6/quicksort')
+    .then(res => res.json())
+    .then(data => {
+      const box = document.getElementById('m6-sort-result');
+      const out = document.getElementById('m6-sort-output');
+      const sContainer = document.getElementById('m6-sort-table-container');
+      const sTbody = document.getElementById('m6-sort-tbody');
+      box.style.display = 'block';
+
+      let outText = `==================================================================\n`;
+      outText += `   RANDOMIZED QUICKSORT HARVEST YIELD LEAGUE (CO6)\n`;
+      outText += `==================================================================\n`;
+      outText += `Farms Sorted           : ${data.rankedFarms.length}\n`;
+      outText += `Pivot Strategy         : Uniformly Random Pivot (Prevents O(N²) worst-case)\n`;
+      outText += `Sorting Time           : ${(data.timeNs / 1e6).toFixed(4)} ms (${data.timeNs.toLocaleString()} ns)\n`;
+      out.textContent = outText;
+
+      if (data.rankedFarms && data.rankedFarms.length > 0) {
+        sContainer.style.display = 'block';
+        sTbody.innerHTML = '';
+        data.rankedFarms.forEach((f, idx) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td>#${idx + 1}</td><td><strong>${escapeHtml(f.farmId)}</strong></td><td>${escapeHtml(f.crop)}</td><td><strong>${f.yield.toFixed(2)} Tons/Acre</strong></td>`;
+          sTbody.appendChild(row);
+        });
+      } else {
+        sContainer.style.display = 'none';
+      }
+    })
+    .catch(err => alert("Error running Randomized QuickSort: " + err));
+}
+
 function runAutomatedSuite() {
-  alert("Running full automated test suite across Modules 1 to 3! Check each tab or use the console CLI for full benchmark logs.");
+  alert("Running full automated test suite across Modules 1 to 6! You can also run option [7] in the console CLI for a complete terminal report.");
   switchTab('m1');
   presetM1('blight');
 }
@@ -406,3 +730,4 @@ window.addEventListener('DOMContentLoaded', () => {
     })
     .catch(() => {});
 });
+

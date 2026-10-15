@@ -172,4 +172,17 @@ public class AgriFlowServer {
             }
         }
     }
+
+    public static void main(String[] args) throws IOException {
+        int defaultPort = 8080;
+        if (args.length > 0) {
+            try {
+                defaultPort = Integer.parseInt(args[0]);
+            } catch (NumberFormatException ignored) {}
+        }
+        AgriFlowServer server = new AgriFlowServer(defaultPort);
+        int bound = server.start();
+        System.out.println("Standalone AgriFlow Web Server running on port " + bound);
+        System.out.println("Open http://localhost:" + bound + " in your web browser.");
+    }
 }
