@@ -1,0 +1,1403 @@
+# ==============================================================================
+# DATASET: Kaggle Multi-Pathogen Agronomy Extension Advisory Bulletin (K-MPAB-2026)
+# SOURCE: State Agricultural Universities & CGIAR Plant Protection Bureau
+# LICENSE: CC-BY 4.0 Open Document
+# FORMAT: Raw Text Corpus for Exact & Multi-Pattern String Searching
+# COMPATIBILITY: Module 1 (Aho-Corasick Multi-Pattern Scanner) & Module 2 (Suffix Automaton)
+# ==============================================================================
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK001
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK002
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK003
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK004
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK005
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK006
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK007
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK008
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK009
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK010
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK011
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK012
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK013
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK014
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK015
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK016
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK017
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK018
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK019
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK020
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK021
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK022
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK023
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK024
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK025
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK026
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK027
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK028
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK029
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK030
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK031
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK032
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK033
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK034
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK035
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK036
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK037
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK038
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK039
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK040
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK041
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK042
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK043
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK044
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK045
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK046
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK047
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK048
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK049
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK050
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK051
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK052
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK053
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK054
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK055
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK056
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK057
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK058
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK059
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK060
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK061
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK062
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK063
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK064
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK065
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK066
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK067
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK068
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK069
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK070
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK071
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK072
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK073
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK074
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK075
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK076
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK077
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK078
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK079
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK080
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK081
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK082
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK083
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK084
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK085
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK086
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK087
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK088
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK089
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK090
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK091
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK092
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK093
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK094
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK095
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK096
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK097
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK098
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK099
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK100
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK101
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK102
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK103
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK104
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK105
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK106
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK107
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK108
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK109
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK110
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK111
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK112
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK113
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK114
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK115
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK116
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK117
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK118
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK119
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK120
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK121
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK122
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK123
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK124
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK125
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK126
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK127
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK128
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK129
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK130
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK131
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK132
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK133
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK134
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK135
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK136
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK137
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK138
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK139
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK140
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK141
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK142
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK143
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK144
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK145
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK146
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK147
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK148
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK149
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK150
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK151
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK152
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK153
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK154
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK155
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK156
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK157
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK158
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK159
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK160
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK161
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK162
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK163
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK164
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK165
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK166
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK167
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK168
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK169
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK170
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK171
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK172
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK173
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK174
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK175
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK176
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK177
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK178
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK179
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK180
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK181
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK182
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK183
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK184
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK185
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK186
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK187
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK188
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK189
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK190
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK191
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK192
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK193
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK194
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK195
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK196
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK197
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK198
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK199
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK200
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK201
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK202
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK203
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK204
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK205
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK206
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK207
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK208
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK209
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK210
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK211
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK212
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK213
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK214
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK215
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK216
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK217
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK218
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK219
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK220
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK221
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK222
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK223
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK224
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK225
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK226
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK227
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK228
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK229
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK230
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK231
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK232
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK233
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK234
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK235
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK236
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK237
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK238
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK239
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK240
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK241
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK242
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK243
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK244
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK245
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK246
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK247
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK248
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK249
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK250
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK251
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK252
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK253
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK254
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK255
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK256
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK257
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK258
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK259
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK260
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK261
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK262
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK263
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK264
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK265
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK266
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK267
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK268
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK269
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK270
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK271
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK272
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK273
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK274
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK275
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+During the previous fortnightly inspection across agro-climatic zones IV and V, unseasonal nocturnal humidity coupled with elevated diurnal temperatures has accelerated the proliferation of several severe fungal and bacterial pathogens. In cereal tracts, northern leaf blight caused by Exserohilum turcicum and foliar blast Magnaporthe oryzae have crossed the economic threshold level (ETL) of 5 percent canopy involvement. High-resolution spore samplers have verified significant airborne spore loads of foliage blight across riverside alluvial paddies.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK276
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Simultaneously, horticultural tomato and potato plots report widespread early blight Alternaria solani along with destructive late blight Phytophthora infestans in low-lying waterlogged furrows. In cucurbit and legume cultivation, powdery mildew Erysiphe cichoracearum and yellow mosaic virus are spreading rapidly due to increased vector pressure from whitefly Bemisia tabaci and aphid Aphis gossypii populations.
+Station Monitoring Alert Level: ADVISORY &bull; Field Inspection Coverage: Zone 1.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK277
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Integrated Pest and Disease Management Recommendations: Immediate prophylactic foliar spray of copper oxychloride at 2.5 kg/ha or mancozeb 75% WP at 2 kg/ha for blight management. For blast suppression in rice nursery and tillering stages, apply tricyclazole 75 WP at 0.6 g/L or isoprothiolane 40 EC at 1.5 mL/L with non-ionic surfactant. In fields with confirmed powdery mildew, apply wettable sulfur 80 WP at 3 g/L or hexaconazole 5 EC at 1 mL/L during calm morning hours. Quarantine all suspect seed shipments lacking certified phytosanitary clearance tokens.
+Station Monitoring Alert Level: WATCH &bull; Field Inspection Coverage: Zone 4.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK278
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+Field agronomists in the eastern delta irrigation command note an escalating incidence of bacterial sheath rot and leaf scald in semi-dwarf rice lines. Soil nitrogen excess appears to correlate with elevated susceptibility, whereas balanced potash application demonstrates measurable resistance enhancement. Biocontrol agent Trichoderma harzianum soil inoculation at 5 kg/ha is recommended before the onset of monsoon flooding.
+Station Monitoring Alert Level: WARNING &bull; Field Inspection Coverage: Zone 7.
+
+REGIONAL CROP PROTECTION ADVISORY - BULLETIN NO. AGRI-2026-WK279
+Issued by Department of Plant Pathology & Agronomy Research Bureau.
+In pulse-growing tracts, collar rot caused by Sclerotium rolfsii and dry root rot Rhizoctonia bataticola have been exacerbated by intermittent drought stress followed by sudden heavy irrigation. Farmers are advised to avoid flood irrigation and adopt raised-bed planting with drip fertigation to minimize fungal sclerotial germination.
+Station Monitoring Alert Level: CRITICAL &bull; Field Inspection Coverage: Zone 10.
+

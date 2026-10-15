@@ -139,14 +139,23 @@ public class AgriFlowServer {
             }
 
             // Look for file in resources or on filesystem
-            Path localFile = Paths.get("src/main/resources/web", pathStr.substring(1));
+            Path localFile;
+            if (pathStr.startsWith("/data/")) {
+                localFile = Paths.get("data", pathStr.substring(6));
+                if (!Files.exists(localFile)) {
+                    localFile = Paths.get("src/main/resources/data", pathStr.substring(6));
+                }
+            } else {
+                localFile = Paths.get("src/main/resources/web", pathStr.substring(1));
+            }
             byte[] fileBytes = null;
 
             if (Files.exists(localFile) && !Files.isDirectory(localFile)) {
                 fileBytes = Files.readAllBytes(localFile);
             } else {
                 // Try from classpath
-                InputStream is = getClass().getResourceAsStream("/web" + pathStr);
+                String resPath = pathStr.startsWith("/data/") ? pathStr : ("/web" + pathStr);
+                InputStream is = getClass().getResourceAsStream(resPath);
                 if (is != null) {
                     fileBytes = is.readAllBytes();
                 }
@@ -157,6 +166,7 @@ public class AgriFlowServer {
                 if (pathStr.endsWith(".css")) contentType = "text/css; charset=UTF-8";
                 else if (pathStr.endsWith(".js")) contentType = "application/javascript; charset=UTF-8";
                 else if (pathStr.endsWith(".json")) contentType = "application/json; charset=UTF-8";
+                else if (pathStr.endsWith(".txt") || pathStr.endsWith(".md")) contentType = "text/plain; charset=UTF-8";
 
                 exchange.getResponseHeaders().set("Content-Type", contentType);
                 exchange.sendResponseHeaders(200, fileBytes.length);

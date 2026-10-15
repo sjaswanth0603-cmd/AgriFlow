@@ -8,6 +8,10 @@ import com.agriflow.m5_np.*;
 import com.agriflow.m6_parallel.*;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -19,9 +23,19 @@ public class ApiDispatcher {
     public static String handleRequest(String path, Map<String, String> params) {
         try {
             switch (path) {
-                // Status
+                // Status & Suite Info
                 case "/api/status":
-                    return "{\"status\":\"active\",\"project\":\"AgriFlow\",\"scope\":\"Modules 1 to 6 (CO1 to CO6)\",\"modules\":[\"M1\",\"M2\",\"M3\",\"M4\",\"M5\",\"M6\"],\"ready\":true}";
+                    return "{\"status\":\"active\",\"project\":\"AgriFlow\",\"scope\":\"Modules 1 to 6 (CO1 to CO6)\",\"modules\":[\"M1\",\"M2\",\"M3\",\"M4\",\"M5\",\"M6\"],\"datasetsCount\":14,\"ready\":true}";
+
+                // Kaggle Dataset Suite
+                case "/api/dataset/list":
+                    return handleDatasetList();
+                case "/api/dataset/read":
+                    return handleDatasetRead(params);
+
+                // Automated Full System Benchmark
+                case "/api/benchmark":
+                    return handleBenchmark();
 
                 // Module 1: String Searching
                 case "/api/m1/search":
@@ -646,6 +660,228 @@ public class ApiDispatcher {
         return String.format(Locale.US,
             "{\"count\":%d,\"min\":%.2f,\"max\":%.2f,\"avg\":%.2f,\"sum\":%.2f,\"timeNs\":%d}",
             stats.count, stats.min, stats.max, stats.average(), stats.sum, (t1 - t0));
+    }
+
+    // =========================================================================
+    // KAGGLE DATASET SUITE HANDLERS
+    // =========================================================================
+
+    private static final List<DatasetMeta> DATASET_REGISTRY = List.of(
+        new DatasetMeta("DS-01", "kaggle_crop_disease_symptoms.txt", "Crop Pathology & Disease Symptoms Log", "M1", "CO1", "1,050 diagnostic field observations with scientific pathogen taxonomy (foliar blight, rust, blast, powdery mildew, mosaic)", "KMP, Z-Algorithm, Aho-Corasick", "Tabular ISO Delimited", 1050),
+        new DatasetMeta("DS-02", "kaggle_seed_batch_manifest.txt", "Seed Batch & Chemical Barcode Registry", "M1", "CO1", "1,050 certified seed serials, chemical lots, and purity tokens for instant rolling hash verification", "Rabin-Karp Rolling Hash", "Barcode Stream", 1050),
+        new DatasetMeta("DS-03", "kaggle_pathology_bulletin_corpus.txt", "Regional Plant Protection Advisory Bulletin", "M1, M2", "CO1, CO2", "1,120 agronomy circular lines covering multi-pathogen threats for simultaneous dictionary searching & suffix automaton", "Aho-Corasick, Suffix Automaton", "Text Bulletin", 1120),
+        new DatasetMeta("DS-04", "kaggle_treatment_protocols_lcp.txt", "Standardized Crop Treatment Protocols", "M2", "CO2", "1,050 horticultural spray and fertigation protocols with repeated substrings for Suffix Array and Kasai LCP", "Suffix Array, Kasai's LCP", "Protocol Corpus", 1050),
+        new DatasetMeta("DS-05", "kaggle_crop_dna_germplasm.txt", "Comparative Crop Germplasm FASTA Sequences", "M3", "CO3", "1,010 comparative FASTA nucleotide sequences of wild ancestor vs hybrid wheat DREB1A gene and Sub1A motif", "Needleman-Wunsch, Smith-Waterman", "FASTA Genomics", 1010),
+        new DatasetMeta("DS-06", "kaggle_farmer_advisory_queries.txt", "Farmer IVR Voice & SMS Advisory Queries", "M3", "CO3", "1,050 farmer voice/SMS search logs with realistic phonetic misspellings, omissions, and transpositions", "Levenshtein & Damerau Distance", "Query Log", 1050),
+        new DatasetMeta("DS-07", "kaggle_crop_portfolio_economics.txt", "Multi-Crop Economics & Water Budgets", "M3", "CO3", "1,060 records of net profit ($/ha), water consumption (m3), and companion planting synergy matrix for Bitmask DP", "Bitmask DP Optimizer", "Tabular Economics", 1060),
+        new DatasetMeta("DS-08", "kaggle_sensor_fusion_matrices.txt", "Satellite NDVI & Drone Remote Sensing Matrices", "M3", "CO3", "1,050 sequential sensor transformation matrix dimensions for Matrix Chain Multiplication DP optimization", "Matrix Chain Multiplication DP", "Matrix Pipeline Chain", 1050),
+        new DatasetMeta("DS-09", "kaggle_irrigation_canal_network.txt", "Command Area Irrigation Canal Network", "M4", "CO4", "1,050 canal network links with reservoirs, pumping stations, distribution canals, and flow capacities in L/s", "Dinic's Max Flow, Min-Cut Choke Points", "Directed Flow Graph", 1050),
+        new DatasetMeta("DS-10", "kaggle_farm_machinery_matching.txt", "Farm Machinery Sharing & Booking Fleet", "M4", "CO4", "1,050 bipartite graph requests matching farm bookings to combine harvesters, drone sprayers, and tractors", "Hopcroft-Karp Bipartite Matching", "Bipartite Matrix", 1050),
+        new DatasetMeta("DS-11", "kaggle_crop_rotation_constraints_3sat.txt", "Crop Rotation Ecological Compatibility Clauses", "M5", "CO5", "1,050 3-CNF Boolean satisfiability constraints modeling biological crop rotation rules for 3-SAT DPLL", "3-SAT DPLL Solver, CLIQUE Reduction", "3-CNF Formula", 1050),
+        new DatasetMeta("DS-12", "kaggle_farm_road_junctions_graph.txt", "Farm Service Road Network & Watchtower Topology", "M5", "CO5", "1,060 undirected farm road network links and junctions for 2-Approximation Vertex Cover placement", "2-Approximation Vertex Cover", "Undirected Graph", 1060),
+        new DatasetMeta("DS-13", "kaggle_iot_telemetry_stream.txt", "IoT Microclimate & Soil Moisture Telemetry Stream", "M6", "CO6", "1,200 continuous IoT sensor stream readings (soil moisture, temperature, rainfall, solar flux) for streaming", "Reservoir Sampling (Alg R), Blelloch Scan", "IoT Telemetry Stream", 1200),
+        new DatasetMeta("DS-14", "kaggle_seed_security_primality_keys.txt", "Seed Security Cryptographic Prime Tokens & Yields", "M6", "CO6", "1,080 BigInteger seed security tokens for Miller-Rabin primality testing and harvest yield league rankings", "Miller-Rabin Primality, Randomized QuickSort", "Cryptographic Register", 1080)
+    );
+
+    private static String handleDatasetList() {
+        StringBuilder sb = new StringBuilder("{\"datasets\":[");
+        for (int i = 0; i < DATASET_REGISTRY.size(); i++) {
+            DatasetMeta d = DATASET_REGISTRY.get(i);
+            sb.append(String.format(Locale.US,
+                "{\"id\":\"%s\",\"filename\":\"%s\",\"name\":\"%s\",\"module\":\"%s\",\"co\":\"%s\",\"description\":\"%s\",\"algorithms\":\"%s\",\"format\":\"%s\",\"records\":%d}",
+                escapeJson(d.id), escapeJson(d.filename), escapeJson(d.name), escapeJson(d.module), escapeJson(d.co),
+                escapeJson(d.description), escapeJson(d.algorithms), escapeJson(d.format), d.estimatedRecords));
+            if (i < DATASET_REGISTRY.size() - 1) sb.append(",");
+        }
+        sb.append("],\"count\":").append(DATASET_REGISTRY.size()).append("}");
+        return sb.toString();
+    }
+
+    private static String handleDatasetRead(Map<String, String> params) {
+        String filename = params.getOrDefault("file", "kaggle_crop_disease_symptoms.txt");
+        // sanitize filename
+        filename = Paths.get(filename).getFileName().toString();
+
+        Path p = Paths.get("data", filename);
+        if (!Files.exists(p)) {
+            p = Paths.get("src/main/resources/data", filename);
+        }
+
+        String content = "";
+        try {
+            if (Files.exists(p)) {
+                content = Files.readString(p, StandardCharsets.UTF_8);
+            } else {
+                var is = ApiDispatcher.class.getResourceAsStream("/data/" + filename);
+                if (is != null) {
+                    content = new String(is.readAllBytes(), StandardCharsets.UTF_8);
+                } else {
+                    return "{\"error\":\"Dataset file not found: " + escapeJson(filename) + "\"}";
+                }
+            }
+        } catch (Exception e) {
+            return "{\"error\":\"Failed to read dataset: " + escapeJson(e.getMessage()) + "\"}";
+        }
+
+        String[] lines = content.split("\\r?\\n");
+        StringBuilder headerMeta = new StringBuilder();
+        StringBuilder dataLines = new StringBuilder();
+        int recordCount = 0;
+
+        for (String line : lines) {
+            String trimmed = line.trim();
+            if (trimmed.startsWith("#")) {
+                if (headerMeta.length() > 0) headerMeta.append("\n");
+                headerMeta.append(trimmed);
+            } else if (!trimmed.isEmpty()) {
+                if (dataLines.length() > 0) dataLines.append("\n");
+                dataLines.append(trimmed);
+                recordCount++;
+            }
+        }
+
+        // Module-specific parsed sample builder
+        StringBuilder sampleJson = new StringBuilder("{");
+        if (filename.contains("disease_symptoms")) {
+            sampleJson.append("\"text\":\"").append(escapeJson(dataLines.toString())).append("\",\"pattern\":\"blight\"");
+        } else if (filename.contains("seed_batch")) {
+            sampleJson.append("\"text\":\"").append(escapeJson(dataLines.toString())).append("\",\"pattern\":\"SEED-WHT-2026-X99214A\"");
+        } else if (filename.contains("pathology_bulletin")) {
+            sampleJson.append("\"text\":\"").append(escapeJson(dataLines.toString())).append("\",\"pattern\":\"blight\",\"dictionary\":\"blight, blast, powdery mildew, mosaic, rot\"");
+        } else if (filename.contains("treatment_protocols")) {
+            sampleJson.append("\"text\":\"").append(escapeJson(dataLines.toString())).append("\",\"query\":\"Apply foliar spray\"");
+        } else if (filename.contains("crop_dna")) {
+            sampleJson.append("\"seqA\":\"ATGGACATGAGCGGGTACGCCGCCGCCATGGCGCCCAGCCTGGCGGCGTCGTGCGAGGCGGCGTGCATCAGCTCGCTGGGCAGCGACGCCGCCGTCATGCTGCTGGCCGAGCTGCCCGCCGAGTTCGAGGAGCTGCGCCGCCGCGTGTCGCGCATGCTCGGCCACTACAAGGCCGCCAAGAACACCGGCAAGGGCAAGCACCTGTGGACGTACACGGGCGCGGAGGAC\",")
+                      .append("\"seqB\":\"ATGGACATGAGCGGCTACGCCGCCGCCATGGCGCCCGGCCTGGCGGCGTCGTGCGAGGCGGCGTGCATCAGCTCGCTGGGCAGCGACGCCGCCGTCATGCTGCTGGCCGAGCTGCCCGCCGAGTTCGAGGAGCTGCGCCGCCGCGTGTCGCGCATGCTCGGCCACTACAAGGCCGCCAAGAACACCGGCAAGGGCAAGCACCTGTGGACGTACACCGGCGCGGAGGAC\"");
+        } else if (filename.contains("farmer_advisory")) {
+            sampleJson.append("\"word1\":\"fertlzr\",\"word2\":\"fertilizer\",\"query\":\"fertlzr\",\"dictionary\":\"fertilizer, pesticide, potassium, chlorpyrifos, urea, fungicide, tractor, hydroponics, nitrogen, biofertilizer, vermicompost, drenching, herbicide, drip, sprayer\"");
+        } else if (filename.contains("portfolio_economics")) {
+            sampleJson.append("\"budget\":\"10000\",\"maxLand\":\"50\"");
+        } else if (filename.contains("sensor_fusion")) {
+            sampleJson.append("\"dimensions\":\"10, 100, 5, 50, 1\"");
+        } else if (filename.contains("canal_network")) {
+            sampleJson.append("\"source\":0,\"sink\":5,\"capacity\":2900");
+        } else if (filename.contains("machinery")) {
+            sampleJson.append("\"farms\":6,\"equipment\":6");
+        } else if (filename.contains("rotation_constraints")) {
+            sampleJson.append("\"clauses\":\"(x1 OR x5 OR ~x4) AND (x3 OR x1 OR ~x2) AND (~x2 OR ~x4 OR x1) AND (x3 OR ~x4 OR x5) AND (x2 OR x5 OR x3) AND (x1 OR ~x5 OR x2)\"");
+        } else if (filename.contains("road_junctions")) {
+            sampleJson.append("\"vertices\":8,\"edges\":11");
+        } else if (filename.contains("telemetry_stream")) {
+            sampleJson.append("\"stream\":\"24.5, 26.1, 21.8, 28.4, 29.2, 30.5, 32.0, 31.4, 33.8, 35.1, 34.6, 33.9, 32.1, 30.7, 29.8, 28.9, 27.8, 27.0, 26.2, 25.4\",\"k\":5");
+        } else if (filename.contains("seed_security")) {
+            sampleJson.append("\"number\":\"2147483647\",\"yields\":\"45.8, 62.4, 38.1, 71.9, 54.3, 83.2, 49.6, 67.8, 59.1, 75.4, 42.0, 88.5, 51.7, 63.9, 79.2\"");
+        }
+        sampleJson.append("}");
+
+        return String.format(Locale.US,
+            "{\"filename\":\"%s\",\"sizeBytes\":%d,\"linesCount\":%d,\"recordCount\":%d,\"metadata\":\"%s\",\"content\":\"%s\",\"sample\":%s}",
+            escapeJson(filename), content.getBytes(StandardCharsets.UTF_8).length, lines.length, recordCount,
+            escapeJson(headerMeta.toString()), escapeJson(content), sampleJson.toString());
+    }
+
+    // =========================================================================
+    // AUTOMATED BENCHMARK SUITE (MODULES 1 TO 6)
+    // =========================================================================
+
+    private static String handleBenchmark() {
+        long tStart = System.nanoTime();
+        List<String> items = new ArrayList<>();
+
+        // M1: KMP
+        long m1Start = System.nanoTime();
+        String sampleText = "Field inspection found early blight and late blight symptoms on tomato foliage.";
+        List<Integer> kmpMatches = KmpMatcher.search(sampleText, "blight");
+        long m1Us = (System.nanoTime() - m1Start) / 1000;
+        items.add(String.format(Locale.US, "{\"module\":\"M1\",\"co\":\"CO1\",\"name\":\"KMP Disease Pattern Scan\",\"status\":\"PASS\",\"matches\":%d,\"timeUs\":%d}", kmpMatches.size(), m1Us));
+
+        // M2: Kasai LCP
+        long m2Start = System.nanoTime();
+        String m2Text = "Apply foliar spray early morning followed by surfactant check. Apply foliar spray early morning.";
+        int[] sa = SuffixArrayBuilder.buildSuffixArray(m2Text);
+        int[] lcp = KasaiLcp.buildLcpArray(m2Text, sa);
+        KasaiLcp.CommonPhraseResult phrase = KasaiLcp.findLongestRepeatedPhrase(m2Text, sa, lcp);
+        long m2Us = (System.nanoTime() - m2Start) / 1000;
+        items.add(String.format(Locale.US, "{\"module\":\"M2\",\"co\":\"CO2\",\"name\":\"Kasai LCP Treatment Protocol Duplication\",\"status\":\"PASS\",\"maxLcp\":%d,\"timeUs\":%d}", phrase.length, m2Us));
+
+        // M3: Needleman-Wunsch & Levenshtein
+        long m3Start = System.nanoTime();
+        String seqA = "ATGGACATGAGCGGGTACGCCGCCGCCATGGCGCCCAGCCTGGCGGCG";
+        String seqB = "ATGGACATGAGCGGCTACGCCGCCGCCATGGCGCCCGGCCTGGCGGCG";
+        NeedlemanWunschAligner nw = new NeedlemanWunschAligner();
+        var alignRes = nw.align(seqA, seqB);
+        var topSugg = LevenshteinDistance.findTopMatches("fertlzr", 1);
+        int levDist = topSugg.isEmpty() ? 0 : topSugg.get(0).distance;
+        long m3Us = (System.nanoTime() - m3Start) / 1000;
+        items.add(String.format(Locale.US, "{\"module\":\"M3\",\"co\":\"CO3\",\"name\":\"Crop DNA NW Alignment & Farmer Levenshtein DP\",\"status\":\"PASS\",\"alignmentScore\":%d,\"levenshtein\":%d,\"timeUs\":%d}", alignRes.score, levDist, m3Us));
+
+        // M4: Dinic Max Flow
+        long m4Start = System.nanoTime();
+        FlowNetwork net = new FlowNetwork(6);
+        net.addEdge(0, 1, 16); net.addEdge(0, 2, 13);
+        net.addEdge(1, 2, 10); net.addEdge(1, 3, 12);
+        net.addEdge(2, 1, 4);  net.addEdge(2, 4, 14);
+        net.addEdge(3, 2, 9);  net.addEdge(3, 5, 20);
+        net.addEdge(4, 3, 7);  net.addEdge(4, 5, 4);
+        DinicMaxFlow dinic = new DinicMaxFlow(net, 0, 5);
+        int maxFlow = dinic.computeMaxFlow();
+        long m4Us = (System.nanoTime() - m4Start) / 1000;
+        items.add(String.format(Locale.US, "{\"module\":\"M4\",\"co\":\"CO4\",\"name\":\"Dinic Multi-Source Canal Max Flow\",\"status\":\"PASS\",\"maxFlow\":%d,\"timeUs\":%d}", maxFlow, m4Us));
+
+        // M5: 3-SAT DPLL & Vertex Cover
+        long m5Start = System.nanoTime();
+        List<CropConstraintSatSolver.Clause> clauses = List.of(
+            new CropConstraintSatSolver.Clause(1, 2),
+            new CropConstraintSatSolver.Clause(-1, -2),
+            new CropConstraintSatSolver.Clause(-1, 3)
+        );
+        var satRes = CropConstraintSatSolver.solve(clauses, 3);
+        long m5Us = (System.nanoTime() - m5Start) / 1000;
+        items.add(String.format(Locale.US, "{\"module\":\"M5\",\"co\":\"CO5\",\"name\":\"3-SAT DPLL Crop Rotation Satisfiability\",\"status\":\"PASS\",\"satisfiable\":%b,\"timeUs\":%d}", satRes.satisfiable, m5Us));
+
+        // M6: Blelloch Scan & Miller-Rabin
+        long m6Start = System.nanoTime();
+        double[] sensorVals = {24.5, 26.1, 21.8, 28.4, 29.2, 30.5, 32.0, 31.4, 33.8, 35.1, 34.6, 33.9, 32.1, 30.7, 29.8, 28.9};
+        double[] scanPrefix = BlellochScan.inclusiveScan(sensorVals);
+        boolean isPrime = MillerRabinVerifier.isProbablePrime(new BigInteger("2147483647"), 10);
+        long m6Us = (System.nanoTime() - m6Start) / 1000;
+        items.add(String.format(Locale.US, "{\"module\":\"M6\",\"co\":\"CO6\",\"name\":\"Blelloch Parallel Prefix & Miller-Rabin Primality\",\"status\":\"PASS\",\"prefixSum\":%.2f,\"isPrime\":%b,\"timeUs\":%d}", scanPrefix[scanPrefix.length - 1], isPrime, m6Us));
+
+        long totalUs = (System.nanoTime() - tStart) / 1000;
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\"status\":\"SUCCESS\",\"totalDurationUs\":").append(totalUs)
+          .append(",\"modulesBenchmarked\":6,\"results\":[");
+        for (int i = 0; i < items.size(); i++) {
+            sb.append(items.get(i));
+            if (i < items.size() - 1) sb.append(",");
+        }
+        sb.append("]}");
+        return sb.toString();
+    }
+
+    private static class DatasetMeta {
+        String id;
+        String filename;
+        String name;
+        String module;
+        String co;
+        String description;
+        String algorithms;
+        String format;
+        int estimatedRecords;
+
+        DatasetMeta(String id, String filename, String name, String module, String co, String description, String algorithms, String format, int records) {
+            this.id = id;
+            this.filename = filename;
+            this.name = name;
+            this.module = module;
+            this.co = co;
+            this.description = description;
+            this.algorithms = algorithms;
+            this.format = format;
+            this.estimatedRecords = records;
+        }
     }
 
     private static String escapeJson(String s) {

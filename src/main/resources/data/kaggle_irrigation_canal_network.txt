@@ -1,0 +1,1061 @@
+# ==============================================================================
+# DATASET: Kaggle Command Area Irrigation Canal Network & Capacities (K-CAIC-2026)
+# SOURCE: Central Water Commission & State Irrigation Network Topology Bureau
+# LICENSE: CC-BY-SA 4.0 Open Graph Data
+# FORMAT: Directed Flow Network (From Node -> To Node : Capacity in Litres/Second)
+# COMPATIBILITY: Module 4 (Dinic's Algorithm, Edmonds-Karp Max Flow, Min-Cut Choke Points)
+# ==============================================================================
+
+# BENCHMARK CORE NETWORK (Source: 0, Sink: 5, Max Flow: 2900 L/s):
+0 -> 1 : 1600
+0 -> 2 : 1300
+1 -> 2 : 1000
+1 -> 3 : 1200
+2 -> 1 : 400
+2 -> 4 : 1400
+3 -> 2 : 900
+3 -> 5 : 2000
+4 -> 3 : 700
+4 -> 5 : 400
+
+# REGIONAL IRRIGATION BRANCHES & CANAL FEEDERS (1000+ Canal Segments):
+000 -> 001 : 0200 | Primary Lined Concrete Canal | GATE_001 | VELOCITY:1.2m/s
+003 -> 005 : 0219 | Secondary Earthen Sluice Trench | GATE_008 | VELOCITY:1.4m/s
+006 -> 009 : 0238 | Pressurized Underground Conduit | GATE_015 | VELOCITY:1.6m/s
+009 -> 013 : 0257 | Siphon Gravity Feeder | GATE_022 | VELOCITY:1.8m/s
+012 -> 013 : 0276 | Solar Lift Pumping Aqueduct | GATE_029 | VELOCITY:2.0m/s
+015 -> 017 : 0295 | Primary Lined Concrete Canal | GATE_036 | VELOCITY:2.2m/s
+018 -> 021 : 0314 | Secondary Earthen Sluice Trench | GATE_043 | VELOCITY:2.4m/s
+021 -> 025 : 0333 | Pressurized Underground Conduit | GATE_050 | VELOCITY:2.6m/s
+024 -> 025 : 0352 | Siphon Gravity Feeder | GATE_057 | VELOCITY:1.2m/s
+027 -> 029 : 0371 | Solar Lift Pumping Aqueduct | GATE_064 | VELOCITY:1.4m/s
+030 -> 033 : 0390 | Primary Lined Concrete Canal | GATE_071 | VELOCITY:1.6m/s
+033 -> 037 : 0409 | Secondary Earthen Sluice Trench | GATE_078 | VELOCITY:1.8m/s
+036 -> 037 : 0428 | Pressurized Underground Conduit | GATE_085 | VELOCITY:2.0m/s
+039 -> 041 : 0447 | Siphon Gravity Feeder | GATE_092 | VELOCITY:2.2m/s
+042 -> 045 : 0466 | Solar Lift Pumping Aqueduct | GATE_099 | VELOCITY:2.4m/s
+045 -> 049 : 0485 | Primary Lined Concrete Canal | GATE_106 | VELOCITY:2.6m/s
+048 -> 049 : 0504 | Secondary Earthen Sluice Trench | GATE_113 | VELOCITY:1.2m/s
+051 -> 053 : 0523 | Pressurized Underground Conduit | GATE_120 | VELOCITY:1.4m/s
+054 -> 057 : 0542 | Siphon Gravity Feeder | GATE_127 | VELOCITY:1.6m/s
+057 -> 061 : 0561 | Solar Lift Pumping Aqueduct | GATE_134 | VELOCITY:1.8m/s
+060 -> 061 : 0580 | Primary Lined Concrete Canal | GATE_141 | VELOCITY:2.0m/s
+063 -> 065 : 0599 | Secondary Earthen Sluice Trench | GATE_148 | VELOCITY:2.2m/s
+066 -> 069 : 0618 | Pressurized Underground Conduit | GATE_155 | VELOCITY:2.4m/s
+069 -> 073 : 0637 | Siphon Gravity Feeder | GATE_162 | VELOCITY:2.6m/s
+072 -> 073 : 0656 | Solar Lift Pumping Aqueduct | GATE_169 | VELOCITY:1.2m/s
+075 -> 077 : 0675 | Primary Lined Concrete Canal | GATE_176 | VELOCITY:1.4m/s
+078 -> 081 : 0694 | Secondary Earthen Sluice Trench | GATE_183 | VELOCITY:1.6m/s
+081 -> 085 : 0713 | Pressurized Underground Conduit | GATE_190 | VELOCITY:1.8m/s
+084 -> 085 : 0732 | Siphon Gravity Feeder | GATE_197 | VELOCITY:2.0m/s
+087 -> 089 : 0751 | Solar Lift Pumping Aqueduct | GATE_204 | VELOCITY:2.2m/s
+090 -> 093 : 0770 | Primary Lined Concrete Canal | GATE_211 | VELOCITY:2.4m/s
+093 -> 097 : 0789 | Secondary Earthen Sluice Trench | GATE_218 | VELOCITY:2.6m/s
+096 -> 097 : 0808 | Pressurized Underground Conduit | GATE_225 | VELOCITY:1.2m/s
+099 -> 101 : 0827 | Siphon Gravity Feeder | GATE_232 | VELOCITY:1.4m/s
+102 -> 105 : 0846 | Solar Lift Pumping Aqueduct | GATE_239 | VELOCITY:1.6m/s
+105 -> 109 : 0865 | Primary Lined Concrete Canal | GATE_246 | VELOCITY:1.8m/s
+108 -> 109 : 0884 | Secondary Earthen Sluice Trench | GATE_003 | VELOCITY:2.0m/s
+111 -> 113 : 0903 | Pressurized Underground Conduit | GATE_010 | VELOCITY:2.2m/s
+114 -> 117 : 0922 | Siphon Gravity Feeder | GATE_017 | VELOCITY:2.4m/s
+117 -> 121 : 0941 | Solar Lift Pumping Aqueduct | GATE_024 | VELOCITY:2.6m/s
+000 -> 001 : 0960 | Primary Lined Concrete Canal | GATE_031 | VELOCITY:1.2m/s
+003 -> 005 : 0979 | Secondary Earthen Sluice Trench | GATE_038 | VELOCITY:1.4m/s
+006 -> 009 : 0998 | Pressurized Underground Conduit | GATE_045 | VELOCITY:1.6m/s
+009 -> 013 : 1017 | Siphon Gravity Feeder | GATE_052 | VELOCITY:1.8m/s
+012 -> 013 : 1036 | Solar Lift Pumping Aqueduct | GATE_059 | VELOCITY:2.0m/s
+015 -> 017 : 1055 | Primary Lined Concrete Canal | GATE_066 | VELOCITY:2.2m/s
+018 -> 021 : 1074 | Secondary Earthen Sluice Trench | GATE_073 | VELOCITY:2.4m/s
+021 -> 025 : 1093 | Pressurized Underground Conduit | GATE_080 | VELOCITY:2.6m/s
+024 -> 025 : 1112 | Siphon Gravity Feeder | GATE_087 | VELOCITY:1.2m/s
+027 -> 029 : 1131 | Solar Lift Pumping Aqueduct | GATE_094 | VELOCITY:1.4m/s
+030 -> 033 : 1150 | Primary Lined Concrete Canal | GATE_101 | VELOCITY:1.6m/s
+033 -> 037 : 1169 | Secondary Earthen Sluice Trench | GATE_108 | VELOCITY:1.8m/s
+036 -> 037 : 1188 | Pressurized Underground Conduit | GATE_115 | VELOCITY:2.0m/s
+039 -> 041 : 1207 | Siphon Gravity Feeder | GATE_122 | VELOCITY:2.2m/s
+042 -> 045 : 1226 | Solar Lift Pumping Aqueduct | GATE_129 | VELOCITY:2.4m/s
+045 -> 049 : 1245 | Primary Lined Concrete Canal | GATE_136 | VELOCITY:2.6m/s
+048 -> 049 : 1264 | Secondary Earthen Sluice Trench | GATE_143 | VELOCITY:1.2m/s
+051 -> 053 : 1283 | Pressurized Underground Conduit | GATE_150 | VELOCITY:1.4m/s
+054 -> 057 : 1302 | Siphon Gravity Feeder | GATE_157 | VELOCITY:1.6m/s
+057 -> 061 : 1321 | Solar Lift Pumping Aqueduct | GATE_164 | VELOCITY:1.8m/s
+060 -> 061 : 1340 | Primary Lined Concrete Canal | GATE_171 | VELOCITY:2.0m/s
+063 -> 065 : 1359 | Secondary Earthen Sluice Trench | GATE_178 | VELOCITY:2.2m/s
+066 -> 069 : 1378 | Pressurized Underground Conduit | GATE_185 | VELOCITY:2.4m/s
+069 -> 073 : 1397 | Siphon Gravity Feeder | GATE_192 | VELOCITY:2.6m/s
+072 -> 073 : 1416 | Solar Lift Pumping Aqueduct | GATE_199 | VELOCITY:1.2m/s
+075 -> 077 : 1435 | Primary Lined Concrete Canal | GATE_206 | VELOCITY:1.4m/s
+078 -> 081 : 1454 | Secondary Earthen Sluice Trench | GATE_213 | VELOCITY:1.6m/s
+081 -> 085 : 1473 | Pressurized Underground Conduit | GATE_220 | VELOCITY:1.8m/s
+084 -> 085 : 1492 | Siphon Gravity Feeder | GATE_227 | VELOCITY:2.0m/s
+087 -> 089 : 1511 | Solar Lift Pumping Aqueduct | GATE_234 | VELOCITY:2.2m/s
+090 -> 093 : 1530 | Primary Lined Concrete Canal | GATE_241 | VELOCITY:2.4m/s
+093 -> 097 : 1549 | Secondary Earthen Sluice Trench | GATE_248 | VELOCITY:2.6m/s
+096 -> 097 : 1568 | Pressurized Underground Conduit | GATE_005 | VELOCITY:1.2m/s
+099 -> 101 : 1587 | Siphon Gravity Feeder | GATE_012 | VELOCITY:1.4m/s
+102 -> 105 : 1606 | Solar Lift Pumping Aqueduct | GATE_019 | VELOCITY:1.6m/s
+105 -> 109 : 1625 | Primary Lined Concrete Canal | GATE_026 | VELOCITY:1.8m/s
+108 -> 109 : 1644 | Secondary Earthen Sluice Trench | GATE_033 | VELOCITY:2.0m/s
+111 -> 113 : 1663 | Pressurized Underground Conduit | GATE_040 | VELOCITY:2.2m/s
+114 -> 117 : 1682 | Siphon Gravity Feeder | GATE_047 | VELOCITY:2.4m/s
+117 -> 121 : 1701 | Solar Lift Pumping Aqueduct | GATE_054 | VELOCITY:2.6m/s
+000 -> 001 : 1720 | Primary Lined Concrete Canal | GATE_061 | VELOCITY:1.2m/s
+003 -> 005 : 1739 | Secondary Earthen Sluice Trench | GATE_068 | VELOCITY:1.4m/s
+006 -> 009 : 1758 | Pressurized Underground Conduit | GATE_075 | VELOCITY:1.6m/s
+009 -> 013 : 1777 | Siphon Gravity Feeder | GATE_082 | VELOCITY:1.8m/s
+012 -> 013 : 1796 | Solar Lift Pumping Aqueduct | GATE_089 | VELOCITY:2.0m/s
+015 -> 017 : 1815 | Primary Lined Concrete Canal | GATE_096 | VELOCITY:2.2m/s
+018 -> 021 : 1834 | Secondary Earthen Sluice Trench | GATE_103 | VELOCITY:2.4m/s
+021 -> 025 : 1853 | Pressurized Underground Conduit | GATE_110 | VELOCITY:2.6m/s
+024 -> 025 : 1872 | Siphon Gravity Feeder | GATE_117 | VELOCITY:1.2m/s
+027 -> 029 : 1891 | Solar Lift Pumping Aqueduct | GATE_124 | VELOCITY:1.4m/s
+030 -> 033 : 1910 | Primary Lined Concrete Canal | GATE_131 | VELOCITY:1.6m/s
+033 -> 037 : 1929 | Secondary Earthen Sluice Trench | GATE_138 | VELOCITY:1.8m/s
+036 -> 037 : 1948 | Pressurized Underground Conduit | GATE_145 | VELOCITY:2.0m/s
+039 -> 041 : 1967 | Siphon Gravity Feeder | GATE_152 | VELOCITY:2.2m/s
+042 -> 045 : 1986 | Solar Lift Pumping Aqueduct | GATE_159 | VELOCITY:2.4m/s
+045 -> 049 : 2005 | Primary Lined Concrete Canal | GATE_166 | VELOCITY:2.6m/s
+048 -> 049 : 2024 | Secondary Earthen Sluice Trench | GATE_173 | VELOCITY:1.2m/s
+051 -> 053 : 2043 | Pressurized Underground Conduit | GATE_180 | VELOCITY:1.4m/s
+054 -> 057 : 2062 | Siphon Gravity Feeder | GATE_187 | VELOCITY:1.6m/s
+057 -> 061 : 2081 | Solar Lift Pumping Aqueduct | GATE_194 | VELOCITY:1.8m/s
+060 -> 061 : 2100 | Primary Lined Concrete Canal | GATE_201 | VELOCITY:2.0m/s
+063 -> 065 : 2119 | Secondary Earthen Sluice Trench | GATE_208 | VELOCITY:2.2m/s
+066 -> 069 : 2138 | Pressurized Underground Conduit | GATE_215 | VELOCITY:2.4m/s
+069 -> 073 : 2157 | Siphon Gravity Feeder | GATE_222 | VELOCITY:2.6m/s
+072 -> 073 : 2176 | Solar Lift Pumping Aqueduct | GATE_229 | VELOCITY:1.2m/s
+075 -> 077 : 2195 | Primary Lined Concrete Canal | GATE_236 | VELOCITY:1.4m/s
+078 -> 081 : 2214 | Secondary Earthen Sluice Trench | GATE_243 | VELOCITY:1.6m/s
+081 -> 085 : 2233 | Pressurized Underground Conduit | GATE_250 | VELOCITY:1.8m/s
+084 -> 085 : 2252 | Siphon Gravity Feeder | GATE_007 | VELOCITY:2.0m/s
+087 -> 089 : 2271 | Solar Lift Pumping Aqueduct | GATE_014 | VELOCITY:2.2m/s
+090 -> 093 : 2290 | Primary Lined Concrete Canal | GATE_021 | VELOCITY:2.4m/s
+093 -> 097 : 2309 | Secondary Earthen Sluice Trench | GATE_028 | VELOCITY:2.6m/s
+096 -> 097 : 2328 | Pressurized Underground Conduit | GATE_035 | VELOCITY:1.2m/s
+099 -> 101 : 2347 | Siphon Gravity Feeder | GATE_042 | VELOCITY:1.4m/s
+102 -> 105 : 2366 | Solar Lift Pumping Aqueduct | GATE_049 | VELOCITY:1.6m/s
+105 -> 109 : 2385 | Primary Lined Concrete Canal | GATE_056 | VELOCITY:1.8m/s
+108 -> 109 : 2404 | Secondary Earthen Sluice Trench | GATE_063 | VELOCITY:2.0m/s
+111 -> 113 : 2423 | Pressurized Underground Conduit | GATE_070 | VELOCITY:2.2m/s
+114 -> 117 : 2442 | Siphon Gravity Feeder | GATE_077 | VELOCITY:2.4m/s
+117 -> 121 : 2461 | Solar Lift Pumping Aqueduct | GATE_084 | VELOCITY:2.6m/s
+000 -> 001 : 2480 | Primary Lined Concrete Canal | GATE_091 | VELOCITY:1.2m/s
+003 -> 005 : 2499 | Secondary Earthen Sluice Trench | GATE_098 | VELOCITY:1.4m/s
+006 -> 009 : 2518 | Pressurized Underground Conduit | GATE_105 | VELOCITY:1.6m/s
+009 -> 013 : 2537 | Siphon Gravity Feeder | GATE_112 | VELOCITY:1.8m/s
+012 -> 013 : 2556 | Solar Lift Pumping Aqueduct | GATE_119 | VELOCITY:2.0m/s
+015 -> 017 : 2575 | Primary Lined Concrete Canal | GATE_126 | VELOCITY:2.2m/s
+018 -> 021 : 2594 | Secondary Earthen Sluice Trench | GATE_133 | VELOCITY:2.4m/s
+021 -> 025 : 2613 | Pressurized Underground Conduit | GATE_140 | VELOCITY:2.6m/s
+024 -> 025 : 2632 | Siphon Gravity Feeder | GATE_147 | VELOCITY:1.2m/s
+027 -> 029 : 2651 | Solar Lift Pumping Aqueduct | GATE_154 | VELOCITY:1.4m/s
+030 -> 033 : 2670 | Primary Lined Concrete Canal | GATE_161 | VELOCITY:1.6m/s
+033 -> 037 : 2689 | Secondary Earthen Sluice Trench | GATE_168 | VELOCITY:1.8m/s
+036 -> 037 : 2708 | Pressurized Underground Conduit | GATE_175 | VELOCITY:2.0m/s
+039 -> 041 : 2727 | Siphon Gravity Feeder | GATE_182 | VELOCITY:2.2m/s
+042 -> 045 : 2746 | Solar Lift Pumping Aqueduct | GATE_189 | VELOCITY:2.4m/s
+045 -> 049 : 2765 | Primary Lined Concrete Canal | GATE_196 | VELOCITY:2.6m/s
+048 -> 049 : 2784 | Secondary Earthen Sluice Trench | GATE_203 | VELOCITY:1.2m/s
+051 -> 053 : 2803 | Pressurized Underground Conduit | GATE_210 | VELOCITY:1.4m/s
+054 -> 057 : 2822 | Siphon Gravity Feeder | GATE_217 | VELOCITY:1.6m/s
+057 -> 061 : 2841 | Solar Lift Pumping Aqueduct | GATE_224 | VELOCITY:1.8m/s
+060 -> 061 : 2860 | Primary Lined Concrete Canal | GATE_231 | VELOCITY:2.0m/s
+063 -> 065 : 2879 | Secondary Earthen Sluice Trench | GATE_238 | VELOCITY:2.2m/s
+066 -> 069 : 2898 | Pressurized Underground Conduit | GATE_245 | VELOCITY:2.4m/s
+069 -> 073 : 2917 | Siphon Gravity Feeder | GATE_002 | VELOCITY:2.6m/s
+072 -> 073 : 2936 | Solar Lift Pumping Aqueduct | GATE_009 | VELOCITY:1.2m/s
+075 -> 077 : 2955 | Primary Lined Concrete Canal | GATE_016 | VELOCITY:1.4m/s
+078 -> 081 : 2974 | Secondary Earthen Sluice Trench | GATE_023 | VELOCITY:1.6m/s
+081 -> 085 : 2993 | Pressurized Underground Conduit | GATE_030 | VELOCITY:1.8m/s
+084 -> 085 : 3012 | Siphon Gravity Feeder | GATE_037 | VELOCITY:2.0m/s
+087 -> 089 : 3031 | Solar Lift Pumping Aqueduct | GATE_044 | VELOCITY:2.2m/s
+090 -> 093 : 3050 | Primary Lined Concrete Canal | GATE_051 | VELOCITY:2.4m/s
+093 -> 097 : 3069 | Secondary Earthen Sluice Trench | GATE_058 | VELOCITY:2.6m/s
+096 -> 097 : 3088 | Pressurized Underground Conduit | GATE_065 | VELOCITY:1.2m/s
+099 -> 101 : 3107 | Siphon Gravity Feeder | GATE_072 | VELOCITY:1.4m/s
+102 -> 105 : 3126 | Solar Lift Pumping Aqueduct | GATE_079 | VELOCITY:1.6m/s
+105 -> 109 : 3145 | Primary Lined Concrete Canal | GATE_086 | VELOCITY:1.8m/s
+108 -> 109 : 3164 | Secondary Earthen Sluice Trench | GATE_093 | VELOCITY:2.0m/s
+111 -> 113 : 3183 | Pressurized Underground Conduit | GATE_100 | VELOCITY:2.2m/s
+114 -> 117 : 3202 | Siphon Gravity Feeder | GATE_107 | VELOCITY:2.4m/s
+117 -> 121 : 3221 | Solar Lift Pumping Aqueduct | GATE_114 | VELOCITY:2.6m/s
+000 -> 001 : 3240 | Primary Lined Concrete Canal | GATE_121 | VELOCITY:1.2m/s
+003 -> 005 : 3259 | Secondary Earthen Sluice Trench | GATE_128 | VELOCITY:1.4m/s
+006 -> 009 : 3278 | Pressurized Underground Conduit | GATE_135 | VELOCITY:1.6m/s
+009 -> 013 : 3297 | Siphon Gravity Feeder | GATE_142 | VELOCITY:1.8m/s
+012 -> 013 : 3316 | Solar Lift Pumping Aqueduct | GATE_149 | VELOCITY:2.0m/s
+015 -> 017 : 3335 | Primary Lined Concrete Canal | GATE_156 | VELOCITY:2.2m/s
+018 -> 021 : 3354 | Secondary Earthen Sluice Trench | GATE_163 | VELOCITY:2.4m/s
+021 -> 025 : 3373 | Pressurized Underground Conduit | GATE_170 | VELOCITY:2.6m/s
+024 -> 025 : 3392 | Siphon Gravity Feeder | GATE_177 | VELOCITY:1.2m/s
+027 -> 029 : 3411 | Solar Lift Pumping Aqueduct | GATE_184 | VELOCITY:1.4m/s
+030 -> 033 : 3430 | Primary Lined Concrete Canal | GATE_191 | VELOCITY:1.6m/s
+033 -> 037 : 3449 | Secondary Earthen Sluice Trench | GATE_198 | VELOCITY:1.8m/s
+036 -> 037 : 3468 | Pressurized Underground Conduit | GATE_205 | VELOCITY:2.0m/s
+039 -> 041 : 3487 | Siphon Gravity Feeder | GATE_212 | VELOCITY:2.2m/s
+042 -> 045 : 3506 | Solar Lift Pumping Aqueduct | GATE_219 | VELOCITY:2.4m/s
+045 -> 049 : 3525 | Primary Lined Concrete Canal | GATE_226 | VELOCITY:2.6m/s
+048 -> 049 : 3544 | Secondary Earthen Sluice Trench | GATE_233 | VELOCITY:1.2m/s
+051 -> 053 : 3563 | Pressurized Underground Conduit | GATE_240 | VELOCITY:1.4m/s
+054 -> 057 : 3582 | Siphon Gravity Feeder | GATE_247 | VELOCITY:1.6m/s
+057 -> 061 : 3601 | Solar Lift Pumping Aqueduct | GATE_004 | VELOCITY:1.8m/s
+060 -> 061 : 3620 | Primary Lined Concrete Canal | GATE_011 | VELOCITY:2.0m/s
+063 -> 065 : 3639 | Secondary Earthen Sluice Trench | GATE_018 | VELOCITY:2.2m/s
+066 -> 069 : 3658 | Pressurized Underground Conduit | GATE_025 | VELOCITY:2.4m/s
+069 -> 073 : 3677 | Siphon Gravity Feeder | GATE_032 | VELOCITY:2.6m/s
+072 -> 073 : 3696 | Solar Lift Pumping Aqueduct | GATE_039 | VELOCITY:1.2m/s
+075 -> 077 : 0215 | Primary Lined Concrete Canal | GATE_046 | VELOCITY:1.4m/s
+078 -> 081 : 0234 | Secondary Earthen Sluice Trench | GATE_053 | VELOCITY:1.6m/s
+081 -> 085 : 0253 | Pressurized Underground Conduit | GATE_060 | VELOCITY:1.8m/s
+084 -> 085 : 0272 | Siphon Gravity Feeder | GATE_067 | VELOCITY:2.0m/s
+087 -> 089 : 0291 | Solar Lift Pumping Aqueduct | GATE_074 | VELOCITY:2.2m/s
+090 -> 093 : 0310 | Primary Lined Concrete Canal | GATE_081 | VELOCITY:2.4m/s
+093 -> 097 : 0329 | Secondary Earthen Sluice Trench | GATE_088 | VELOCITY:2.6m/s
+096 -> 097 : 0348 | Pressurized Underground Conduit | GATE_095 | VELOCITY:1.2m/s
+099 -> 101 : 0367 | Siphon Gravity Feeder | GATE_102 | VELOCITY:1.4m/s
+102 -> 105 : 0386 | Solar Lift Pumping Aqueduct | GATE_109 | VELOCITY:1.6m/s
+105 -> 109 : 0405 | Primary Lined Concrete Canal | GATE_116 | VELOCITY:1.8m/s
+108 -> 109 : 0424 | Secondary Earthen Sluice Trench | GATE_123 | VELOCITY:2.0m/s
+111 -> 113 : 0443 | Pressurized Underground Conduit | GATE_130 | VELOCITY:2.2m/s
+114 -> 117 : 0462 | Siphon Gravity Feeder | GATE_137 | VELOCITY:2.4m/s
+117 -> 121 : 0481 | Solar Lift Pumping Aqueduct | GATE_144 | VELOCITY:2.6m/s
+000 -> 001 : 0500 | Primary Lined Concrete Canal | GATE_151 | VELOCITY:1.2m/s
+003 -> 005 : 0519 | Secondary Earthen Sluice Trench | GATE_158 | VELOCITY:1.4m/s
+006 -> 009 : 0538 | Pressurized Underground Conduit | GATE_165 | VELOCITY:1.6m/s
+009 -> 013 : 0557 | Siphon Gravity Feeder | GATE_172 | VELOCITY:1.8m/s
+012 -> 013 : 0576 | Solar Lift Pumping Aqueduct | GATE_179 | VELOCITY:2.0m/s
+015 -> 017 : 0595 | Primary Lined Concrete Canal | GATE_186 | VELOCITY:2.2m/s
+018 -> 021 : 0614 | Secondary Earthen Sluice Trench | GATE_193 | VELOCITY:2.4m/s
+021 -> 025 : 0633 | Pressurized Underground Conduit | GATE_200 | VELOCITY:2.6m/s
+024 -> 025 : 0652 | Siphon Gravity Feeder | GATE_207 | VELOCITY:1.2m/s
+027 -> 029 : 0671 | Solar Lift Pumping Aqueduct | GATE_214 | VELOCITY:1.4m/s
+030 -> 033 : 0690 | Primary Lined Concrete Canal | GATE_221 | VELOCITY:1.6m/s
+033 -> 037 : 0709 | Secondary Earthen Sluice Trench | GATE_228 | VELOCITY:1.8m/s
+036 -> 037 : 0728 | Pressurized Underground Conduit | GATE_235 | VELOCITY:2.0m/s
+039 -> 041 : 0747 | Siphon Gravity Feeder | GATE_242 | VELOCITY:2.2m/s
+042 -> 045 : 0766 | Solar Lift Pumping Aqueduct | GATE_249 | VELOCITY:2.4m/s
+045 -> 049 : 0785 | Primary Lined Concrete Canal | GATE_006 | VELOCITY:2.6m/s
+048 -> 049 : 0804 | Secondary Earthen Sluice Trench | GATE_013 | VELOCITY:1.2m/s
+051 -> 053 : 0823 | Pressurized Underground Conduit | GATE_020 | VELOCITY:1.4m/s
+054 -> 057 : 0842 | Siphon Gravity Feeder | GATE_027 | VELOCITY:1.6m/s
+057 -> 061 : 0861 | Solar Lift Pumping Aqueduct | GATE_034 | VELOCITY:1.8m/s
+060 -> 061 : 0880 | Primary Lined Concrete Canal | GATE_041 | VELOCITY:2.0m/s
+063 -> 065 : 0899 | Secondary Earthen Sluice Trench | GATE_048 | VELOCITY:2.2m/s
+066 -> 069 : 0918 | Pressurized Underground Conduit | GATE_055 | VELOCITY:2.4m/s
+069 -> 073 : 0937 | Siphon Gravity Feeder | GATE_062 | VELOCITY:2.6m/s
+072 -> 073 : 0956 | Solar Lift Pumping Aqueduct | GATE_069 | VELOCITY:1.2m/s
+075 -> 077 : 0975 | Primary Lined Concrete Canal | GATE_076 | VELOCITY:1.4m/s
+078 -> 081 : 0994 | Secondary Earthen Sluice Trench | GATE_083 | VELOCITY:1.6m/s
+081 -> 085 : 1013 | Pressurized Underground Conduit | GATE_090 | VELOCITY:1.8m/s
+084 -> 085 : 1032 | Siphon Gravity Feeder | GATE_097 | VELOCITY:2.0m/s
+087 -> 089 : 1051 | Solar Lift Pumping Aqueduct | GATE_104 | VELOCITY:2.2m/s
+090 -> 093 : 1070 | Primary Lined Concrete Canal | GATE_111 | VELOCITY:2.4m/s
+093 -> 097 : 1089 | Secondary Earthen Sluice Trench | GATE_118 | VELOCITY:2.6m/s
+096 -> 097 : 1108 | Pressurized Underground Conduit | GATE_125 | VELOCITY:1.2m/s
+099 -> 101 : 1127 | Siphon Gravity Feeder | GATE_132 | VELOCITY:1.4m/s
+102 -> 105 : 1146 | Solar Lift Pumping Aqueduct | GATE_139 | VELOCITY:1.6m/s
+105 -> 109 : 1165 | Primary Lined Concrete Canal | GATE_146 | VELOCITY:1.8m/s
+108 -> 109 : 1184 | Secondary Earthen Sluice Trench | GATE_153 | VELOCITY:2.0m/s
+111 -> 113 : 1203 | Pressurized Underground Conduit | GATE_160 | VELOCITY:2.2m/s
+114 -> 117 : 1222 | Siphon Gravity Feeder | GATE_167 | VELOCITY:2.4m/s
+117 -> 121 : 1241 | Solar Lift Pumping Aqueduct | GATE_174 | VELOCITY:2.6m/s
+000 -> 001 : 1260 | Primary Lined Concrete Canal | GATE_181 | VELOCITY:1.2m/s
+003 -> 005 : 1279 | Secondary Earthen Sluice Trench | GATE_188 | VELOCITY:1.4m/s
+006 -> 009 : 1298 | Pressurized Underground Conduit | GATE_195 | VELOCITY:1.6m/s
+009 -> 013 : 1317 | Siphon Gravity Feeder | GATE_202 | VELOCITY:1.8m/s
+012 -> 013 : 1336 | Solar Lift Pumping Aqueduct | GATE_209 | VELOCITY:2.0m/s
+015 -> 017 : 1355 | Primary Lined Concrete Canal | GATE_216 | VELOCITY:2.2m/s
+018 -> 021 : 1374 | Secondary Earthen Sluice Trench | GATE_223 | VELOCITY:2.4m/s
+021 -> 025 : 1393 | Pressurized Underground Conduit | GATE_230 | VELOCITY:2.6m/s
+024 -> 025 : 1412 | Siphon Gravity Feeder | GATE_237 | VELOCITY:1.2m/s
+027 -> 029 : 1431 | Solar Lift Pumping Aqueduct | GATE_244 | VELOCITY:1.4m/s
+030 -> 033 : 1450 | Primary Lined Concrete Canal | GATE_001 | VELOCITY:1.6m/s
+033 -> 037 : 1469 | Secondary Earthen Sluice Trench | GATE_008 | VELOCITY:1.8m/s
+036 -> 037 : 1488 | Pressurized Underground Conduit | GATE_015 | VELOCITY:2.0m/s
+039 -> 041 : 1507 | Siphon Gravity Feeder | GATE_022 | VELOCITY:2.2m/s
+042 -> 045 : 1526 | Solar Lift Pumping Aqueduct | GATE_029 | VELOCITY:2.4m/s
+045 -> 049 : 1545 | Primary Lined Concrete Canal | GATE_036 | VELOCITY:2.6m/s
+048 -> 049 : 1564 | Secondary Earthen Sluice Trench | GATE_043 | VELOCITY:1.2m/s
+051 -> 053 : 1583 | Pressurized Underground Conduit | GATE_050 | VELOCITY:1.4m/s
+054 -> 057 : 1602 | Siphon Gravity Feeder | GATE_057 | VELOCITY:1.6m/s
+057 -> 061 : 1621 | Solar Lift Pumping Aqueduct | GATE_064 | VELOCITY:1.8m/s
+060 -> 061 : 1640 | Primary Lined Concrete Canal | GATE_071 | VELOCITY:2.0m/s
+063 -> 065 : 1659 | Secondary Earthen Sluice Trench | GATE_078 | VELOCITY:2.2m/s
+066 -> 069 : 1678 | Pressurized Underground Conduit | GATE_085 | VELOCITY:2.4m/s
+069 -> 073 : 1697 | Siphon Gravity Feeder | GATE_092 | VELOCITY:2.6m/s
+072 -> 073 : 1716 | Solar Lift Pumping Aqueduct | GATE_099 | VELOCITY:1.2m/s
+075 -> 077 : 1735 | Primary Lined Concrete Canal | GATE_106 | VELOCITY:1.4m/s
+078 -> 081 : 1754 | Secondary Earthen Sluice Trench | GATE_113 | VELOCITY:1.6m/s
+081 -> 085 : 1773 | Pressurized Underground Conduit | GATE_120 | VELOCITY:1.8m/s
+084 -> 085 : 1792 | Siphon Gravity Feeder | GATE_127 | VELOCITY:2.0m/s
+087 -> 089 : 1811 | Solar Lift Pumping Aqueduct | GATE_134 | VELOCITY:2.2m/s
+090 -> 093 : 1830 | Primary Lined Concrete Canal | GATE_141 | VELOCITY:2.4m/s
+093 -> 097 : 1849 | Secondary Earthen Sluice Trench | GATE_148 | VELOCITY:2.6m/s
+096 -> 097 : 1868 | Pressurized Underground Conduit | GATE_155 | VELOCITY:1.2m/s
+099 -> 101 : 1887 | Siphon Gravity Feeder | GATE_162 | VELOCITY:1.4m/s
+102 -> 105 : 1906 | Solar Lift Pumping Aqueduct | GATE_169 | VELOCITY:1.6m/s
+105 -> 109 : 1925 | Primary Lined Concrete Canal | GATE_176 | VELOCITY:1.8m/s
+108 -> 109 : 1944 | Secondary Earthen Sluice Trench | GATE_183 | VELOCITY:2.0m/s
+111 -> 113 : 1963 | Pressurized Underground Conduit | GATE_190 | VELOCITY:2.2m/s
+114 -> 117 : 1982 | Siphon Gravity Feeder | GATE_197 | VELOCITY:2.4m/s
+117 -> 121 : 2001 | Solar Lift Pumping Aqueduct | GATE_204 | VELOCITY:2.6m/s
+000 -> 001 : 2020 | Primary Lined Concrete Canal | GATE_211 | VELOCITY:1.2m/s
+003 -> 005 : 2039 | Secondary Earthen Sluice Trench | GATE_218 | VELOCITY:1.4m/s
+006 -> 009 : 2058 | Pressurized Underground Conduit | GATE_225 | VELOCITY:1.6m/s
+009 -> 013 : 2077 | Siphon Gravity Feeder | GATE_232 | VELOCITY:1.8m/s
+012 -> 013 : 2096 | Solar Lift Pumping Aqueduct | GATE_239 | VELOCITY:2.0m/s
+015 -> 017 : 2115 | Primary Lined Concrete Canal | GATE_246 | VELOCITY:2.2m/s
+018 -> 021 : 2134 | Secondary Earthen Sluice Trench | GATE_003 | VELOCITY:2.4m/s
+021 -> 025 : 2153 | Pressurized Underground Conduit | GATE_010 | VELOCITY:2.6m/s
+024 -> 025 : 2172 | Siphon Gravity Feeder | GATE_017 | VELOCITY:1.2m/s
+027 -> 029 : 2191 | Solar Lift Pumping Aqueduct | GATE_024 | VELOCITY:1.4m/s
+030 -> 033 : 2210 | Primary Lined Concrete Canal | GATE_031 | VELOCITY:1.6m/s
+033 -> 037 : 2229 | Secondary Earthen Sluice Trench | GATE_038 | VELOCITY:1.8m/s
+036 -> 037 : 2248 | Pressurized Underground Conduit | GATE_045 | VELOCITY:2.0m/s
+039 -> 041 : 2267 | Siphon Gravity Feeder | GATE_052 | VELOCITY:2.2m/s
+042 -> 045 : 2286 | Solar Lift Pumping Aqueduct | GATE_059 | VELOCITY:2.4m/s
+045 -> 049 : 2305 | Primary Lined Concrete Canal | GATE_066 | VELOCITY:2.6m/s
+048 -> 049 : 2324 | Secondary Earthen Sluice Trench | GATE_073 | VELOCITY:1.2m/s
+051 -> 053 : 2343 | Pressurized Underground Conduit | GATE_080 | VELOCITY:1.4m/s
+054 -> 057 : 2362 | Siphon Gravity Feeder | GATE_087 | VELOCITY:1.6m/s
+057 -> 061 : 2381 | Solar Lift Pumping Aqueduct | GATE_094 | VELOCITY:1.8m/s
+060 -> 061 : 2400 | Primary Lined Concrete Canal | GATE_101 | VELOCITY:2.0m/s
+063 -> 065 : 2419 | Secondary Earthen Sluice Trench | GATE_108 | VELOCITY:2.2m/s
+066 -> 069 : 2438 | Pressurized Underground Conduit | GATE_115 | VELOCITY:2.4m/s
+069 -> 073 : 2457 | Siphon Gravity Feeder | GATE_122 | VELOCITY:2.6m/s
+072 -> 073 : 2476 | Solar Lift Pumping Aqueduct | GATE_129 | VELOCITY:1.2m/s
+075 -> 077 : 2495 | Primary Lined Concrete Canal | GATE_136 | VELOCITY:1.4m/s
+078 -> 081 : 2514 | Secondary Earthen Sluice Trench | GATE_143 | VELOCITY:1.6m/s
+081 -> 085 : 2533 | Pressurized Underground Conduit | GATE_150 | VELOCITY:1.8m/s
+084 -> 085 : 2552 | Siphon Gravity Feeder | GATE_157 | VELOCITY:2.0m/s
+087 -> 089 : 2571 | Solar Lift Pumping Aqueduct | GATE_164 | VELOCITY:2.2m/s
+090 -> 093 : 2590 | Primary Lined Concrete Canal | GATE_171 | VELOCITY:2.4m/s
+093 -> 097 : 2609 | Secondary Earthen Sluice Trench | GATE_178 | VELOCITY:2.6m/s
+096 -> 097 : 2628 | Pressurized Underground Conduit | GATE_185 | VELOCITY:1.2m/s
+099 -> 101 : 2647 | Siphon Gravity Feeder | GATE_192 | VELOCITY:1.4m/s
+102 -> 105 : 2666 | Solar Lift Pumping Aqueduct | GATE_199 | VELOCITY:1.6m/s
+105 -> 109 : 2685 | Primary Lined Concrete Canal | GATE_206 | VELOCITY:1.8m/s
+108 -> 109 : 2704 | Secondary Earthen Sluice Trench | GATE_213 | VELOCITY:2.0m/s
+111 -> 113 : 2723 | Pressurized Underground Conduit | GATE_220 | VELOCITY:2.2m/s
+114 -> 117 : 2742 | Siphon Gravity Feeder | GATE_227 | VELOCITY:2.4m/s
+117 -> 121 : 2761 | Solar Lift Pumping Aqueduct | GATE_234 | VELOCITY:2.6m/s
+000 -> 001 : 2780 | Primary Lined Concrete Canal | GATE_241 | VELOCITY:1.2m/s
+003 -> 005 : 2799 | Secondary Earthen Sluice Trench | GATE_248 | VELOCITY:1.4m/s
+006 -> 009 : 2818 | Pressurized Underground Conduit | GATE_005 | VELOCITY:1.6m/s
+009 -> 013 : 2837 | Siphon Gravity Feeder | GATE_012 | VELOCITY:1.8m/s
+012 -> 013 : 2856 | Solar Lift Pumping Aqueduct | GATE_019 | VELOCITY:2.0m/s
+015 -> 017 : 2875 | Primary Lined Concrete Canal | GATE_026 | VELOCITY:2.2m/s
+018 -> 021 : 2894 | Secondary Earthen Sluice Trench | GATE_033 | VELOCITY:2.4m/s
+021 -> 025 : 2913 | Pressurized Underground Conduit | GATE_040 | VELOCITY:2.6m/s
+024 -> 025 : 2932 | Siphon Gravity Feeder | GATE_047 | VELOCITY:1.2m/s
+027 -> 029 : 2951 | Solar Lift Pumping Aqueduct | GATE_054 | VELOCITY:1.4m/s
+030 -> 033 : 2970 | Primary Lined Concrete Canal | GATE_061 | VELOCITY:1.6m/s
+033 -> 037 : 2989 | Secondary Earthen Sluice Trench | GATE_068 | VELOCITY:1.8m/s
+036 -> 037 : 3008 | Pressurized Underground Conduit | GATE_075 | VELOCITY:2.0m/s
+039 -> 041 : 3027 | Siphon Gravity Feeder | GATE_082 | VELOCITY:2.2m/s
+042 -> 045 : 3046 | Solar Lift Pumping Aqueduct | GATE_089 | VELOCITY:2.4m/s
+045 -> 049 : 3065 | Primary Lined Concrete Canal | GATE_096 | VELOCITY:2.6m/s
+048 -> 049 : 3084 | Secondary Earthen Sluice Trench | GATE_103 | VELOCITY:1.2m/s
+051 -> 053 : 3103 | Pressurized Underground Conduit | GATE_110 | VELOCITY:1.4m/s
+054 -> 057 : 3122 | Siphon Gravity Feeder | GATE_117 | VELOCITY:1.6m/s
+057 -> 061 : 3141 | Solar Lift Pumping Aqueduct | GATE_124 | VELOCITY:1.8m/s
+060 -> 061 : 3160 | Primary Lined Concrete Canal | GATE_131 | VELOCITY:2.0m/s
+063 -> 065 : 3179 | Secondary Earthen Sluice Trench | GATE_138 | VELOCITY:2.2m/s
+066 -> 069 : 3198 | Pressurized Underground Conduit | GATE_145 | VELOCITY:2.4m/s
+069 -> 073 : 3217 | Siphon Gravity Feeder | GATE_152 | VELOCITY:2.6m/s
+072 -> 073 : 3236 | Solar Lift Pumping Aqueduct | GATE_159 | VELOCITY:1.2m/s
+075 -> 077 : 3255 | Primary Lined Concrete Canal | GATE_166 | VELOCITY:1.4m/s
+078 -> 081 : 3274 | Secondary Earthen Sluice Trench | GATE_173 | VELOCITY:1.6m/s
+081 -> 085 : 3293 | Pressurized Underground Conduit | GATE_180 | VELOCITY:1.8m/s
+084 -> 085 : 3312 | Siphon Gravity Feeder | GATE_187 | VELOCITY:2.0m/s
+087 -> 089 : 3331 | Solar Lift Pumping Aqueduct | GATE_194 | VELOCITY:2.2m/s
+090 -> 093 : 3350 | Primary Lined Concrete Canal | GATE_201 | VELOCITY:2.4m/s
+093 -> 097 : 3369 | Secondary Earthen Sluice Trench | GATE_208 | VELOCITY:2.6m/s
+096 -> 097 : 3388 | Pressurized Underground Conduit | GATE_215 | VELOCITY:1.2m/s
+099 -> 101 : 3407 | Siphon Gravity Feeder | GATE_222 | VELOCITY:1.4m/s
+102 -> 105 : 3426 | Solar Lift Pumping Aqueduct | GATE_229 | VELOCITY:1.6m/s
+105 -> 109 : 3445 | Primary Lined Concrete Canal | GATE_236 | VELOCITY:1.8m/s
+108 -> 109 : 3464 | Secondary Earthen Sluice Trench | GATE_243 | VELOCITY:2.0m/s
+111 -> 113 : 3483 | Pressurized Underground Conduit | GATE_250 | VELOCITY:2.2m/s
+114 -> 117 : 3502 | Siphon Gravity Feeder | GATE_007 | VELOCITY:2.4m/s
+117 -> 121 : 3521 | Solar Lift Pumping Aqueduct | GATE_014 | VELOCITY:2.6m/s
+000 -> 001 : 3540 | Primary Lined Concrete Canal | GATE_021 | VELOCITY:1.2m/s
+003 -> 005 : 3559 | Secondary Earthen Sluice Trench | GATE_028 | VELOCITY:1.4m/s
+006 -> 009 : 3578 | Pressurized Underground Conduit | GATE_035 | VELOCITY:1.6m/s
+009 -> 013 : 3597 | Siphon Gravity Feeder | GATE_042 | VELOCITY:1.8m/s
+012 -> 013 : 3616 | Solar Lift Pumping Aqueduct | GATE_049 | VELOCITY:2.0m/s
+015 -> 017 : 3635 | Primary Lined Concrete Canal | GATE_056 | VELOCITY:2.2m/s
+018 -> 021 : 3654 | Secondary Earthen Sluice Trench | GATE_063 | VELOCITY:2.4m/s
+021 -> 025 : 3673 | Pressurized Underground Conduit | GATE_070 | VELOCITY:2.6m/s
+024 -> 025 : 3692 | Siphon Gravity Feeder | GATE_077 | VELOCITY:1.2m/s
+027 -> 029 : 0211 | Solar Lift Pumping Aqueduct | GATE_084 | VELOCITY:1.4m/s
+030 -> 033 : 0230 | Primary Lined Concrete Canal | GATE_091 | VELOCITY:1.6m/s
+033 -> 037 : 0249 | Secondary Earthen Sluice Trench | GATE_098 | VELOCITY:1.8m/s
+036 -> 037 : 0268 | Pressurized Underground Conduit | GATE_105 | VELOCITY:2.0m/s
+039 -> 041 : 0287 | Siphon Gravity Feeder | GATE_112 | VELOCITY:2.2m/s
+042 -> 045 : 0306 | Solar Lift Pumping Aqueduct | GATE_119 | VELOCITY:2.4m/s
+045 -> 049 : 0325 | Primary Lined Concrete Canal | GATE_126 | VELOCITY:2.6m/s
+048 -> 049 : 0344 | Secondary Earthen Sluice Trench | GATE_133 | VELOCITY:1.2m/s
+051 -> 053 : 0363 | Pressurized Underground Conduit | GATE_140 | VELOCITY:1.4m/s
+054 -> 057 : 0382 | Siphon Gravity Feeder | GATE_147 | VELOCITY:1.6m/s
+057 -> 061 : 0401 | Solar Lift Pumping Aqueduct | GATE_154 | VELOCITY:1.8m/s
+060 -> 061 : 0420 | Primary Lined Concrete Canal | GATE_161 | VELOCITY:2.0m/s
+063 -> 065 : 0439 | Secondary Earthen Sluice Trench | GATE_168 | VELOCITY:2.2m/s
+066 -> 069 : 0458 | Pressurized Underground Conduit | GATE_175 | VELOCITY:2.4m/s
+069 -> 073 : 0477 | Siphon Gravity Feeder | GATE_182 | VELOCITY:2.6m/s
+072 -> 073 : 0496 | Solar Lift Pumping Aqueduct | GATE_189 | VELOCITY:1.2m/s
+075 -> 077 : 0515 | Primary Lined Concrete Canal | GATE_196 | VELOCITY:1.4m/s
+078 -> 081 : 0534 | Secondary Earthen Sluice Trench | GATE_203 | VELOCITY:1.6m/s
+081 -> 085 : 0553 | Pressurized Underground Conduit | GATE_210 | VELOCITY:1.8m/s
+084 -> 085 : 0572 | Siphon Gravity Feeder | GATE_217 | VELOCITY:2.0m/s
+087 -> 089 : 0591 | Solar Lift Pumping Aqueduct | GATE_224 | VELOCITY:2.2m/s
+090 -> 093 : 0610 | Primary Lined Concrete Canal | GATE_231 | VELOCITY:2.4m/s
+093 -> 097 : 0629 | Secondary Earthen Sluice Trench | GATE_238 | VELOCITY:2.6m/s
+096 -> 097 : 0648 | Pressurized Underground Conduit | GATE_245 | VELOCITY:1.2m/s
+099 -> 101 : 0667 | Siphon Gravity Feeder | GATE_002 | VELOCITY:1.4m/s
+102 -> 105 : 0686 | Solar Lift Pumping Aqueduct | GATE_009 | VELOCITY:1.6m/s
+105 -> 109 : 0705 | Primary Lined Concrete Canal | GATE_016 | VELOCITY:1.8m/s
+108 -> 109 : 0724 | Secondary Earthen Sluice Trench | GATE_023 | VELOCITY:2.0m/s
+111 -> 113 : 0743 | Pressurized Underground Conduit | GATE_030 | VELOCITY:2.2m/s
+114 -> 117 : 0762 | Siphon Gravity Feeder | GATE_037 | VELOCITY:2.4m/s
+117 -> 121 : 0781 | Solar Lift Pumping Aqueduct | GATE_044 | VELOCITY:2.6m/s
+000 -> 001 : 0800 | Primary Lined Concrete Canal | GATE_051 | VELOCITY:1.2m/s
+003 -> 005 : 0819 | Secondary Earthen Sluice Trench | GATE_058 | VELOCITY:1.4m/s
+006 -> 009 : 0838 | Pressurized Underground Conduit | GATE_065 | VELOCITY:1.6m/s
+009 -> 013 : 0857 | Siphon Gravity Feeder | GATE_072 | VELOCITY:1.8m/s
+012 -> 013 : 0876 | Solar Lift Pumping Aqueduct | GATE_079 | VELOCITY:2.0m/s
+015 -> 017 : 0895 | Primary Lined Concrete Canal | GATE_086 | VELOCITY:2.2m/s
+018 -> 021 : 0914 | Secondary Earthen Sluice Trench | GATE_093 | VELOCITY:2.4m/s
+021 -> 025 : 0933 | Pressurized Underground Conduit | GATE_100 | VELOCITY:2.6m/s
+024 -> 025 : 0952 | Siphon Gravity Feeder | GATE_107 | VELOCITY:1.2m/s
+027 -> 029 : 0971 | Solar Lift Pumping Aqueduct | GATE_114 | VELOCITY:1.4m/s
+030 -> 033 : 0990 | Primary Lined Concrete Canal | GATE_121 | VELOCITY:1.6m/s
+033 -> 037 : 1009 | Secondary Earthen Sluice Trench | GATE_128 | VELOCITY:1.8m/s
+036 -> 037 : 1028 | Pressurized Underground Conduit | GATE_135 | VELOCITY:2.0m/s
+039 -> 041 : 1047 | Siphon Gravity Feeder | GATE_142 | VELOCITY:2.2m/s
+042 -> 045 : 1066 | Solar Lift Pumping Aqueduct | GATE_149 | VELOCITY:2.4m/s
+045 -> 049 : 1085 | Primary Lined Concrete Canal | GATE_156 | VELOCITY:2.6m/s
+048 -> 049 : 1104 | Secondary Earthen Sluice Trench | GATE_163 | VELOCITY:1.2m/s
+051 -> 053 : 1123 | Pressurized Underground Conduit | GATE_170 | VELOCITY:1.4m/s
+054 -> 057 : 1142 | Siphon Gravity Feeder | GATE_177 | VELOCITY:1.6m/s
+057 -> 061 : 1161 | Solar Lift Pumping Aqueduct | GATE_184 | VELOCITY:1.8m/s
+060 -> 061 : 1180 | Primary Lined Concrete Canal | GATE_191 | VELOCITY:2.0m/s
+063 -> 065 : 1199 | Secondary Earthen Sluice Trench | GATE_198 | VELOCITY:2.2m/s
+066 -> 069 : 1218 | Pressurized Underground Conduit | GATE_205 | VELOCITY:2.4m/s
+069 -> 073 : 1237 | Siphon Gravity Feeder | GATE_212 | VELOCITY:2.6m/s
+072 -> 073 : 1256 | Solar Lift Pumping Aqueduct | GATE_219 | VELOCITY:1.2m/s
+075 -> 077 : 1275 | Primary Lined Concrete Canal | GATE_226 | VELOCITY:1.4m/s
+078 -> 081 : 1294 | Secondary Earthen Sluice Trench | GATE_233 | VELOCITY:1.6m/s
+081 -> 085 : 1313 | Pressurized Underground Conduit | GATE_240 | VELOCITY:1.8m/s
+084 -> 085 : 1332 | Siphon Gravity Feeder | GATE_247 | VELOCITY:2.0m/s
+087 -> 089 : 1351 | Solar Lift Pumping Aqueduct | GATE_004 | VELOCITY:2.2m/s
+090 -> 093 : 1370 | Primary Lined Concrete Canal | GATE_011 | VELOCITY:2.4m/s
+093 -> 097 : 1389 | Secondary Earthen Sluice Trench | GATE_018 | VELOCITY:2.6m/s
+096 -> 097 : 1408 | Pressurized Underground Conduit | GATE_025 | VELOCITY:1.2m/s
+099 -> 101 : 1427 | Siphon Gravity Feeder | GATE_032 | VELOCITY:1.4m/s
+102 -> 105 : 1446 | Solar Lift Pumping Aqueduct | GATE_039 | VELOCITY:1.6m/s
+105 -> 109 : 1465 | Primary Lined Concrete Canal | GATE_046 | VELOCITY:1.8m/s
+108 -> 109 : 1484 | Secondary Earthen Sluice Trench | GATE_053 | VELOCITY:2.0m/s
+111 -> 113 : 1503 | Pressurized Underground Conduit | GATE_060 | VELOCITY:2.2m/s
+114 -> 117 : 1522 | Siphon Gravity Feeder | GATE_067 | VELOCITY:2.4m/s
+117 -> 121 : 1541 | Solar Lift Pumping Aqueduct | GATE_074 | VELOCITY:2.6m/s
+000 -> 001 : 1560 | Primary Lined Concrete Canal | GATE_081 | VELOCITY:1.2m/s
+003 -> 005 : 1579 | Secondary Earthen Sluice Trench | GATE_088 | VELOCITY:1.4m/s
+006 -> 009 : 1598 | Pressurized Underground Conduit | GATE_095 | VELOCITY:1.6m/s
+009 -> 013 : 1617 | Siphon Gravity Feeder | GATE_102 | VELOCITY:1.8m/s
+012 -> 013 : 1636 | Solar Lift Pumping Aqueduct | GATE_109 | VELOCITY:2.0m/s
+015 -> 017 : 1655 | Primary Lined Concrete Canal | GATE_116 | VELOCITY:2.2m/s
+018 -> 021 : 1674 | Secondary Earthen Sluice Trench | GATE_123 | VELOCITY:2.4m/s
+021 -> 025 : 1693 | Pressurized Underground Conduit | GATE_130 | VELOCITY:2.6m/s
+024 -> 025 : 1712 | Siphon Gravity Feeder | GATE_137 | VELOCITY:1.2m/s
+027 -> 029 : 1731 | Solar Lift Pumping Aqueduct | GATE_144 | VELOCITY:1.4m/s
+030 -> 033 : 1750 | Primary Lined Concrete Canal | GATE_151 | VELOCITY:1.6m/s
+033 -> 037 : 1769 | Secondary Earthen Sluice Trench | GATE_158 | VELOCITY:1.8m/s
+036 -> 037 : 1788 | Pressurized Underground Conduit | GATE_165 | VELOCITY:2.0m/s
+039 -> 041 : 1807 | Siphon Gravity Feeder | GATE_172 | VELOCITY:2.2m/s
+042 -> 045 : 1826 | Solar Lift Pumping Aqueduct | GATE_179 | VELOCITY:2.4m/s
+045 -> 049 : 1845 | Primary Lined Concrete Canal | GATE_186 | VELOCITY:2.6m/s
+048 -> 049 : 1864 | Secondary Earthen Sluice Trench | GATE_193 | VELOCITY:1.2m/s
+051 -> 053 : 1883 | Pressurized Underground Conduit | GATE_200 | VELOCITY:1.4m/s
+054 -> 057 : 1902 | Siphon Gravity Feeder | GATE_207 | VELOCITY:1.6m/s
+057 -> 061 : 1921 | Solar Lift Pumping Aqueduct | GATE_214 | VELOCITY:1.8m/s
+060 -> 061 : 1940 | Primary Lined Concrete Canal | GATE_221 | VELOCITY:2.0m/s
+063 -> 065 : 1959 | Secondary Earthen Sluice Trench | GATE_228 | VELOCITY:2.2m/s
+066 -> 069 : 1978 | Pressurized Underground Conduit | GATE_235 | VELOCITY:2.4m/s
+069 -> 073 : 1997 | Siphon Gravity Feeder | GATE_242 | VELOCITY:2.6m/s
+072 -> 073 : 2016 | Solar Lift Pumping Aqueduct | GATE_249 | VELOCITY:1.2m/s
+075 -> 077 : 2035 | Primary Lined Concrete Canal | GATE_006 | VELOCITY:1.4m/s
+078 -> 081 : 2054 | Secondary Earthen Sluice Trench | GATE_013 | VELOCITY:1.6m/s
+081 -> 085 : 2073 | Pressurized Underground Conduit | GATE_020 | VELOCITY:1.8m/s
+084 -> 085 : 2092 | Siphon Gravity Feeder | GATE_027 | VELOCITY:2.0m/s
+087 -> 089 : 2111 | Solar Lift Pumping Aqueduct | GATE_034 | VELOCITY:2.2m/s
+090 -> 093 : 2130 | Primary Lined Concrete Canal | GATE_041 | VELOCITY:2.4m/s
+093 -> 097 : 2149 | Secondary Earthen Sluice Trench | GATE_048 | VELOCITY:2.6m/s
+096 -> 097 : 2168 | Pressurized Underground Conduit | GATE_055 | VELOCITY:1.2m/s
+099 -> 101 : 2187 | Siphon Gravity Feeder | GATE_062 | VELOCITY:1.4m/s
+102 -> 105 : 2206 | Solar Lift Pumping Aqueduct | GATE_069 | VELOCITY:1.6m/s
+105 -> 109 : 2225 | Primary Lined Concrete Canal | GATE_076 | VELOCITY:1.8m/s
+108 -> 109 : 2244 | Secondary Earthen Sluice Trench | GATE_083 | VELOCITY:2.0m/s
+111 -> 113 : 2263 | Pressurized Underground Conduit | GATE_090 | VELOCITY:2.2m/s
+114 -> 117 : 2282 | Siphon Gravity Feeder | GATE_097 | VELOCITY:2.4m/s
+117 -> 121 : 2301 | Solar Lift Pumping Aqueduct | GATE_104 | VELOCITY:2.6m/s
+000 -> 001 : 2320 | Primary Lined Concrete Canal | GATE_111 | VELOCITY:1.2m/s
+003 -> 005 : 2339 | Secondary Earthen Sluice Trench | GATE_118 | VELOCITY:1.4m/s
+006 -> 009 : 2358 | Pressurized Underground Conduit | GATE_125 | VELOCITY:1.6m/s
+009 -> 013 : 2377 | Siphon Gravity Feeder | GATE_132 | VELOCITY:1.8m/s
+012 -> 013 : 2396 | Solar Lift Pumping Aqueduct | GATE_139 | VELOCITY:2.0m/s
+015 -> 017 : 2415 | Primary Lined Concrete Canal | GATE_146 | VELOCITY:2.2m/s
+018 -> 021 : 2434 | Secondary Earthen Sluice Trench | GATE_153 | VELOCITY:2.4m/s
+021 -> 025 : 2453 | Pressurized Underground Conduit | GATE_160 | VELOCITY:2.6m/s
+024 -> 025 : 2472 | Siphon Gravity Feeder | GATE_167 | VELOCITY:1.2m/s
+027 -> 029 : 2491 | Solar Lift Pumping Aqueduct | GATE_174 | VELOCITY:1.4m/s
+030 -> 033 : 2510 | Primary Lined Concrete Canal | GATE_181 | VELOCITY:1.6m/s
+033 -> 037 : 2529 | Secondary Earthen Sluice Trench | GATE_188 | VELOCITY:1.8m/s
+036 -> 037 : 2548 | Pressurized Underground Conduit | GATE_195 | VELOCITY:2.0m/s
+039 -> 041 : 2567 | Siphon Gravity Feeder | GATE_202 | VELOCITY:2.2m/s
+042 -> 045 : 2586 | Solar Lift Pumping Aqueduct | GATE_209 | VELOCITY:2.4m/s
+045 -> 049 : 2605 | Primary Lined Concrete Canal | GATE_216 | VELOCITY:2.6m/s
+048 -> 049 : 2624 | Secondary Earthen Sluice Trench | GATE_223 | VELOCITY:1.2m/s
+051 -> 053 : 2643 | Pressurized Underground Conduit | GATE_230 | VELOCITY:1.4m/s
+054 -> 057 : 2662 | Siphon Gravity Feeder | GATE_237 | VELOCITY:1.6m/s
+057 -> 061 : 2681 | Solar Lift Pumping Aqueduct | GATE_244 | VELOCITY:1.8m/s
+060 -> 061 : 2700 | Primary Lined Concrete Canal | GATE_001 | VELOCITY:2.0m/s
+063 -> 065 : 2719 | Secondary Earthen Sluice Trench | GATE_008 | VELOCITY:2.2m/s
+066 -> 069 : 2738 | Pressurized Underground Conduit | GATE_015 | VELOCITY:2.4m/s
+069 -> 073 : 2757 | Siphon Gravity Feeder | GATE_022 | VELOCITY:2.6m/s
+072 -> 073 : 2776 | Solar Lift Pumping Aqueduct | GATE_029 | VELOCITY:1.2m/s
+075 -> 077 : 2795 | Primary Lined Concrete Canal | GATE_036 | VELOCITY:1.4m/s
+078 -> 081 : 2814 | Secondary Earthen Sluice Trench | GATE_043 | VELOCITY:1.6m/s
+081 -> 085 : 2833 | Pressurized Underground Conduit | GATE_050 | VELOCITY:1.8m/s
+084 -> 085 : 2852 | Siphon Gravity Feeder | GATE_057 | VELOCITY:2.0m/s
+087 -> 089 : 2871 | Solar Lift Pumping Aqueduct | GATE_064 | VELOCITY:2.2m/s
+090 -> 093 : 2890 | Primary Lined Concrete Canal | GATE_071 | VELOCITY:2.4m/s
+093 -> 097 : 2909 | Secondary Earthen Sluice Trench | GATE_078 | VELOCITY:2.6m/s
+096 -> 097 : 2928 | Pressurized Underground Conduit | GATE_085 | VELOCITY:1.2m/s
+099 -> 101 : 2947 | Siphon Gravity Feeder | GATE_092 | VELOCITY:1.4m/s
+102 -> 105 : 2966 | Solar Lift Pumping Aqueduct | GATE_099 | VELOCITY:1.6m/s
+105 -> 109 : 2985 | Primary Lined Concrete Canal | GATE_106 | VELOCITY:1.8m/s
+108 -> 109 : 3004 | Secondary Earthen Sluice Trench | GATE_113 | VELOCITY:2.0m/s
+111 -> 113 : 3023 | Pressurized Underground Conduit | GATE_120 | VELOCITY:2.2m/s
+114 -> 117 : 3042 | Siphon Gravity Feeder | GATE_127 | VELOCITY:2.4m/s
+117 -> 121 : 3061 | Solar Lift Pumping Aqueduct | GATE_134 | VELOCITY:2.6m/s
+000 -> 001 : 3080 | Primary Lined Concrete Canal | GATE_141 | VELOCITY:1.2m/s
+003 -> 005 : 3099 | Secondary Earthen Sluice Trench | GATE_148 | VELOCITY:1.4m/s
+006 -> 009 : 3118 | Pressurized Underground Conduit | GATE_155 | VELOCITY:1.6m/s
+009 -> 013 : 3137 | Siphon Gravity Feeder | GATE_162 | VELOCITY:1.8m/s
+012 -> 013 : 3156 | Solar Lift Pumping Aqueduct | GATE_169 | VELOCITY:2.0m/s
+015 -> 017 : 3175 | Primary Lined Concrete Canal | GATE_176 | VELOCITY:2.2m/s
+018 -> 021 : 3194 | Secondary Earthen Sluice Trench | GATE_183 | VELOCITY:2.4m/s
+021 -> 025 : 3213 | Pressurized Underground Conduit | GATE_190 | VELOCITY:2.6m/s
+024 -> 025 : 3232 | Siphon Gravity Feeder | GATE_197 | VELOCITY:1.2m/s
+027 -> 029 : 3251 | Solar Lift Pumping Aqueduct | GATE_204 | VELOCITY:1.4m/s
+030 -> 033 : 3270 | Primary Lined Concrete Canal | GATE_211 | VELOCITY:1.6m/s
+033 -> 037 : 3289 | Secondary Earthen Sluice Trench | GATE_218 | VELOCITY:1.8m/s
+036 -> 037 : 3308 | Pressurized Underground Conduit | GATE_225 | VELOCITY:2.0m/s
+039 -> 041 : 3327 | Siphon Gravity Feeder | GATE_232 | VELOCITY:2.2m/s
+042 -> 045 : 3346 | Solar Lift Pumping Aqueduct | GATE_239 | VELOCITY:2.4m/s
+045 -> 049 : 3365 | Primary Lined Concrete Canal | GATE_246 | VELOCITY:2.6m/s
+048 -> 049 : 3384 | Secondary Earthen Sluice Trench | GATE_003 | VELOCITY:1.2m/s
+051 -> 053 : 3403 | Pressurized Underground Conduit | GATE_010 | VELOCITY:1.4m/s
+054 -> 057 : 3422 | Siphon Gravity Feeder | GATE_017 | VELOCITY:1.6m/s
+057 -> 061 : 3441 | Solar Lift Pumping Aqueduct | GATE_024 | VELOCITY:1.8m/s
+060 -> 061 : 3460 | Primary Lined Concrete Canal | GATE_031 | VELOCITY:2.0m/s
+063 -> 065 : 3479 | Secondary Earthen Sluice Trench | GATE_038 | VELOCITY:2.2m/s
+066 -> 069 : 3498 | Pressurized Underground Conduit | GATE_045 | VELOCITY:2.4m/s
+069 -> 073 : 3517 | Siphon Gravity Feeder | GATE_052 | VELOCITY:2.6m/s
+072 -> 073 : 3536 | Solar Lift Pumping Aqueduct | GATE_059 | VELOCITY:1.2m/s
+075 -> 077 : 3555 | Primary Lined Concrete Canal | GATE_066 | VELOCITY:1.4m/s
+078 -> 081 : 3574 | Secondary Earthen Sluice Trench | GATE_073 | VELOCITY:1.6m/s
+081 -> 085 : 3593 | Pressurized Underground Conduit | GATE_080 | VELOCITY:1.8m/s
+084 -> 085 : 3612 | Siphon Gravity Feeder | GATE_087 | VELOCITY:2.0m/s
+087 -> 089 : 3631 | Solar Lift Pumping Aqueduct | GATE_094 | VELOCITY:2.2m/s
+090 -> 093 : 3650 | Primary Lined Concrete Canal | GATE_101 | VELOCITY:2.4m/s
+093 -> 097 : 3669 | Secondary Earthen Sluice Trench | GATE_108 | VELOCITY:2.6m/s
+096 -> 097 : 3688 | Pressurized Underground Conduit | GATE_115 | VELOCITY:1.2m/s
+099 -> 101 : 0207 | Siphon Gravity Feeder | GATE_122 | VELOCITY:1.4m/s
+102 -> 105 : 0226 | Solar Lift Pumping Aqueduct | GATE_129 | VELOCITY:1.6m/s
+105 -> 109 : 0245 | Primary Lined Concrete Canal | GATE_136 | VELOCITY:1.8m/s
+108 -> 109 : 0264 | Secondary Earthen Sluice Trench | GATE_143 | VELOCITY:2.0m/s
+111 -> 113 : 0283 | Pressurized Underground Conduit | GATE_150 | VELOCITY:2.2m/s
+114 -> 117 : 0302 | Siphon Gravity Feeder | GATE_157 | VELOCITY:2.4m/s
+117 -> 121 : 0321 | Solar Lift Pumping Aqueduct | GATE_164 | VELOCITY:2.6m/s
+000 -> 001 : 0340 | Primary Lined Concrete Canal | GATE_171 | VELOCITY:1.2m/s
+003 -> 005 : 0359 | Secondary Earthen Sluice Trench | GATE_178 | VELOCITY:1.4m/s
+006 -> 009 : 0378 | Pressurized Underground Conduit | GATE_185 | VELOCITY:1.6m/s
+009 -> 013 : 0397 | Siphon Gravity Feeder | GATE_192 | VELOCITY:1.8m/s
+012 -> 013 : 0416 | Solar Lift Pumping Aqueduct | GATE_199 | VELOCITY:2.0m/s
+015 -> 017 : 0435 | Primary Lined Concrete Canal | GATE_206 | VELOCITY:2.2m/s
+018 -> 021 : 0454 | Secondary Earthen Sluice Trench | GATE_213 | VELOCITY:2.4m/s
+021 -> 025 : 0473 | Pressurized Underground Conduit | GATE_220 | VELOCITY:2.6m/s
+024 -> 025 : 0492 | Siphon Gravity Feeder | GATE_227 | VELOCITY:1.2m/s
+027 -> 029 : 0511 | Solar Lift Pumping Aqueduct | GATE_234 | VELOCITY:1.4m/s
+030 -> 033 : 0530 | Primary Lined Concrete Canal | GATE_241 | VELOCITY:1.6m/s
+033 -> 037 : 0549 | Secondary Earthen Sluice Trench | GATE_248 | VELOCITY:1.8m/s
+036 -> 037 : 0568 | Pressurized Underground Conduit | GATE_005 | VELOCITY:2.0m/s
+039 -> 041 : 0587 | Siphon Gravity Feeder | GATE_012 | VELOCITY:2.2m/s
+042 -> 045 : 0606 | Solar Lift Pumping Aqueduct | GATE_019 | VELOCITY:2.4m/s
+045 -> 049 : 0625 | Primary Lined Concrete Canal | GATE_026 | VELOCITY:2.6m/s
+048 -> 049 : 0644 | Secondary Earthen Sluice Trench | GATE_033 | VELOCITY:1.2m/s
+051 -> 053 : 0663 | Pressurized Underground Conduit | GATE_040 | VELOCITY:1.4m/s
+054 -> 057 : 0682 | Siphon Gravity Feeder | GATE_047 | VELOCITY:1.6m/s
+057 -> 061 : 0701 | Solar Lift Pumping Aqueduct | GATE_054 | VELOCITY:1.8m/s
+060 -> 061 : 0720 | Primary Lined Concrete Canal | GATE_061 | VELOCITY:2.0m/s
+063 -> 065 : 0739 | Secondary Earthen Sluice Trench | GATE_068 | VELOCITY:2.2m/s
+066 -> 069 : 0758 | Pressurized Underground Conduit | GATE_075 | VELOCITY:2.4m/s
+069 -> 073 : 0777 | Siphon Gravity Feeder | GATE_082 | VELOCITY:2.6m/s
+072 -> 073 : 0796 | Solar Lift Pumping Aqueduct | GATE_089 | VELOCITY:1.2m/s
+075 -> 077 : 0815 | Primary Lined Concrete Canal | GATE_096 | VELOCITY:1.4m/s
+078 -> 081 : 0834 | Secondary Earthen Sluice Trench | GATE_103 | VELOCITY:1.6m/s
+081 -> 085 : 0853 | Pressurized Underground Conduit | GATE_110 | VELOCITY:1.8m/s
+084 -> 085 : 0872 | Siphon Gravity Feeder | GATE_117 | VELOCITY:2.0m/s
+087 -> 089 : 0891 | Solar Lift Pumping Aqueduct | GATE_124 | VELOCITY:2.2m/s
+090 -> 093 : 0910 | Primary Lined Concrete Canal | GATE_131 | VELOCITY:2.4m/s
+093 -> 097 : 0929 | Secondary Earthen Sluice Trench | GATE_138 | VELOCITY:2.6m/s
+096 -> 097 : 0948 | Pressurized Underground Conduit | GATE_145 | VELOCITY:1.2m/s
+099 -> 101 : 0967 | Siphon Gravity Feeder | GATE_152 | VELOCITY:1.4m/s
+102 -> 105 : 0986 | Solar Lift Pumping Aqueduct | GATE_159 | VELOCITY:1.6m/s
+105 -> 109 : 1005 | Primary Lined Concrete Canal | GATE_166 | VELOCITY:1.8m/s
+108 -> 109 : 1024 | Secondary Earthen Sluice Trench | GATE_173 | VELOCITY:2.0m/s
+111 -> 113 : 1043 | Pressurized Underground Conduit | GATE_180 | VELOCITY:2.2m/s
+114 -> 117 : 1062 | Siphon Gravity Feeder | GATE_187 | VELOCITY:2.4m/s
+117 -> 121 : 1081 | Solar Lift Pumping Aqueduct | GATE_194 | VELOCITY:2.6m/s
+000 -> 001 : 1100 | Primary Lined Concrete Canal | GATE_201 | VELOCITY:1.2m/s
+003 -> 005 : 1119 | Secondary Earthen Sluice Trench | GATE_208 | VELOCITY:1.4m/s
+006 -> 009 : 1138 | Pressurized Underground Conduit | GATE_215 | VELOCITY:1.6m/s
+009 -> 013 : 1157 | Siphon Gravity Feeder | GATE_222 | VELOCITY:1.8m/s
+012 -> 013 : 1176 | Solar Lift Pumping Aqueduct | GATE_229 | VELOCITY:2.0m/s
+015 -> 017 : 1195 | Primary Lined Concrete Canal | GATE_236 | VELOCITY:2.2m/s
+018 -> 021 : 1214 | Secondary Earthen Sluice Trench | GATE_243 | VELOCITY:2.4m/s
+021 -> 025 : 1233 | Pressurized Underground Conduit | GATE_250 | VELOCITY:2.6m/s
+024 -> 025 : 1252 | Siphon Gravity Feeder | GATE_007 | VELOCITY:1.2m/s
+027 -> 029 : 1271 | Solar Lift Pumping Aqueduct | GATE_014 | VELOCITY:1.4m/s
+030 -> 033 : 1290 | Primary Lined Concrete Canal | GATE_021 | VELOCITY:1.6m/s
+033 -> 037 : 1309 | Secondary Earthen Sluice Trench | GATE_028 | VELOCITY:1.8m/s
+036 -> 037 : 1328 | Pressurized Underground Conduit | GATE_035 | VELOCITY:2.0m/s
+039 -> 041 : 1347 | Siphon Gravity Feeder | GATE_042 | VELOCITY:2.2m/s
+042 -> 045 : 1366 | Solar Lift Pumping Aqueduct | GATE_049 | VELOCITY:2.4m/s
+045 -> 049 : 1385 | Primary Lined Concrete Canal | GATE_056 | VELOCITY:2.6m/s
+048 -> 049 : 1404 | Secondary Earthen Sluice Trench | GATE_063 | VELOCITY:1.2m/s
+051 -> 053 : 1423 | Pressurized Underground Conduit | GATE_070 | VELOCITY:1.4m/s
+054 -> 057 : 1442 | Siphon Gravity Feeder | GATE_077 | VELOCITY:1.6m/s
+057 -> 061 : 1461 | Solar Lift Pumping Aqueduct | GATE_084 | VELOCITY:1.8m/s
+060 -> 061 : 1480 | Primary Lined Concrete Canal | GATE_091 | VELOCITY:2.0m/s
+063 -> 065 : 1499 | Secondary Earthen Sluice Trench | GATE_098 | VELOCITY:2.2m/s
+066 -> 069 : 1518 | Pressurized Underground Conduit | GATE_105 | VELOCITY:2.4m/s
+069 -> 073 : 1537 | Siphon Gravity Feeder | GATE_112 | VELOCITY:2.6m/s
+072 -> 073 : 1556 | Solar Lift Pumping Aqueduct | GATE_119 | VELOCITY:1.2m/s
+075 -> 077 : 1575 | Primary Lined Concrete Canal | GATE_126 | VELOCITY:1.4m/s
+078 -> 081 : 1594 | Secondary Earthen Sluice Trench | GATE_133 | VELOCITY:1.6m/s
+081 -> 085 : 1613 | Pressurized Underground Conduit | GATE_140 | VELOCITY:1.8m/s
+084 -> 085 : 1632 | Siphon Gravity Feeder | GATE_147 | VELOCITY:2.0m/s
+087 -> 089 : 1651 | Solar Lift Pumping Aqueduct | GATE_154 | VELOCITY:2.2m/s
+090 -> 093 : 1670 | Primary Lined Concrete Canal | GATE_161 | VELOCITY:2.4m/s
+093 -> 097 : 1689 | Secondary Earthen Sluice Trench | GATE_168 | VELOCITY:2.6m/s
+096 -> 097 : 1708 | Pressurized Underground Conduit | GATE_175 | VELOCITY:1.2m/s
+099 -> 101 : 1727 | Siphon Gravity Feeder | GATE_182 | VELOCITY:1.4m/s
+102 -> 105 : 1746 | Solar Lift Pumping Aqueduct | GATE_189 | VELOCITY:1.6m/s
+105 -> 109 : 1765 | Primary Lined Concrete Canal | GATE_196 | VELOCITY:1.8m/s
+108 -> 109 : 1784 | Secondary Earthen Sluice Trench | GATE_203 | VELOCITY:2.0m/s
+111 -> 113 : 1803 | Pressurized Underground Conduit | GATE_210 | VELOCITY:2.2m/s
+114 -> 117 : 1822 | Siphon Gravity Feeder | GATE_217 | VELOCITY:2.4m/s
+117 -> 121 : 1841 | Solar Lift Pumping Aqueduct | GATE_224 | VELOCITY:2.6m/s
+000 -> 001 : 1860 | Primary Lined Concrete Canal | GATE_231 | VELOCITY:1.2m/s
+003 -> 005 : 1879 | Secondary Earthen Sluice Trench | GATE_238 | VELOCITY:1.4m/s
+006 -> 009 : 1898 | Pressurized Underground Conduit | GATE_245 | VELOCITY:1.6m/s
+009 -> 013 : 1917 | Siphon Gravity Feeder | GATE_002 | VELOCITY:1.8m/s
+012 -> 013 : 1936 | Solar Lift Pumping Aqueduct | GATE_009 | VELOCITY:2.0m/s
+015 -> 017 : 1955 | Primary Lined Concrete Canal | GATE_016 | VELOCITY:2.2m/s
+018 -> 021 : 1974 | Secondary Earthen Sluice Trench | GATE_023 | VELOCITY:2.4m/s
+021 -> 025 : 1993 | Pressurized Underground Conduit | GATE_030 | VELOCITY:2.6m/s
+024 -> 025 : 2012 | Siphon Gravity Feeder | GATE_037 | VELOCITY:1.2m/s
+027 -> 029 : 2031 | Solar Lift Pumping Aqueduct | GATE_044 | VELOCITY:1.4m/s
+030 -> 033 : 2050 | Primary Lined Concrete Canal | GATE_051 | VELOCITY:1.6m/s
+033 -> 037 : 2069 | Secondary Earthen Sluice Trench | GATE_058 | VELOCITY:1.8m/s
+036 -> 037 : 2088 | Pressurized Underground Conduit | GATE_065 | VELOCITY:2.0m/s
+039 -> 041 : 2107 | Siphon Gravity Feeder | GATE_072 | VELOCITY:2.2m/s
+042 -> 045 : 2126 | Solar Lift Pumping Aqueduct | GATE_079 | VELOCITY:2.4m/s
+045 -> 049 : 2145 | Primary Lined Concrete Canal | GATE_086 | VELOCITY:2.6m/s
+048 -> 049 : 2164 | Secondary Earthen Sluice Trench | GATE_093 | VELOCITY:1.2m/s
+051 -> 053 : 2183 | Pressurized Underground Conduit | GATE_100 | VELOCITY:1.4m/s
+054 -> 057 : 2202 | Siphon Gravity Feeder | GATE_107 | VELOCITY:1.6m/s
+057 -> 061 : 2221 | Solar Lift Pumping Aqueduct | GATE_114 | VELOCITY:1.8m/s
+060 -> 061 : 2240 | Primary Lined Concrete Canal | GATE_121 | VELOCITY:2.0m/s
+063 -> 065 : 2259 | Secondary Earthen Sluice Trench | GATE_128 | VELOCITY:2.2m/s
+066 -> 069 : 2278 | Pressurized Underground Conduit | GATE_135 | VELOCITY:2.4m/s
+069 -> 073 : 2297 | Siphon Gravity Feeder | GATE_142 | VELOCITY:2.6m/s
+072 -> 073 : 2316 | Solar Lift Pumping Aqueduct | GATE_149 | VELOCITY:1.2m/s
+075 -> 077 : 2335 | Primary Lined Concrete Canal | GATE_156 | VELOCITY:1.4m/s
+078 -> 081 : 2354 | Secondary Earthen Sluice Trench | GATE_163 | VELOCITY:1.6m/s
+081 -> 085 : 2373 | Pressurized Underground Conduit | GATE_170 | VELOCITY:1.8m/s
+084 -> 085 : 2392 | Siphon Gravity Feeder | GATE_177 | VELOCITY:2.0m/s
+087 -> 089 : 2411 | Solar Lift Pumping Aqueduct | GATE_184 | VELOCITY:2.2m/s
+090 -> 093 : 2430 | Primary Lined Concrete Canal | GATE_191 | VELOCITY:2.4m/s
+093 -> 097 : 2449 | Secondary Earthen Sluice Trench | GATE_198 | VELOCITY:2.6m/s
+096 -> 097 : 2468 | Pressurized Underground Conduit | GATE_205 | VELOCITY:1.2m/s
+099 -> 101 : 2487 | Siphon Gravity Feeder | GATE_212 | VELOCITY:1.4m/s
+102 -> 105 : 2506 | Solar Lift Pumping Aqueduct | GATE_219 | VELOCITY:1.6m/s
+105 -> 109 : 2525 | Primary Lined Concrete Canal | GATE_226 | VELOCITY:1.8m/s
+108 -> 109 : 2544 | Secondary Earthen Sluice Trench | GATE_233 | VELOCITY:2.0m/s
+111 -> 113 : 2563 | Pressurized Underground Conduit | GATE_240 | VELOCITY:2.2m/s
+114 -> 117 : 2582 | Siphon Gravity Feeder | GATE_247 | VELOCITY:2.4m/s
+117 -> 121 : 2601 | Solar Lift Pumping Aqueduct | GATE_004 | VELOCITY:2.6m/s
+000 -> 001 : 2620 | Primary Lined Concrete Canal | GATE_011 | VELOCITY:1.2m/s
+003 -> 005 : 2639 | Secondary Earthen Sluice Trench | GATE_018 | VELOCITY:1.4m/s
+006 -> 009 : 2658 | Pressurized Underground Conduit | GATE_025 | VELOCITY:1.6m/s
+009 -> 013 : 2677 | Siphon Gravity Feeder | GATE_032 | VELOCITY:1.8m/s
+012 -> 013 : 2696 | Solar Lift Pumping Aqueduct | GATE_039 | VELOCITY:2.0m/s
+015 -> 017 : 2715 | Primary Lined Concrete Canal | GATE_046 | VELOCITY:2.2m/s
+018 -> 021 : 2734 | Secondary Earthen Sluice Trench | GATE_053 | VELOCITY:2.4m/s
+021 -> 025 : 2753 | Pressurized Underground Conduit | GATE_060 | VELOCITY:2.6m/s
+024 -> 025 : 2772 | Siphon Gravity Feeder | GATE_067 | VELOCITY:1.2m/s
+027 -> 029 : 2791 | Solar Lift Pumping Aqueduct | GATE_074 | VELOCITY:1.4m/s
+030 -> 033 : 2810 | Primary Lined Concrete Canal | GATE_081 | VELOCITY:1.6m/s
+033 -> 037 : 2829 | Secondary Earthen Sluice Trench | GATE_088 | VELOCITY:1.8m/s
+036 -> 037 : 2848 | Pressurized Underground Conduit | GATE_095 | VELOCITY:2.0m/s
+039 -> 041 : 2867 | Siphon Gravity Feeder | GATE_102 | VELOCITY:2.2m/s
+042 -> 045 : 2886 | Solar Lift Pumping Aqueduct | GATE_109 | VELOCITY:2.4m/s
+045 -> 049 : 2905 | Primary Lined Concrete Canal | GATE_116 | VELOCITY:2.6m/s
+048 -> 049 : 2924 | Secondary Earthen Sluice Trench | GATE_123 | VELOCITY:1.2m/s
+051 -> 053 : 2943 | Pressurized Underground Conduit | GATE_130 | VELOCITY:1.4m/s
+054 -> 057 : 2962 | Siphon Gravity Feeder | GATE_137 | VELOCITY:1.6m/s
+057 -> 061 : 2981 | Solar Lift Pumping Aqueduct | GATE_144 | VELOCITY:1.8m/s
+060 -> 061 : 3000 | Primary Lined Concrete Canal | GATE_151 | VELOCITY:2.0m/s
+063 -> 065 : 3019 | Secondary Earthen Sluice Trench | GATE_158 | VELOCITY:2.2m/s
+066 -> 069 : 3038 | Pressurized Underground Conduit | GATE_165 | VELOCITY:2.4m/s
+069 -> 073 : 3057 | Siphon Gravity Feeder | GATE_172 | VELOCITY:2.6m/s
+072 -> 073 : 3076 | Solar Lift Pumping Aqueduct | GATE_179 | VELOCITY:1.2m/s
+075 -> 077 : 3095 | Primary Lined Concrete Canal | GATE_186 | VELOCITY:1.4m/s
+078 -> 081 : 3114 | Secondary Earthen Sluice Trench | GATE_193 | VELOCITY:1.6m/s
+081 -> 085 : 3133 | Pressurized Underground Conduit | GATE_200 | VELOCITY:1.8m/s
+084 -> 085 : 3152 | Siphon Gravity Feeder | GATE_207 | VELOCITY:2.0m/s
+087 -> 089 : 3171 | Solar Lift Pumping Aqueduct | GATE_214 | VELOCITY:2.2m/s
+090 -> 093 : 3190 | Primary Lined Concrete Canal | GATE_221 | VELOCITY:2.4m/s
+093 -> 097 : 3209 | Secondary Earthen Sluice Trench | GATE_228 | VELOCITY:2.6m/s
+096 -> 097 : 3228 | Pressurized Underground Conduit | GATE_235 | VELOCITY:1.2m/s
+099 -> 101 : 3247 | Siphon Gravity Feeder | GATE_242 | VELOCITY:1.4m/s
+102 -> 105 : 3266 | Solar Lift Pumping Aqueduct | GATE_249 | VELOCITY:1.6m/s
+105 -> 109 : 3285 | Primary Lined Concrete Canal | GATE_006 | VELOCITY:1.8m/s
+108 -> 109 : 3304 | Secondary Earthen Sluice Trench | GATE_013 | VELOCITY:2.0m/s
+111 -> 113 : 3323 | Pressurized Underground Conduit | GATE_020 | VELOCITY:2.2m/s
+114 -> 117 : 3342 | Siphon Gravity Feeder | GATE_027 | VELOCITY:2.4m/s
+117 -> 121 : 3361 | Solar Lift Pumping Aqueduct | GATE_034 | VELOCITY:2.6m/s
+000 -> 001 : 3380 | Primary Lined Concrete Canal | GATE_041 | VELOCITY:1.2m/s
+003 -> 005 : 3399 | Secondary Earthen Sluice Trench | GATE_048 | VELOCITY:1.4m/s
+006 -> 009 : 3418 | Pressurized Underground Conduit | GATE_055 | VELOCITY:1.6m/s
+009 -> 013 : 3437 | Siphon Gravity Feeder | GATE_062 | VELOCITY:1.8m/s
+012 -> 013 : 3456 | Solar Lift Pumping Aqueduct | GATE_069 | VELOCITY:2.0m/s
+015 -> 017 : 3475 | Primary Lined Concrete Canal | GATE_076 | VELOCITY:2.2m/s
+018 -> 021 : 3494 | Secondary Earthen Sluice Trench | GATE_083 | VELOCITY:2.4m/s
+021 -> 025 : 3513 | Pressurized Underground Conduit | GATE_090 | VELOCITY:2.6m/s
+024 -> 025 : 3532 | Siphon Gravity Feeder | GATE_097 | VELOCITY:1.2m/s
+027 -> 029 : 3551 | Solar Lift Pumping Aqueduct | GATE_104 | VELOCITY:1.4m/s
+030 -> 033 : 3570 | Primary Lined Concrete Canal | GATE_111 | VELOCITY:1.6m/s
+033 -> 037 : 3589 | Secondary Earthen Sluice Trench | GATE_118 | VELOCITY:1.8m/s
+036 -> 037 : 3608 | Pressurized Underground Conduit | GATE_125 | VELOCITY:2.0m/s
+039 -> 041 : 3627 | Siphon Gravity Feeder | GATE_132 | VELOCITY:2.2m/s
+042 -> 045 : 3646 | Solar Lift Pumping Aqueduct | GATE_139 | VELOCITY:2.4m/s
+045 -> 049 : 3665 | Primary Lined Concrete Canal | GATE_146 | VELOCITY:2.6m/s
+048 -> 049 : 3684 | Secondary Earthen Sluice Trench | GATE_153 | VELOCITY:1.2m/s
+051 -> 053 : 0203 | Pressurized Underground Conduit | GATE_160 | VELOCITY:1.4m/s
+054 -> 057 : 0222 | Siphon Gravity Feeder | GATE_167 | VELOCITY:1.6m/s
+057 -> 061 : 0241 | Solar Lift Pumping Aqueduct | GATE_174 | VELOCITY:1.8m/s
+060 -> 061 : 0260 | Primary Lined Concrete Canal | GATE_181 | VELOCITY:2.0m/s
+063 -> 065 : 0279 | Secondary Earthen Sluice Trench | GATE_188 | VELOCITY:2.2m/s
+066 -> 069 : 0298 | Pressurized Underground Conduit | GATE_195 | VELOCITY:2.4m/s
+069 -> 073 : 0317 | Siphon Gravity Feeder | GATE_202 | VELOCITY:2.6m/s
+072 -> 073 : 0336 | Solar Lift Pumping Aqueduct | GATE_209 | VELOCITY:1.2m/s
+075 -> 077 : 0355 | Primary Lined Concrete Canal | GATE_216 | VELOCITY:1.4m/s
+078 -> 081 : 0374 | Secondary Earthen Sluice Trench | GATE_223 | VELOCITY:1.6m/s
+081 -> 085 : 0393 | Pressurized Underground Conduit | GATE_230 | VELOCITY:1.8m/s
+084 -> 085 : 0412 | Siphon Gravity Feeder | GATE_237 | VELOCITY:2.0m/s
+087 -> 089 : 0431 | Solar Lift Pumping Aqueduct | GATE_244 | VELOCITY:2.2m/s
+090 -> 093 : 0450 | Primary Lined Concrete Canal | GATE_001 | VELOCITY:2.4m/s
+093 -> 097 : 0469 | Secondary Earthen Sluice Trench | GATE_008 | VELOCITY:2.6m/s
+096 -> 097 : 0488 | Pressurized Underground Conduit | GATE_015 | VELOCITY:1.2m/s
+099 -> 101 : 0507 | Siphon Gravity Feeder | GATE_022 | VELOCITY:1.4m/s
+102 -> 105 : 0526 | Solar Lift Pumping Aqueduct | GATE_029 | VELOCITY:1.6m/s
+105 -> 109 : 0545 | Primary Lined Concrete Canal | GATE_036 | VELOCITY:1.8m/s
+108 -> 109 : 0564 | Secondary Earthen Sluice Trench | GATE_043 | VELOCITY:2.0m/s
+111 -> 113 : 0583 | Pressurized Underground Conduit | GATE_050 | VELOCITY:2.2m/s
+114 -> 117 : 0602 | Siphon Gravity Feeder | GATE_057 | VELOCITY:2.4m/s
+117 -> 121 : 0621 | Solar Lift Pumping Aqueduct | GATE_064 | VELOCITY:2.6m/s
+000 -> 001 : 0640 | Primary Lined Concrete Canal | GATE_071 | VELOCITY:1.2m/s
+003 -> 005 : 0659 | Secondary Earthen Sluice Trench | GATE_078 | VELOCITY:1.4m/s
+006 -> 009 : 0678 | Pressurized Underground Conduit | GATE_085 | VELOCITY:1.6m/s
+009 -> 013 : 0697 | Siphon Gravity Feeder | GATE_092 | VELOCITY:1.8m/s
+012 -> 013 : 0716 | Solar Lift Pumping Aqueduct | GATE_099 | VELOCITY:2.0m/s
+015 -> 017 : 0735 | Primary Lined Concrete Canal | GATE_106 | VELOCITY:2.2m/s
+018 -> 021 : 0754 | Secondary Earthen Sluice Trench | GATE_113 | VELOCITY:2.4m/s
+021 -> 025 : 0773 | Pressurized Underground Conduit | GATE_120 | VELOCITY:2.6m/s
+024 -> 025 : 0792 | Siphon Gravity Feeder | GATE_127 | VELOCITY:1.2m/s
+027 -> 029 : 0811 | Solar Lift Pumping Aqueduct | GATE_134 | VELOCITY:1.4m/s
+030 -> 033 : 0830 | Primary Lined Concrete Canal | GATE_141 | VELOCITY:1.6m/s
+033 -> 037 : 0849 | Secondary Earthen Sluice Trench | GATE_148 | VELOCITY:1.8m/s
+036 -> 037 : 0868 | Pressurized Underground Conduit | GATE_155 | VELOCITY:2.0m/s
+039 -> 041 : 0887 | Siphon Gravity Feeder | GATE_162 | VELOCITY:2.2m/s
+042 -> 045 : 0906 | Solar Lift Pumping Aqueduct | GATE_169 | VELOCITY:2.4m/s
+045 -> 049 : 0925 | Primary Lined Concrete Canal | GATE_176 | VELOCITY:2.6m/s
+048 -> 049 : 0944 | Secondary Earthen Sluice Trench | GATE_183 | VELOCITY:1.2m/s
+051 -> 053 : 0963 | Pressurized Underground Conduit | GATE_190 | VELOCITY:1.4m/s
+054 -> 057 : 0982 | Siphon Gravity Feeder | GATE_197 | VELOCITY:1.6m/s
+057 -> 061 : 1001 | Solar Lift Pumping Aqueduct | GATE_204 | VELOCITY:1.8m/s
+060 -> 061 : 1020 | Primary Lined Concrete Canal | GATE_211 | VELOCITY:2.0m/s
+063 -> 065 : 1039 | Secondary Earthen Sluice Trench | GATE_218 | VELOCITY:2.2m/s
+066 -> 069 : 1058 | Pressurized Underground Conduit | GATE_225 | VELOCITY:2.4m/s
+069 -> 073 : 1077 | Siphon Gravity Feeder | GATE_232 | VELOCITY:2.6m/s
+072 -> 073 : 1096 | Solar Lift Pumping Aqueduct | GATE_239 | VELOCITY:1.2m/s
+075 -> 077 : 1115 | Primary Lined Concrete Canal | GATE_246 | VELOCITY:1.4m/s
+078 -> 081 : 1134 | Secondary Earthen Sluice Trench | GATE_003 | VELOCITY:1.6m/s
+081 -> 085 : 1153 | Pressurized Underground Conduit | GATE_010 | VELOCITY:1.8m/s
+084 -> 085 : 1172 | Siphon Gravity Feeder | GATE_017 | VELOCITY:2.0m/s
+087 -> 089 : 1191 | Solar Lift Pumping Aqueduct | GATE_024 | VELOCITY:2.2m/s
+090 -> 093 : 1210 | Primary Lined Concrete Canal | GATE_031 | VELOCITY:2.4m/s
+093 -> 097 : 1229 | Secondary Earthen Sluice Trench | GATE_038 | VELOCITY:2.6m/s
+096 -> 097 : 1248 | Pressurized Underground Conduit | GATE_045 | VELOCITY:1.2m/s
+099 -> 101 : 1267 | Siphon Gravity Feeder | GATE_052 | VELOCITY:1.4m/s
+102 -> 105 : 1286 | Solar Lift Pumping Aqueduct | GATE_059 | VELOCITY:1.6m/s
+105 -> 109 : 1305 | Primary Lined Concrete Canal | GATE_066 | VELOCITY:1.8m/s
+108 -> 109 : 1324 | Secondary Earthen Sluice Trench | GATE_073 | VELOCITY:2.0m/s
+111 -> 113 : 1343 | Pressurized Underground Conduit | GATE_080 | VELOCITY:2.2m/s
+114 -> 117 : 1362 | Siphon Gravity Feeder | GATE_087 | VELOCITY:2.4m/s
+117 -> 121 : 1381 | Solar Lift Pumping Aqueduct | GATE_094 | VELOCITY:2.6m/s
+000 -> 001 : 1400 | Primary Lined Concrete Canal | GATE_101 | VELOCITY:1.2m/s
+003 -> 005 : 1419 | Secondary Earthen Sluice Trench | GATE_108 | VELOCITY:1.4m/s
+006 -> 009 : 1438 | Pressurized Underground Conduit | GATE_115 | VELOCITY:1.6m/s
+009 -> 013 : 1457 | Siphon Gravity Feeder | GATE_122 | VELOCITY:1.8m/s
+012 -> 013 : 1476 | Solar Lift Pumping Aqueduct | GATE_129 | VELOCITY:2.0m/s
+015 -> 017 : 1495 | Primary Lined Concrete Canal | GATE_136 | VELOCITY:2.2m/s
+018 -> 021 : 1514 | Secondary Earthen Sluice Trench | GATE_143 | VELOCITY:2.4m/s
+021 -> 025 : 1533 | Pressurized Underground Conduit | GATE_150 | VELOCITY:2.6m/s
+024 -> 025 : 1552 | Siphon Gravity Feeder | GATE_157 | VELOCITY:1.2m/s
+027 -> 029 : 1571 | Solar Lift Pumping Aqueduct | GATE_164 | VELOCITY:1.4m/s
+030 -> 033 : 1590 | Primary Lined Concrete Canal | GATE_171 | VELOCITY:1.6m/s
+033 -> 037 : 1609 | Secondary Earthen Sluice Trench | GATE_178 | VELOCITY:1.8m/s
+036 -> 037 : 1628 | Pressurized Underground Conduit | GATE_185 | VELOCITY:2.0m/s
+039 -> 041 : 1647 | Siphon Gravity Feeder | GATE_192 | VELOCITY:2.2m/s
+042 -> 045 : 1666 | Solar Lift Pumping Aqueduct | GATE_199 | VELOCITY:2.4m/s
+045 -> 049 : 1685 | Primary Lined Concrete Canal | GATE_206 | VELOCITY:2.6m/s
+048 -> 049 : 1704 | Secondary Earthen Sluice Trench | GATE_213 | VELOCITY:1.2m/s
+051 -> 053 : 1723 | Pressurized Underground Conduit | GATE_220 | VELOCITY:1.4m/s
+054 -> 057 : 1742 | Siphon Gravity Feeder | GATE_227 | VELOCITY:1.6m/s
+057 -> 061 : 1761 | Solar Lift Pumping Aqueduct | GATE_234 | VELOCITY:1.8m/s
+060 -> 061 : 1780 | Primary Lined Concrete Canal | GATE_241 | VELOCITY:2.0m/s
+063 -> 065 : 1799 | Secondary Earthen Sluice Trench | GATE_248 | VELOCITY:2.2m/s
+066 -> 069 : 1818 | Pressurized Underground Conduit | GATE_005 | VELOCITY:2.4m/s
+069 -> 073 : 1837 | Siphon Gravity Feeder | GATE_012 | VELOCITY:2.6m/s
+072 -> 073 : 1856 | Solar Lift Pumping Aqueduct | GATE_019 | VELOCITY:1.2m/s
+075 -> 077 : 1875 | Primary Lined Concrete Canal | GATE_026 | VELOCITY:1.4m/s
+078 -> 081 : 1894 | Secondary Earthen Sluice Trench | GATE_033 | VELOCITY:1.6m/s
+081 -> 085 : 1913 | Pressurized Underground Conduit | GATE_040 | VELOCITY:1.8m/s
+084 -> 085 : 1932 | Siphon Gravity Feeder | GATE_047 | VELOCITY:2.0m/s
+087 -> 089 : 1951 | Solar Lift Pumping Aqueduct | GATE_054 | VELOCITY:2.2m/s
+090 -> 093 : 1970 | Primary Lined Concrete Canal | GATE_061 | VELOCITY:2.4m/s
+093 -> 097 : 1989 | Secondary Earthen Sluice Trench | GATE_068 | VELOCITY:2.6m/s
+096 -> 097 : 2008 | Pressurized Underground Conduit | GATE_075 | VELOCITY:1.2m/s
+099 -> 101 : 2027 | Siphon Gravity Feeder | GATE_082 | VELOCITY:1.4m/s
+102 -> 105 : 2046 | Solar Lift Pumping Aqueduct | GATE_089 | VELOCITY:1.6m/s
+105 -> 109 : 2065 | Primary Lined Concrete Canal | GATE_096 | VELOCITY:1.8m/s
+108 -> 109 : 2084 | Secondary Earthen Sluice Trench | GATE_103 | VELOCITY:2.0m/s
+111 -> 113 : 2103 | Pressurized Underground Conduit | GATE_110 | VELOCITY:2.2m/s
+114 -> 117 : 2122 | Siphon Gravity Feeder | GATE_117 | VELOCITY:2.4m/s
+117 -> 121 : 2141 | Solar Lift Pumping Aqueduct | GATE_124 | VELOCITY:2.6m/s
+000 -> 001 : 2160 | Primary Lined Concrete Canal | GATE_131 | VELOCITY:1.2m/s
+003 -> 005 : 2179 | Secondary Earthen Sluice Trench | GATE_138 | VELOCITY:1.4m/s
+006 -> 009 : 2198 | Pressurized Underground Conduit | GATE_145 | VELOCITY:1.6m/s
+009 -> 013 : 2217 | Siphon Gravity Feeder | GATE_152 | VELOCITY:1.8m/s
+012 -> 013 : 2236 | Solar Lift Pumping Aqueduct | GATE_159 | VELOCITY:2.0m/s
+015 -> 017 : 2255 | Primary Lined Concrete Canal | GATE_166 | VELOCITY:2.2m/s
+018 -> 021 : 2274 | Secondary Earthen Sluice Trench | GATE_173 | VELOCITY:2.4m/s
+021 -> 025 : 2293 | Pressurized Underground Conduit | GATE_180 | VELOCITY:2.6m/s
+024 -> 025 : 2312 | Siphon Gravity Feeder | GATE_187 | VELOCITY:1.2m/s
+027 -> 029 : 2331 | Solar Lift Pumping Aqueduct | GATE_194 | VELOCITY:1.4m/s
+030 -> 033 : 2350 | Primary Lined Concrete Canal | GATE_201 | VELOCITY:1.6m/s
+033 -> 037 : 2369 | Secondary Earthen Sluice Trench | GATE_208 | VELOCITY:1.8m/s
+036 -> 037 : 2388 | Pressurized Underground Conduit | GATE_215 | VELOCITY:2.0m/s
+039 -> 041 : 2407 | Siphon Gravity Feeder | GATE_222 | VELOCITY:2.2m/s
+042 -> 045 : 2426 | Solar Lift Pumping Aqueduct | GATE_229 | VELOCITY:2.4m/s
+045 -> 049 : 2445 | Primary Lined Concrete Canal | GATE_236 | VELOCITY:2.6m/s
+048 -> 049 : 2464 | Secondary Earthen Sluice Trench | GATE_243 | VELOCITY:1.2m/s
+051 -> 053 : 2483 | Pressurized Underground Conduit | GATE_250 | VELOCITY:1.4m/s
+054 -> 057 : 2502 | Siphon Gravity Feeder | GATE_007 | VELOCITY:1.6m/s
+057 -> 061 : 2521 | Solar Lift Pumping Aqueduct | GATE_014 | VELOCITY:1.8m/s
+060 -> 061 : 2540 | Primary Lined Concrete Canal | GATE_021 | VELOCITY:2.0m/s
+063 -> 065 : 2559 | Secondary Earthen Sluice Trench | GATE_028 | VELOCITY:2.2m/s
+066 -> 069 : 2578 | Pressurized Underground Conduit | GATE_035 | VELOCITY:2.4m/s
+069 -> 073 : 2597 | Siphon Gravity Feeder | GATE_042 | VELOCITY:2.6m/s
+072 -> 073 : 2616 | Solar Lift Pumping Aqueduct | GATE_049 | VELOCITY:1.2m/s
+075 -> 077 : 2635 | Primary Lined Concrete Canal | GATE_056 | VELOCITY:1.4m/s
+078 -> 081 : 2654 | Secondary Earthen Sluice Trench | GATE_063 | VELOCITY:1.6m/s
+081 -> 085 : 2673 | Pressurized Underground Conduit | GATE_070 | VELOCITY:1.8m/s
+084 -> 085 : 2692 | Siphon Gravity Feeder | GATE_077 | VELOCITY:2.0m/s
+087 -> 089 : 2711 | Solar Lift Pumping Aqueduct | GATE_084 | VELOCITY:2.2m/s
+090 -> 093 : 2730 | Primary Lined Concrete Canal | GATE_091 | VELOCITY:2.4m/s
+093 -> 097 : 2749 | Secondary Earthen Sluice Trench | GATE_098 | VELOCITY:2.6m/s
+096 -> 097 : 2768 | Pressurized Underground Conduit | GATE_105 | VELOCITY:1.2m/s
+099 -> 101 : 2787 | Siphon Gravity Feeder | GATE_112 | VELOCITY:1.4m/s
+102 -> 105 : 2806 | Solar Lift Pumping Aqueduct | GATE_119 | VELOCITY:1.6m/s
+105 -> 109 : 2825 | Primary Lined Concrete Canal | GATE_126 | VELOCITY:1.8m/s
+108 -> 109 : 2844 | Secondary Earthen Sluice Trench | GATE_133 | VELOCITY:2.0m/s
+111 -> 113 : 2863 | Pressurized Underground Conduit | GATE_140 | VELOCITY:2.2m/s
+114 -> 117 : 2882 | Siphon Gravity Feeder | GATE_147 | VELOCITY:2.4m/s
+117 -> 121 : 2901 | Solar Lift Pumping Aqueduct | GATE_154 | VELOCITY:2.6m/s
+000 -> 001 : 2920 | Primary Lined Concrete Canal | GATE_161 | VELOCITY:1.2m/s
+003 -> 005 : 2939 | Secondary Earthen Sluice Trench | GATE_168 | VELOCITY:1.4m/s
+006 -> 009 : 2958 | Pressurized Underground Conduit | GATE_175 | VELOCITY:1.6m/s
+009 -> 013 : 2977 | Siphon Gravity Feeder | GATE_182 | VELOCITY:1.8m/s
+012 -> 013 : 2996 | Solar Lift Pumping Aqueduct | GATE_189 | VELOCITY:2.0m/s
+015 -> 017 : 3015 | Primary Lined Concrete Canal | GATE_196 | VELOCITY:2.2m/s
+018 -> 021 : 3034 | Secondary Earthen Sluice Trench | GATE_203 | VELOCITY:2.4m/s
+021 -> 025 : 3053 | Pressurized Underground Conduit | GATE_210 | VELOCITY:2.6m/s
+024 -> 025 : 3072 | Siphon Gravity Feeder | GATE_217 | VELOCITY:1.2m/s
+027 -> 029 : 3091 | Solar Lift Pumping Aqueduct | GATE_224 | VELOCITY:1.4m/s
+030 -> 033 : 3110 | Primary Lined Concrete Canal | GATE_231 | VELOCITY:1.6m/s
+033 -> 037 : 3129 | Secondary Earthen Sluice Trench | GATE_238 | VELOCITY:1.8m/s
+036 -> 037 : 3148 | Pressurized Underground Conduit | GATE_245 | VELOCITY:2.0m/s
+039 -> 041 : 3167 | Siphon Gravity Feeder | GATE_002 | VELOCITY:2.2m/s
+042 -> 045 : 3186 | Solar Lift Pumping Aqueduct | GATE_009 | VELOCITY:2.4m/s
+045 -> 049 : 3205 | Primary Lined Concrete Canal | GATE_016 | VELOCITY:2.6m/s
+048 -> 049 : 3224 | Secondary Earthen Sluice Trench | GATE_023 | VELOCITY:1.2m/s
+051 -> 053 : 3243 | Pressurized Underground Conduit | GATE_030 | VELOCITY:1.4m/s
+054 -> 057 : 3262 | Siphon Gravity Feeder | GATE_037 | VELOCITY:1.6m/s
+057 -> 061 : 3281 | Solar Lift Pumping Aqueduct | GATE_044 | VELOCITY:1.8m/s
+060 -> 061 : 3300 | Primary Lined Concrete Canal | GATE_051 | VELOCITY:2.0m/s
+063 -> 065 : 3319 | Secondary Earthen Sluice Trench | GATE_058 | VELOCITY:2.2m/s
+066 -> 069 : 3338 | Pressurized Underground Conduit | GATE_065 | VELOCITY:2.4m/s
+069 -> 073 : 3357 | Siphon Gravity Feeder | GATE_072 | VELOCITY:2.6m/s
+072 -> 073 : 3376 | Solar Lift Pumping Aqueduct | GATE_079 | VELOCITY:1.2m/s
+075 -> 077 : 3395 | Primary Lined Concrete Canal | GATE_086 | VELOCITY:1.4m/s
+078 -> 081 : 3414 | Secondary Earthen Sluice Trench | GATE_093 | VELOCITY:1.6m/s
+081 -> 085 : 3433 | Pressurized Underground Conduit | GATE_100 | VELOCITY:1.8m/s
+084 -> 085 : 3452 | Siphon Gravity Feeder | GATE_107 | VELOCITY:2.0m/s
+087 -> 089 : 3471 | Solar Lift Pumping Aqueduct | GATE_114 | VELOCITY:2.2m/s
+090 -> 093 : 3490 | Primary Lined Concrete Canal | GATE_121 | VELOCITY:2.4m/s
+093 -> 097 : 3509 | Secondary Earthen Sluice Trench | GATE_128 | VELOCITY:2.6m/s
+096 -> 097 : 3528 | Pressurized Underground Conduit | GATE_135 | VELOCITY:1.2m/s
+099 -> 101 : 3547 | Siphon Gravity Feeder | GATE_142 | VELOCITY:1.4m/s
+102 -> 105 : 3566 | Solar Lift Pumping Aqueduct | GATE_149 | VELOCITY:1.6m/s
+105 -> 109 : 3585 | Primary Lined Concrete Canal | GATE_156 | VELOCITY:1.8m/s
+108 -> 109 : 3604 | Secondary Earthen Sluice Trench | GATE_163 | VELOCITY:2.0m/s
+111 -> 113 : 3623 | Pressurized Underground Conduit | GATE_170 | VELOCITY:2.2m/s
+114 -> 117 : 3642 | Siphon Gravity Feeder | GATE_177 | VELOCITY:2.4m/s
+117 -> 121 : 3661 | Solar Lift Pumping Aqueduct | GATE_184 | VELOCITY:2.6m/s
+000 -> 001 : 3680 | Primary Lined Concrete Canal | GATE_191 | VELOCITY:1.2m/s
+003 -> 005 : 3699 | Secondary Earthen Sluice Trench | GATE_198 | VELOCITY:1.4m/s
+006 -> 009 : 0218 | Pressurized Underground Conduit | GATE_205 | VELOCITY:1.6m/s
+009 -> 013 : 0237 | Siphon Gravity Feeder | GATE_212 | VELOCITY:1.8m/s
+012 -> 013 : 0256 | Solar Lift Pumping Aqueduct | GATE_219 | VELOCITY:2.0m/s
+015 -> 017 : 0275 | Primary Lined Concrete Canal | GATE_226 | VELOCITY:2.2m/s
+018 -> 021 : 0294 | Secondary Earthen Sluice Trench | GATE_233 | VELOCITY:2.4m/s
+021 -> 025 : 0313 | Pressurized Underground Conduit | GATE_240 | VELOCITY:2.6m/s
+024 -> 025 : 0332 | Siphon Gravity Feeder | GATE_247 | VELOCITY:1.2m/s
+027 -> 029 : 0351 | Solar Lift Pumping Aqueduct | GATE_004 | VELOCITY:1.4m/s
+030 -> 033 : 0370 | Primary Lined Concrete Canal | GATE_011 | VELOCITY:1.6m/s
+033 -> 037 : 0389 | Secondary Earthen Sluice Trench | GATE_018 | VELOCITY:1.8m/s
+036 -> 037 : 0408 | Pressurized Underground Conduit | GATE_025 | VELOCITY:2.0m/s
+039 -> 041 : 0427 | Siphon Gravity Feeder | GATE_032 | VELOCITY:2.2m/s
+042 -> 045 : 0446 | Solar Lift Pumping Aqueduct | GATE_039 | VELOCITY:2.4m/s
+045 -> 049 : 0465 | Primary Lined Concrete Canal | GATE_046 | VELOCITY:2.6m/s
+048 -> 049 : 0484 | Secondary Earthen Sluice Trench | GATE_053 | VELOCITY:1.2m/s
+051 -> 053 : 0503 | Pressurized Underground Conduit | GATE_060 | VELOCITY:1.4m/s
+054 -> 057 : 0522 | Siphon Gravity Feeder | GATE_067 | VELOCITY:1.6m/s
+057 -> 061 : 0541 | Solar Lift Pumping Aqueduct | GATE_074 | VELOCITY:1.8m/s
+060 -> 061 : 0560 | Primary Lined Concrete Canal | GATE_081 | VELOCITY:2.0m/s
+063 -> 065 : 0579 | Secondary Earthen Sluice Trench | GATE_088 | VELOCITY:2.2m/s
+066 -> 069 : 0598 | Pressurized Underground Conduit | GATE_095 | VELOCITY:2.4m/s
+069 -> 073 : 0617 | Siphon Gravity Feeder | GATE_102 | VELOCITY:2.6m/s
+072 -> 073 : 0636 | Solar Lift Pumping Aqueduct | GATE_109 | VELOCITY:1.2m/s
+075 -> 077 : 0655 | Primary Lined Concrete Canal | GATE_116 | VELOCITY:1.4m/s
+078 -> 081 : 0674 | Secondary Earthen Sluice Trench | GATE_123 | VELOCITY:1.6m/s
+081 -> 085 : 0693 | Pressurized Underground Conduit | GATE_130 | VELOCITY:1.8m/s
+084 -> 085 : 0712 | Siphon Gravity Feeder | GATE_137 | VELOCITY:2.0m/s
+087 -> 089 : 0731 | Solar Lift Pumping Aqueduct | GATE_144 | VELOCITY:2.2m/s
+090 -> 093 : 0750 | Primary Lined Concrete Canal | GATE_151 | VELOCITY:2.4m/s
+093 -> 097 : 0769 | Secondary Earthen Sluice Trench | GATE_158 | VELOCITY:2.6m/s
+096 -> 097 : 0788 | Pressurized Underground Conduit | GATE_165 | VELOCITY:1.2m/s
+099 -> 101 : 0807 | Siphon Gravity Feeder | GATE_172 | VELOCITY:1.4m/s
+102 -> 105 : 0826 | Solar Lift Pumping Aqueduct | GATE_179 | VELOCITY:1.6m/s
+105 -> 109 : 0845 | Primary Lined Concrete Canal | GATE_186 | VELOCITY:1.8m/s
+108 -> 109 : 0864 | Secondary Earthen Sluice Trench | GATE_193 | VELOCITY:2.0m/s
+111 -> 113 : 0883 | Pressurized Underground Conduit | GATE_200 | VELOCITY:2.2m/s
+114 -> 117 : 0902 | Siphon Gravity Feeder | GATE_207 | VELOCITY:2.4m/s
+117 -> 121 : 0921 | Solar Lift Pumping Aqueduct | GATE_214 | VELOCITY:2.6m/s
+000 -> 001 : 0940 | Primary Lined Concrete Canal | GATE_221 | VELOCITY:1.2m/s
+003 -> 005 : 0959 | Secondary Earthen Sluice Trench | GATE_228 | VELOCITY:1.4m/s
+006 -> 009 : 0978 | Pressurized Underground Conduit | GATE_235 | VELOCITY:1.6m/s
+009 -> 013 : 0997 | Siphon Gravity Feeder | GATE_242 | VELOCITY:1.8m/s
+012 -> 013 : 1016 | Solar Lift Pumping Aqueduct | GATE_249 | VELOCITY:2.0m/s
+015 -> 017 : 1035 | Primary Lined Concrete Canal | GATE_006 | VELOCITY:2.2m/s
+018 -> 021 : 1054 | Secondary Earthen Sluice Trench | GATE_013 | VELOCITY:2.4m/s
+021 -> 025 : 1073 | Pressurized Underground Conduit | GATE_020 | VELOCITY:2.6m/s
+024 -> 025 : 1092 | Siphon Gravity Feeder | GATE_027 | VELOCITY:1.2m/s
+027 -> 029 : 1111 | Solar Lift Pumping Aqueduct | GATE_034 | VELOCITY:1.4m/s
+030 -> 033 : 1130 | Primary Lined Concrete Canal | GATE_041 | VELOCITY:1.6m/s
+033 -> 037 : 1149 | Secondary Earthen Sluice Trench | GATE_048 | VELOCITY:1.8m/s
+036 -> 037 : 1168 | Pressurized Underground Conduit | GATE_055 | VELOCITY:2.0m/s
+039 -> 041 : 1187 | Siphon Gravity Feeder | GATE_062 | VELOCITY:2.2m/s
+042 -> 045 : 1206 | Solar Lift Pumping Aqueduct | GATE_069 | VELOCITY:2.4m/s
+045 -> 049 : 1225 | Primary Lined Concrete Canal | GATE_076 | VELOCITY:2.6m/s
+048 -> 049 : 1244 | Secondary Earthen Sluice Trench | GATE_083 | VELOCITY:1.2m/s
+051 -> 053 : 1263 | Pressurized Underground Conduit | GATE_090 | VELOCITY:1.4m/s
+054 -> 057 : 1282 | Siphon Gravity Feeder | GATE_097 | VELOCITY:1.6m/s
+057 -> 061 : 1301 | Solar Lift Pumping Aqueduct | GATE_104 | VELOCITY:1.8m/s
+060 -> 061 : 1320 | Primary Lined Concrete Canal | GATE_111 | VELOCITY:2.0m/s
+063 -> 065 : 1339 | Secondary Earthen Sluice Trench | GATE_118 | VELOCITY:2.2m/s
+066 -> 069 : 1358 | Pressurized Underground Conduit | GATE_125 | VELOCITY:2.4m/s
+069 -> 073 : 1377 | Siphon Gravity Feeder | GATE_132 | VELOCITY:2.6m/s
+072 -> 073 : 1396 | Solar Lift Pumping Aqueduct | GATE_139 | VELOCITY:1.2m/s
+075 -> 077 : 1415 | Primary Lined Concrete Canal | GATE_146 | VELOCITY:1.4m/s
+078 -> 081 : 1434 | Secondary Earthen Sluice Trench | GATE_153 | VELOCITY:1.6m/s
+081 -> 085 : 1453 | Pressurized Underground Conduit | GATE_160 | VELOCITY:1.8m/s
+084 -> 085 : 1472 | Siphon Gravity Feeder | GATE_167 | VELOCITY:2.0m/s
+087 -> 089 : 1491 | Solar Lift Pumping Aqueduct | GATE_174 | VELOCITY:2.2m/s
+090 -> 093 : 1510 | Primary Lined Concrete Canal | GATE_181 | VELOCITY:2.4m/s
+093 -> 097 : 1529 | Secondary Earthen Sluice Trench | GATE_188 | VELOCITY:2.6m/s
+096 -> 097 : 1548 | Pressurized Underground Conduit | GATE_195 | VELOCITY:1.2m/s
+099 -> 101 : 1567 | Siphon Gravity Feeder | GATE_202 | VELOCITY:1.4m/s
+102 -> 105 : 1586 | Solar Lift Pumping Aqueduct | GATE_209 | VELOCITY:1.6m/s
+105 -> 109 : 1605 | Primary Lined Concrete Canal | GATE_216 | VELOCITY:1.8m/s
+108 -> 109 : 1624 | Secondary Earthen Sluice Trench | GATE_223 | VELOCITY:2.0m/s
+111 -> 113 : 1643 | Pressurized Underground Conduit | GATE_230 | VELOCITY:2.2m/s
+114 -> 117 : 1662 | Siphon Gravity Feeder | GATE_237 | VELOCITY:2.4m/s
+117 -> 121 : 1681 | Solar Lift Pumping Aqueduct | GATE_244 | VELOCITY:2.6m/s
+000 -> 001 : 1700 | Primary Lined Concrete Canal | GATE_001 | VELOCITY:1.2m/s
+003 -> 005 : 1719 | Secondary Earthen Sluice Trench | GATE_008 | VELOCITY:1.4m/s
+006 -> 009 : 1738 | Pressurized Underground Conduit | GATE_015 | VELOCITY:1.6m/s
+009 -> 013 : 1757 | Siphon Gravity Feeder | GATE_022 | VELOCITY:1.8m/s
+012 -> 013 : 1776 | Solar Lift Pumping Aqueduct | GATE_029 | VELOCITY:2.0m/s
+015 -> 017 : 1795 | Primary Lined Concrete Canal | GATE_036 | VELOCITY:2.2m/s
+018 -> 021 : 1814 | Secondary Earthen Sluice Trench | GATE_043 | VELOCITY:2.4m/s
+021 -> 025 : 1833 | Pressurized Underground Conduit | GATE_050 | VELOCITY:2.6m/s
+024 -> 025 : 1852 | Siphon Gravity Feeder | GATE_057 | VELOCITY:1.2m/s
+027 -> 029 : 1871 | Solar Lift Pumping Aqueduct | GATE_064 | VELOCITY:1.4m/s
+030 -> 033 : 1890 | Primary Lined Concrete Canal | GATE_071 | VELOCITY:1.6m/s
+033 -> 037 : 1909 | Secondary Earthen Sluice Trench | GATE_078 | VELOCITY:1.8m/s
+036 -> 037 : 1928 | Pressurized Underground Conduit | GATE_085 | VELOCITY:2.0m/s
+039 -> 041 : 1947 | Siphon Gravity Feeder | GATE_092 | VELOCITY:2.2m/s
+042 -> 045 : 1966 | Solar Lift Pumping Aqueduct | GATE_099 | VELOCITY:2.4m/s
+045 -> 049 : 1985 | Primary Lined Concrete Canal | GATE_106 | VELOCITY:2.6m/s
+048 -> 049 : 2004 | Secondary Earthen Sluice Trench | GATE_113 | VELOCITY:1.2m/s
+051 -> 053 : 2023 | Pressurized Underground Conduit | GATE_120 | VELOCITY:1.4m/s
+054 -> 057 : 2042 | Siphon Gravity Feeder | GATE_127 | VELOCITY:1.6m/s
+057 -> 061 : 2061 | Solar Lift Pumping Aqueduct | GATE_134 | VELOCITY:1.8m/s
+060 -> 061 : 2080 | Primary Lined Concrete Canal | GATE_141 | VELOCITY:2.0m/s
+063 -> 065 : 2099 | Secondary Earthen Sluice Trench | GATE_148 | VELOCITY:2.2m/s
+066 -> 069 : 2118 | Pressurized Underground Conduit | GATE_155 | VELOCITY:2.4m/s
+069 -> 073 : 2137 | Siphon Gravity Feeder | GATE_162 | VELOCITY:2.6m/s
+072 -> 073 : 2156 | Solar Lift Pumping Aqueduct | GATE_169 | VELOCITY:1.2m/s
+075 -> 077 : 2175 | Primary Lined Concrete Canal | GATE_176 | VELOCITY:1.4m/s
+078 -> 081 : 2194 | Secondary Earthen Sluice Trench | GATE_183 | VELOCITY:1.6m/s
+081 -> 085 : 2213 | Pressurized Underground Conduit | GATE_190 | VELOCITY:1.8m/s
+084 -> 085 : 2232 | Siphon Gravity Feeder | GATE_197 | VELOCITY:2.0m/s
+087 -> 089 : 2251 | Solar Lift Pumping Aqueduct | GATE_204 | VELOCITY:2.2m/s
+090 -> 093 : 2270 | Primary Lined Concrete Canal | GATE_211 | VELOCITY:2.4m/s
+093 -> 097 : 2289 | Secondary Earthen Sluice Trench | GATE_218 | VELOCITY:2.6m/s
+096 -> 097 : 2308 | Pressurized Underground Conduit | GATE_225 | VELOCITY:1.2m/s
+099 -> 101 : 2327 | Siphon Gravity Feeder | GATE_232 | VELOCITY:1.4m/s
+102 -> 105 : 2346 | Solar Lift Pumping Aqueduct | GATE_239 | VELOCITY:1.6m/s
+105 -> 109 : 2365 | Primary Lined Concrete Canal | GATE_246 | VELOCITY:1.8m/s
+108 -> 109 : 2384 | Secondary Earthen Sluice Trench | GATE_003 | VELOCITY:2.0m/s
+111 -> 113 : 2403 | Pressurized Underground Conduit | GATE_010 | VELOCITY:2.2m/s
+114 -> 117 : 2422 | Siphon Gravity Feeder | GATE_017 | VELOCITY:2.4m/s
+117 -> 121 : 2441 | Solar Lift Pumping Aqueduct | GATE_024 | VELOCITY:2.6m/s

@@ -18,9 +18,11 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b %ERRORLEVEL%
 )
 
-echo [2/3] Synchronizing Web Dashboard assets...
+echo [2/3] Synchronizing Web Dashboard assets and Kaggle Datasets...
 if not exist "bin\web" mkdir bin\web
 xcopy /E /I /Y src\main\resources\web bin\web > nul
+if not exist "bin\data" mkdir bin\data
+xcopy /E /I /Y data bin\data > nul
 
 echo [3/3] Compilation successful!
 echo.

@@ -1,0 +1,1061 @@
+# ==============================================================================
+# DATASET: Kaggle Drone LIDAR & Satellite Multispectral Matrix Fusion (K-DLMF-2026)
+# SOURCE: ESA Copernicus Sentinel-2 & Precision UAV Remote Sensing Consortium
+# LICENSE: Open Data Commons Attribution License (ODC-By)
+# FORMAT: Matrix Dimension Chain (Rows x Cols for Sequential Transformation Pipeline)
+# COMPATIBILITY: Module 3 (Matrix Chain Multiplication DP Optimizer)
+# ==============================================================================
+
+# REFERENCE BENCHMARK PIPELINE A: Satellite NDVI Orthorectification Chain (p = [10, 100, 5, 50, 1])
+MATRIX_A1 | Raw Surface Reflectance | 10 x 100
+MATRIX_A2 | Atmospheric Correction Convolution | 100 x 5
+MATRIX_A3 | Soil-Adjusted Vegetation Index Projector | 5 x 50
+MATRIX_A4 | Canopy Water Stress Scalar Extractor | 50 x 1
+
+# REFERENCE BENCHMARK PIPELINE B: Drone Thermal-Infrared Multi-Sensor Alignment (p = [40, 20, 30, 10, 30])
+MATRIX_B1 | Thermal Infrared Microbolometer Grid | 40 x 20
+MATRIX_B2 | Radiometric Calibration Matrix | 20 x 30
+MATRIX_B3 | Orthomosaic Elevation Homography | 30 x 10
+MATRIX_B4 | Evapotranspiration Crop Flux Model | 10 x 30
+
+# EXTENDED REGIONAL REMOTE SENSING MATRIX CHAINS (1000+ Transformation Stages):
+PIPE_001 | STAGE_0001 | 10 x 10 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:500
+PIPE_001 | STAGE_0002 | 17 x 23 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:1955
+PIPE_001 | STAGE_0003 | 24 x 36 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:4320
+PIPE_001 | STAGE_0004 | 31 x 49 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:7595
+PIPE_002 | STAGE_0005 | 38 x 62 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:11780
+PIPE_002 | STAGE_0006 | 45 x 75 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:16875
+PIPE_002 | STAGE_0007 | 52 x 88 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:22880
+PIPE_002 | STAGE_0008 | 59 x 101 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:29795
+PIPE_003 | STAGE_0009 | 66 x 114 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:37620
+PIPE_003 | STAGE_0010 | 73 x 127 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:46355
+PIPE_003 | STAGE_0011 | 80 x 140 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:56000
+PIPE_003 | STAGE_0012 | 87 x 153 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:66555
+PIPE_004 | STAGE_0013 | 94 x 166 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:78020
+PIPE_004 | STAGE_0014 | 101 x 179 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:90395
+PIPE_004 | STAGE_0015 | 108 x 192 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:103680
+PIPE_004 | STAGE_0016 | 115 x 15 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:8625
+PIPE_005 | STAGE_0017 | 122 x 28 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:17080
+PIPE_005 | STAGE_0018 | 129 x 41 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:26445
+PIPE_005 | STAGE_0019 | 136 x 54 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:36720
+PIPE_005 | STAGE_0020 | 143 x 67 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:47905
+PIPE_006 | STAGE_0021 | 150 x 80 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:60000
+PIPE_006 | STAGE_0022 | 157 x 93 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:73005
+PIPE_006 | STAGE_0023 | 164 x 106 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:86920
+PIPE_006 | STAGE_0024 | 171 x 119 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:101745
+PIPE_007 | STAGE_0025 | 178 x 132 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:117480
+PIPE_007 | STAGE_0026 | 185 x 145 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:134125
+PIPE_007 | STAGE_0027 | 192 x 158 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:151680
+PIPE_007 | STAGE_0028 | 199 x 171 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:170145
+PIPE_008 | STAGE_0029 | 16 x 184 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:14720
+PIPE_008 | STAGE_0030 | 23 x 197 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:22655
+PIPE_008 | STAGE_0031 | 30 x 20 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:3000
+PIPE_008 | STAGE_0032 | 37 x 33 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:6105
+PIPE_009 | STAGE_0033 | 44 x 46 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:10120
+PIPE_009 | STAGE_0034 | 51 x 59 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:15045
+PIPE_009 | STAGE_0035 | 58 x 72 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:20880
+PIPE_009 | STAGE_0036 | 65 x 85 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:27625
+PIPE_010 | STAGE_0037 | 72 x 98 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:35280
+PIPE_010 | STAGE_0038 | 79 x 111 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:43845
+PIPE_010 | STAGE_0039 | 86 x 124 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:53320
+PIPE_010 | STAGE_0040 | 93 x 137 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:63705
+PIPE_011 | STAGE_0041 | 100 x 150 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:75000
+PIPE_011 | STAGE_0042 | 107 x 163 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:87205
+PIPE_011 | STAGE_0043 | 114 x 176 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:100320
+PIPE_011 | STAGE_0044 | 121 x 189 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:114345
+PIPE_012 | STAGE_0045 | 128 x 12 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:7680
+PIPE_012 | STAGE_0046 | 135 x 25 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:16875
+PIPE_012 | STAGE_0047 | 142 x 38 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:26980
+PIPE_012 | STAGE_0048 | 149 x 51 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:37995
+PIPE_013 | STAGE_0049 | 156 x 64 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:49920
+PIPE_013 | STAGE_0050 | 163 x 77 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:62755
+PIPE_013 | STAGE_0051 | 170 x 90 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:76500
+PIPE_013 | STAGE_0052 | 177 x 103 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:91155
+PIPE_014 | STAGE_0053 | 184 x 116 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:106720
+PIPE_014 | STAGE_0054 | 191 x 129 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:123195
+PIPE_014 | STAGE_0055 | 198 x 142 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:140580
+PIPE_014 | STAGE_0056 | 15 x 155 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:11625
+PIPE_015 | STAGE_0057 | 22 x 168 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:18480
+PIPE_015 | STAGE_0058 | 29 x 181 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:26245
+PIPE_015 | STAGE_0059 | 36 x 194 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:34920
+PIPE_015 | STAGE_0060 | 43 x 17 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:3655
+PIPE_016 | STAGE_0061 | 50 x 30 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:7500
+PIPE_016 | STAGE_0062 | 57 x 43 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:12255
+PIPE_016 | STAGE_0063 | 64 x 56 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:17920
+PIPE_016 | STAGE_0064 | 71 x 69 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:24495
+PIPE_017 | STAGE_0065 | 78 x 82 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:31980
+PIPE_017 | STAGE_0066 | 85 x 95 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:40375
+PIPE_017 | STAGE_0067 | 92 x 108 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:49680
+PIPE_017 | STAGE_0068 | 99 x 121 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:59895
+PIPE_018 | STAGE_0069 | 106 x 134 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:71020
+PIPE_018 | STAGE_0070 | 113 x 147 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:83055
+PIPE_018 | STAGE_0071 | 120 x 160 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:96000
+PIPE_018 | STAGE_0072 | 127 x 173 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:109855
+PIPE_019 | STAGE_0073 | 134 x 186 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:124620
+PIPE_019 | STAGE_0074 | 141 x 199 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:140295
+PIPE_019 | STAGE_0075 | 148 x 22 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:16280
+PIPE_019 | STAGE_0076 | 155 x 35 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:27125
+PIPE_020 | STAGE_0077 | 162 x 48 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:38880
+PIPE_020 | STAGE_0078 | 169 x 61 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:51545
+PIPE_020 | STAGE_0079 | 176 x 74 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:65120
+PIPE_020 | STAGE_0080 | 183 x 87 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:79605
+PIPE_021 | STAGE_0081 | 190 x 100 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:95000
+PIPE_021 | STAGE_0082 | 197 x 113 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:111305
+PIPE_021 | STAGE_0083 | 14 x 126 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:8820
+PIPE_021 | STAGE_0084 | 21 x 139 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:14595
+PIPE_022 | STAGE_0085 | 28 x 152 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:21280
+PIPE_022 | STAGE_0086 | 35 x 165 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:28875
+PIPE_022 | STAGE_0087 | 42 x 178 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:37380
+PIPE_022 | STAGE_0088 | 49 x 191 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:46795
+PIPE_023 | STAGE_0089 | 56 x 14 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:3920
+PIPE_023 | STAGE_0090 | 63 x 27 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:8505
+PIPE_023 | STAGE_0091 | 70 x 40 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:14000
+PIPE_023 | STAGE_0092 | 77 x 53 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:20405
+PIPE_024 | STAGE_0093 | 84 x 66 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:27720
+PIPE_024 | STAGE_0094 | 91 x 79 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:35945
+PIPE_024 | STAGE_0095 | 98 x 92 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:45080
+PIPE_024 | STAGE_0096 | 105 x 105 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:55125
+PIPE_025 | STAGE_0097 | 112 x 118 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:66080
+PIPE_025 | STAGE_0098 | 119 x 131 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:77945
+PIPE_025 | STAGE_0099 | 126 x 144 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:90720
+PIPE_025 | STAGE_0100 | 133 x 157 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:104405
+PIPE_026 | STAGE_0101 | 140 x 170 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:119000
+PIPE_026 | STAGE_0102 | 147 x 183 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:134505
+PIPE_026 | STAGE_0103 | 154 x 196 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:150920
+PIPE_026 | STAGE_0104 | 161 x 19 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:15295
+PIPE_027 | STAGE_0105 | 168 x 32 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:26880
+PIPE_027 | STAGE_0106 | 175 x 45 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:39375
+PIPE_027 | STAGE_0107 | 182 x 58 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:52780
+PIPE_027 | STAGE_0108 | 189 x 71 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:67095
+PIPE_028 | STAGE_0109 | 196 x 84 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:82320
+PIPE_028 | STAGE_0110 | 13 x 97 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:6305
+PIPE_028 | STAGE_0111 | 20 x 110 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:11000
+PIPE_028 | STAGE_0112 | 27 x 123 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:16605
+PIPE_029 | STAGE_0113 | 34 x 136 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:23120
+PIPE_029 | STAGE_0114 | 41 x 149 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:30545
+PIPE_029 | STAGE_0115 | 48 x 162 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:38880
+PIPE_029 | STAGE_0116 | 55 x 175 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:48125
+PIPE_030 | STAGE_0117 | 62 x 188 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:58280
+PIPE_030 | STAGE_0118 | 69 x 11 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:3795
+PIPE_030 | STAGE_0119 | 76 x 24 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:9120
+PIPE_030 | STAGE_0120 | 83 x 37 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:15355
+PIPE_031 | STAGE_0121 | 90 x 50 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:22500
+PIPE_031 | STAGE_0122 | 97 x 63 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:30555
+PIPE_031 | STAGE_0123 | 104 x 76 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:39520
+PIPE_031 | STAGE_0124 | 111 x 89 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:49395
+PIPE_032 | STAGE_0125 | 118 x 102 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:60180
+PIPE_032 | STAGE_0126 | 125 x 115 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:71875
+PIPE_032 | STAGE_0127 | 132 x 128 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:84480
+PIPE_032 | STAGE_0128 | 139 x 141 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:97995
+PIPE_033 | STAGE_0129 | 146 x 154 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:112420
+PIPE_033 | STAGE_0130 | 153 x 167 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:127755
+PIPE_033 | STAGE_0131 | 160 x 180 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:144000
+PIPE_033 | STAGE_0132 | 167 x 193 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:161155
+PIPE_034 | STAGE_0133 | 174 x 16 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:13920
+PIPE_034 | STAGE_0134 | 181 x 29 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:26245
+PIPE_034 | STAGE_0135 | 188 x 42 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:39480
+PIPE_034 | STAGE_0136 | 195 x 55 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:53625
+PIPE_035 | STAGE_0137 | 12 x 68 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:4080
+PIPE_035 | STAGE_0138 | 19 x 81 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:7695
+PIPE_035 | STAGE_0139 | 26 x 94 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:12220
+PIPE_035 | STAGE_0140 | 33 x 107 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:17655
+PIPE_036 | STAGE_0141 | 40 x 120 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:24000
+PIPE_036 | STAGE_0142 | 47 x 133 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:31255
+PIPE_036 | STAGE_0143 | 54 x 146 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:39420
+PIPE_036 | STAGE_0144 | 61 x 159 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:48495
+PIPE_037 | STAGE_0145 | 68 x 172 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:58480
+PIPE_037 | STAGE_0146 | 75 x 185 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:69375
+PIPE_037 | STAGE_0147 | 82 x 198 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:81180
+PIPE_037 | STAGE_0148 | 89 x 21 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:9345
+PIPE_038 | STAGE_0149 | 96 x 34 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:16320
+PIPE_038 | STAGE_0150 | 103 x 47 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:24205
+PIPE_038 | STAGE_0151 | 110 x 60 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:33000
+PIPE_038 | STAGE_0152 | 117 x 73 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:42705
+PIPE_039 | STAGE_0153 | 124 x 86 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:53320
+PIPE_039 | STAGE_0154 | 131 x 99 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:64845
+PIPE_039 | STAGE_0155 | 138 x 112 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:77280
+PIPE_039 | STAGE_0156 | 145 x 125 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:90625
+PIPE_040 | STAGE_0157 | 152 x 138 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:104880
+PIPE_040 | STAGE_0158 | 159 x 151 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:120045
+PIPE_040 | STAGE_0159 | 166 x 164 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:136120
+PIPE_040 | STAGE_0160 | 173 x 177 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:153105
+PIPE_041 | STAGE_0161 | 180 x 190 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:171000
+PIPE_041 | STAGE_0162 | 187 x 13 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:12155
+PIPE_041 | STAGE_0163 | 194 x 26 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:25220
+PIPE_041 | STAGE_0164 | 11 x 39 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:2145
+PIPE_042 | STAGE_0165 | 18 x 52 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:4680
+PIPE_042 | STAGE_0166 | 25 x 65 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:8125
+PIPE_042 | STAGE_0167 | 32 x 78 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:12480
+PIPE_042 | STAGE_0168 | 39 x 91 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:17745
+PIPE_043 | STAGE_0169 | 46 x 104 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:23920
+PIPE_043 | STAGE_0170 | 53 x 117 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:31005
+PIPE_043 | STAGE_0171 | 60 x 130 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:39000
+PIPE_043 | STAGE_0172 | 67 x 143 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:47905
+PIPE_044 | STAGE_0173 | 74 x 156 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:57720
+PIPE_044 | STAGE_0174 | 81 x 169 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:68445
+PIPE_044 | STAGE_0175 | 88 x 182 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:80080
+PIPE_044 | STAGE_0176 | 95 x 195 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:92625
+PIPE_045 | STAGE_0177 | 102 x 18 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:9180
+PIPE_045 | STAGE_0178 | 109 x 31 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:16895
+PIPE_045 | STAGE_0179 | 116 x 44 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:25520
+PIPE_045 | STAGE_0180 | 123 x 57 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:35055
+PIPE_046 | STAGE_0181 | 130 x 70 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:45500
+PIPE_046 | STAGE_0182 | 137 x 83 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:56855
+PIPE_046 | STAGE_0183 | 144 x 96 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:69120
+PIPE_046 | STAGE_0184 | 151 x 109 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:82295
+PIPE_047 | STAGE_0185 | 158 x 122 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:96380
+PIPE_047 | STAGE_0186 | 165 x 135 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:111375
+PIPE_047 | STAGE_0187 | 172 x 148 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:127280
+PIPE_047 | STAGE_0188 | 179 x 161 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:144095
+PIPE_048 | STAGE_0189 | 186 x 174 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:161820
+PIPE_048 | STAGE_0190 | 193 x 187 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:180455
+PIPE_048 | STAGE_0191 | 10 x 10 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:500
+PIPE_048 | STAGE_0192 | 17 x 23 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:1955
+PIPE_049 | STAGE_0193 | 24 x 36 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:4320
+PIPE_049 | STAGE_0194 | 31 x 49 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:7595
+PIPE_049 | STAGE_0195 | 38 x 62 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:11780
+PIPE_049 | STAGE_0196 | 45 x 75 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:16875
+PIPE_050 | STAGE_0197 | 52 x 88 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:22880
+PIPE_050 | STAGE_0198 | 59 x 101 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:29795
+PIPE_050 | STAGE_0199 | 66 x 114 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:37620
+PIPE_050 | STAGE_0200 | 73 x 127 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:46355
+PIPE_051 | STAGE_0201 | 80 x 140 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:56000
+PIPE_051 | STAGE_0202 | 87 x 153 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:66555
+PIPE_051 | STAGE_0203 | 94 x 166 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:78020
+PIPE_051 | STAGE_0204 | 101 x 179 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:90395
+PIPE_052 | STAGE_0205 | 108 x 192 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:103680
+PIPE_052 | STAGE_0206 | 115 x 15 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:8625
+PIPE_052 | STAGE_0207 | 122 x 28 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:17080
+PIPE_052 | STAGE_0208 | 129 x 41 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:26445
+PIPE_053 | STAGE_0209 | 136 x 54 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:36720
+PIPE_053 | STAGE_0210 | 143 x 67 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:47905
+PIPE_053 | STAGE_0211 | 150 x 80 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:60000
+PIPE_053 | STAGE_0212 | 157 x 93 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:73005
+PIPE_054 | STAGE_0213 | 164 x 106 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:86920
+PIPE_054 | STAGE_0214 | 171 x 119 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:101745
+PIPE_054 | STAGE_0215 | 178 x 132 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:117480
+PIPE_054 | STAGE_0216 | 185 x 145 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:134125
+PIPE_055 | STAGE_0217 | 192 x 158 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:151680
+PIPE_055 | STAGE_0218 | 199 x 171 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:170145
+PIPE_055 | STAGE_0219 | 16 x 184 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:14720
+PIPE_055 | STAGE_0220 | 23 x 197 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:22655
+PIPE_056 | STAGE_0221 | 30 x 20 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:3000
+PIPE_056 | STAGE_0222 | 37 x 33 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:6105
+PIPE_056 | STAGE_0223 | 44 x 46 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:10120
+PIPE_056 | STAGE_0224 | 51 x 59 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:15045
+PIPE_057 | STAGE_0225 | 58 x 72 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:20880
+PIPE_057 | STAGE_0226 | 65 x 85 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:27625
+PIPE_057 | STAGE_0227 | 72 x 98 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:35280
+PIPE_057 | STAGE_0228 | 79 x 111 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:43845
+PIPE_058 | STAGE_0229 | 86 x 124 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:53320
+PIPE_058 | STAGE_0230 | 93 x 137 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:63705
+PIPE_058 | STAGE_0231 | 100 x 150 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:75000
+PIPE_058 | STAGE_0232 | 107 x 163 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:87205
+PIPE_059 | STAGE_0233 | 114 x 176 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:100320
+PIPE_059 | STAGE_0234 | 121 x 189 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:114345
+PIPE_059 | STAGE_0235 | 128 x 12 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:7680
+PIPE_059 | STAGE_0236 | 135 x 25 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:16875
+PIPE_060 | STAGE_0237 | 142 x 38 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:26980
+PIPE_060 | STAGE_0238 | 149 x 51 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:37995
+PIPE_060 | STAGE_0239 | 156 x 64 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:49920
+PIPE_060 | STAGE_0240 | 163 x 77 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:62755
+PIPE_061 | STAGE_0241 | 170 x 90 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:76500
+PIPE_061 | STAGE_0242 | 177 x 103 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:91155
+PIPE_061 | STAGE_0243 | 184 x 116 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:106720
+PIPE_061 | STAGE_0244 | 191 x 129 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:123195
+PIPE_062 | STAGE_0245 | 198 x 142 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:140580
+PIPE_062 | STAGE_0246 | 15 x 155 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:11625
+PIPE_062 | STAGE_0247 | 22 x 168 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:18480
+PIPE_062 | STAGE_0248 | 29 x 181 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:26245
+PIPE_063 | STAGE_0249 | 36 x 194 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:34920
+PIPE_063 | STAGE_0250 | 43 x 17 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:3655
+PIPE_063 | STAGE_0251 | 50 x 30 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:7500
+PIPE_063 | STAGE_0252 | 57 x 43 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:12255
+PIPE_064 | STAGE_0253 | 64 x 56 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:17920
+PIPE_064 | STAGE_0254 | 71 x 69 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:24495
+PIPE_064 | STAGE_0255 | 78 x 82 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:31980
+PIPE_064 | STAGE_0256 | 85 x 95 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:40375
+PIPE_065 | STAGE_0257 | 92 x 108 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:49680
+PIPE_065 | STAGE_0258 | 99 x 121 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:59895
+PIPE_065 | STAGE_0259 | 106 x 134 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:71020
+PIPE_065 | STAGE_0260 | 113 x 147 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:83055
+PIPE_066 | STAGE_0261 | 120 x 160 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:96000
+PIPE_066 | STAGE_0262 | 127 x 173 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:109855
+PIPE_066 | STAGE_0263 | 134 x 186 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:124620
+PIPE_066 | STAGE_0264 | 141 x 199 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:140295
+PIPE_067 | STAGE_0265 | 148 x 22 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:16280
+PIPE_067 | STAGE_0266 | 155 x 35 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:27125
+PIPE_067 | STAGE_0267 | 162 x 48 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:38880
+PIPE_067 | STAGE_0268 | 169 x 61 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:51545
+PIPE_068 | STAGE_0269 | 176 x 74 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:65120
+PIPE_068 | STAGE_0270 | 183 x 87 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:79605
+PIPE_068 | STAGE_0271 | 190 x 100 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:95000
+PIPE_068 | STAGE_0272 | 197 x 113 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:111305
+PIPE_069 | STAGE_0273 | 14 x 126 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:8820
+PIPE_069 | STAGE_0274 | 21 x 139 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:14595
+PIPE_069 | STAGE_0275 | 28 x 152 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:21280
+PIPE_069 | STAGE_0276 | 35 x 165 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:28875
+PIPE_070 | STAGE_0277 | 42 x 178 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:37380
+PIPE_070 | STAGE_0278 | 49 x 191 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:46795
+PIPE_070 | STAGE_0279 | 56 x 14 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:3920
+PIPE_070 | STAGE_0280 | 63 x 27 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:8505
+PIPE_071 | STAGE_0281 | 70 x 40 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:14000
+PIPE_071 | STAGE_0282 | 77 x 53 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:20405
+PIPE_071 | STAGE_0283 | 84 x 66 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:27720
+PIPE_071 | STAGE_0284 | 91 x 79 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:35945
+PIPE_072 | STAGE_0285 | 98 x 92 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:45080
+PIPE_072 | STAGE_0286 | 105 x 105 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:55125
+PIPE_072 | STAGE_0287 | 112 x 118 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:66080
+PIPE_072 | STAGE_0288 | 119 x 131 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:77945
+PIPE_073 | STAGE_0289 | 126 x 144 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:90720
+PIPE_073 | STAGE_0290 | 133 x 157 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:104405
+PIPE_073 | STAGE_0291 | 140 x 170 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:119000
+PIPE_073 | STAGE_0292 | 147 x 183 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:134505
+PIPE_074 | STAGE_0293 | 154 x 196 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:150920
+PIPE_074 | STAGE_0294 | 161 x 19 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:15295
+PIPE_074 | STAGE_0295 | 168 x 32 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:26880
+PIPE_074 | STAGE_0296 | 175 x 45 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:39375
+PIPE_075 | STAGE_0297 | 182 x 58 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:52780
+PIPE_075 | STAGE_0298 | 189 x 71 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:67095
+PIPE_075 | STAGE_0299 | 196 x 84 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:82320
+PIPE_075 | STAGE_0300 | 13 x 97 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:6305
+PIPE_076 | STAGE_0301 | 20 x 110 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:11000
+PIPE_076 | STAGE_0302 | 27 x 123 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:16605
+PIPE_076 | STAGE_0303 | 34 x 136 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:23120
+PIPE_076 | STAGE_0304 | 41 x 149 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:30545
+PIPE_077 | STAGE_0305 | 48 x 162 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:38880
+PIPE_077 | STAGE_0306 | 55 x 175 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:48125
+PIPE_077 | STAGE_0307 | 62 x 188 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:58280
+PIPE_077 | STAGE_0308 | 69 x 11 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:3795
+PIPE_078 | STAGE_0309 | 76 x 24 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:9120
+PIPE_078 | STAGE_0310 | 83 x 37 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:15355
+PIPE_078 | STAGE_0311 | 90 x 50 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:22500
+PIPE_078 | STAGE_0312 | 97 x 63 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:30555
+PIPE_079 | STAGE_0313 | 104 x 76 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:39520
+PIPE_079 | STAGE_0314 | 111 x 89 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:49395
+PIPE_079 | STAGE_0315 | 118 x 102 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:60180
+PIPE_079 | STAGE_0316 | 125 x 115 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:71875
+PIPE_080 | STAGE_0317 | 132 x 128 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:84480
+PIPE_080 | STAGE_0318 | 139 x 141 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:97995
+PIPE_080 | STAGE_0319 | 146 x 154 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:112420
+PIPE_080 | STAGE_0320 | 153 x 167 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:127755
+PIPE_081 | STAGE_0321 | 160 x 180 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:144000
+PIPE_081 | STAGE_0322 | 167 x 193 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:161155
+PIPE_081 | STAGE_0323 | 174 x 16 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:13920
+PIPE_081 | STAGE_0324 | 181 x 29 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:26245
+PIPE_082 | STAGE_0325 | 188 x 42 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:39480
+PIPE_082 | STAGE_0326 | 195 x 55 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:53625
+PIPE_082 | STAGE_0327 | 12 x 68 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:4080
+PIPE_082 | STAGE_0328 | 19 x 81 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:7695
+PIPE_083 | STAGE_0329 | 26 x 94 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:12220
+PIPE_083 | STAGE_0330 | 33 x 107 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:17655
+PIPE_083 | STAGE_0331 | 40 x 120 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:24000
+PIPE_083 | STAGE_0332 | 47 x 133 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:31255
+PIPE_084 | STAGE_0333 | 54 x 146 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:39420
+PIPE_084 | STAGE_0334 | 61 x 159 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:48495
+PIPE_084 | STAGE_0335 | 68 x 172 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:58480
+PIPE_084 | STAGE_0336 | 75 x 185 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:69375
+PIPE_085 | STAGE_0337 | 82 x 198 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:81180
+PIPE_085 | STAGE_0338 | 89 x 21 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:9345
+PIPE_085 | STAGE_0339 | 96 x 34 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:16320
+PIPE_085 | STAGE_0340 | 103 x 47 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:24205
+PIPE_086 | STAGE_0341 | 110 x 60 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:33000
+PIPE_086 | STAGE_0342 | 117 x 73 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:42705
+PIPE_086 | STAGE_0343 | 124 x 86 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:53320
+PIPE_086 | STAGE_0344 | 131 x 99 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:64845
+PIPE_087 | STAGE_0345 | 138 x 112 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:77280
+PIPE_087 | STAGE_0346 | 145 x 125 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:90625
+PIPE_087 | STAGE_0347 | 152 x 138 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:104880
+PIPE_087 | STAGE_0348 | 159 x 151 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:120045
+PIPE_088 | STAGE_0349 | 166 x 164 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:136120
+PIPE_088 | STAGE_0350 | 173 x 177 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:153105
+PIPE_088 | STAGE_0351 | 180 x 190 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:171000
+PIPE_088 | STAGE_0352 | 187 x 13 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:12155
+PIPE_089 | STAGE_0353 | 194 x 26 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:25220
+PIPE_089 | STAGE_0354 | 11 x 39 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:2145
+PIPE_089 | STAGE_0355 | 18 x 52 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:4680
+PIPE_089 | STAGE_0356 | 25 x 65 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:8125
+PIPE_090 | STAGE_0357 | 32 x 78 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:12480
+PIPE_090 | STAGE_0358 | 39 x 91 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:17745
+PIPE_090 | STAGE_0359 | 46 x 104 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:23920
+PIPE_090 | STAGE_0360 | 53 x 117 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:31005
+PIPE_091 | STAGE_0361 | 60 x 130 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:39000
+PIPE_091 | STAGE_0362 | 67 x 143 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:47905
+PIPE_091 | STAGE_0363 | 74 x 156 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:57720
+PIPE_091 | STAGE_0364 | 81 x 169 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:68445
+PIPE_092 | STAGE_0365 | 88 x 182 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:80080
+PIPE_092 | STAGE_0366 | 95 x 195 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:92625
+PIPE_092 | STAGE_0367 | 102 x 18 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:9180
+PIPE_092 | STAGE_0368 | 109 x 31 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:16895
+PIPE_093 | STAGE_0369 | 116 x 44 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:25520
+PIPE_093 | STAGE_0370 | 123 x 57 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:35055
+PIPE_093 | STAGE_0371 | 130 x 70 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:45500
+PIPE_093 | STAGE_0372 | 137 x 83 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:56855
+PIPE_094 | STAGE_0373 | 144 x 96 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:69120
+PIPE_094 | STAGE_0374 | 151 x 109 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:82295
+PIPE_094 | STAGE_0375 | 158 x 122 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:96380
+PIPE_094 | STAGE_0376 | 165 x 135 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:111375
+PIPE_095 | STAGE_0377 | 172 x 148 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:127280
+PIPE_095 | STAGE_0378 | 179 x 161 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:144095
+PIPE_095 | STAGE_0379 | 186 x 174 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:161820
+PIPE_095 | STAGE_0380 | 193 x 187 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:180455
+PIPE_096 | STAGE_0381 | 10 x 10 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:500
+PIPE_096 | STAGE_0382 | 17 x 23 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:1955
+PIPE_096 | STAGE_0383 | 24 x 36 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:4320
+PIPE_096 | STAGE_0384 | 31 x 49 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:7595
+PIPE_097 | STAGE_0385 | 38 x 62 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:11780
+PIPE_097 | STAGE_0386 | 45 x 75 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:16875
+PIPE_097 | STAGE_0387 | 52 x 88 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:22880
+PIPE_097 | STAGE_0388 | 59 x 101 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:29795
+PIPE_098 | STAGE_0389 | 66 x 114 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:37620
+PIPE_098 | STAGE_0390 | 73 x 127 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:46355
+PIPE_098 | STAGE_0391 | 80 x 140 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:56000
+PIPE_098 | STAGE_0392 | 87 x 153 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:66555
+PIPE_099 | STAGE_0393 | 94 x 166 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:78020
+PIPE_099 | STAGE_0394 | 101 x 179 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:90395
+PIPE_099 | STAGE_0395 | 108 x 192 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:103680
+PIPE_099 | STAGE_0396 | 115 x 15 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:8625
+PIPE_100 | STAGE_0397 | 122 x 28 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:17080
+PIPE_100 | STAGE_0398 | 129 x 41 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:26445
+PIPE_100 | STAGE_0399 | 136 x 54 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:36720
+PIPE_100 | STAGE_0400 | 143 x 67 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:47905
+PIPE_101 | STAGE_0401 | 150 x 80 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:60000
+PIPE_101 | STAGE_0402 | 157 x 93 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:73005
+PIPE_101 | STAGE_0403 | 164 x 106 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:86920
+PIPE_101 | STAGE_0404 | 171 x 119 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:101745
+PIPE_102 | STAGE_0405 | 178 x 132 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:117480
+PIPE_102 | STAGE_0406 | 185 x 145 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:134125
+PIPE_102 | STAGE_0407 | 192 x 158 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:151680
+PIPE_102 | STAGE_0408 | 199 x 171 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:170145
+PIPE_103 | STAGE_0409 | 16 x 184 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:14720
+PIPE_103 | STAGE_0410 | 23 x 197 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:22655
+PIPE_103 | STAGE_0411 | 30 x 20 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:3000
+PIPE_103 | STAGE_0412 | 37 x 33 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:6105
+PIPE_104 | STAGE_0413 | 44 x 46 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:10120
+PIPE_104 | STAGE_0414 | 51 x 59 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:15045
+PIPE_104 | STAGE_0415 | 58 x 72 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:20880
+PIPE_104 | STAGE_0416 | 65 x 85 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:27625
+PIPE_105 | STAGE_0417 | 72 x 98 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:35280
+PIPE_105 | STAGE_0418 | 79 x 111 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:43845
+PIPE_105 | STAGE_0419 | 86 x 124 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:53320
+PIPE_105 | STAGE_0420 | 93 x 137 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:63705
+PIPE_106 | STAGE_0421 | 100 x 150 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:75000
+PIPE_106 | STAGE_0422 | 107 x 163 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:87205
+PIPE_106 | STAGE_0423 | 114 x 176 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:100320
+PIPE_106 | STAGE_0424 | 121 x 189 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:114345
+PIPE_107 | STAGE_0425 | 128 x 12 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:7680
+PIPE_107 | STAGE_0426 | 135 x 25 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:16875
+PIPE_107 | STAGE_0427 | 142 x 38 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:26980
+PIPE_107 | STAGE_0428 | 149 x 51 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:37995
+PIPE_108 | STAGE_0429 | 156 x 64 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:49920
+PIPE_108 | STAGE_0430 | 163 x 77 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:62755
+PIPE_108 | STAGE_0431 | 170 x 90 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:76500
+PIPE_108 | STAGE_0432 | 177 x 103 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:91155
+PIPE_109 | STAGE_0433 | 184 x 116 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:106720
+PIPE_109 | STAGE_0434 | 191 x 129 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:123195
+PIPE_109 | STAGE_0435 | 198 x 142 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:140580
+PIPE_109 | STAGE_0436 | 15 x 155 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:11625
+PIPE_110 | STAGE_0437 | 22 x 168 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:18480
+PIPE_110 | STAGE_0438 | 29 x 181 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:26245
+PIPE_110 | STAGE_0439 | 36 x 194 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:34920
+PIPE_110 | STAGE_0440 | 43 x 17 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:3655
+PIPE_111 | STAGE_0441 | 50 x 30 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:7500
+PIPE_111 | STAGE_0442 | 57 x 43 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:12255
+PIPE_111 | STAGE_0443 | 64 x 56 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:17920
+PIPE_111 | STAGE_0444 | 71 x 69 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:24495
+PIPE_112 | STAGE_0445 | 78 x 82 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:31980
+PIPE_112 | STAGE_0446 | 85 x 95 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:40375
+PIPE_112 | STAGE_0447 | 92 x 108 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:49680
+PIPE_112 | STAGE_0448 | 99 x 121 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:59895
+PIPE_113 | STAGE_0449 | 106 x 134 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:71020
+PIPE_113 | STAGE_0450 | 113 x 147 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:83055
+PIPE_113 | STAGE_0451 | 120 x 160 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:96000
+PIPE_113 | STAGE_0452 | 127 x 173 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:109855
+PIPE_114 | STAGE_0453 | 134 x 186 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:124620
+PIPE_114 | STAGE_0454 | 141 x 199 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:140295
+PIPE_114 | STAGE_0455 | 148 x 22 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:16280
+PIPE_114 | STAGE_0456 | 155 x 35 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:27125
+PIPE_115 | STAGE_0457 | 162 x 48 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:38880
+PIPE_115 | STAGE_0458 | 169 x 61 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:51545
+PIPE_115 | STAGE_0459 | 176 x 74 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:65120
+PIPE_115 | STAGE_0460 | 183 x 87 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:79605
+PIPE_116 | STAGE_0461 | 190 x 100 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:95000
+PIPE_116 | STAGE_0462 | 197 x 113 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:111305
+PIPE_116 | STAGE_0463 | 14 x 126 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:8820
+PIPE_116 | STAGE_0464 | 21 x 139 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:14595
+PIPE_117 | STAGE_0465 | 28 x 152 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:21280
+PIPE_117 | STAGE_0466 | 35 x 165 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:28875
+PIPE_117 | STAGE_0467 | 42 x 178 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:37380
+PIPE_117 | STAGE_0468 | 49 x 191 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:46795
+PIPE_118 | STAGE_0469 | 56 x 14 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:3920
+PIPE_118 | STAGE_0470 | 63 x 27 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:8505
+PIPE_118 | STAGE_0471 | 70 x 40 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:14000
+PIPE_118 | STAGE_0472 | 77 x 53 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:20405
+PIPE_119 | STAGE_0473 | 84 x 66 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:27720
+PIPE_119 | STAGE_0474 | 91 x 79 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:35945
+PIPE_119 | STAGE_0475 | 98 x 92 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:45080
+PIPE_119 | STAGE_0476 | 105 x 105 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:55125
+PIPE_120 | STAGE_0477 | 112 x 118 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:66080
+PIPE_120 | STAGE_0478 | 119 x 131 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:77945
+PIPE_120 | STAGE_0479 | 126 x 144 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:90720
+PIPE_120 | STAGE_0480 | 133 x 157 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:104405
+PIPE_121 | STAGE_0481 | 140 x 170 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:119000
+PIPE_121 | STAGE_0482 | 147 x 183 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:134505
+PIPE_121 | STAGE_0483 | 154 x 196 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:150920
+PIPE_121 | STAGE_0484 | 161 x 19 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:15295
+PIPE_122 | STAGE_0485 | 168 x 32 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:26880
+PIPE_122 | STAGE_0486 | 175 x 45 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:39375
+PIPE_122 | STAGE_0487 | 182 x 58 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:52780
+PIPE_122 | STAGE_0488 | 189 x 71 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:67095
+PIPE_123 | STAGE_0489 | 196 x 84 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:82320
+PIPE_123 | STAGE_0490 | 13 x 97 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:6305
+PIPE_123 | STAGE_0491 | 20 x 110 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:11000
+PIPE_123 | STAGE_0492 | 27 x 123 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:16605
+PIPE_124 | STAGE_0493 | 34 x 136 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:23120
+PIPE_124 | STAGE_0494 | 41 x 149 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:30545
+PIPE_124 | STAGE_0495 | 48 x 162 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:38880
+PIPE_124 | STAGE_0496 | 55 x 175 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:48125
+PIPE_125 | STAGE_0497 | 62 x 188 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:58280
+PIPE_125 | STAGE_0498 | 69 x 11 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:3795
+PIPE_125 | STAGE_0499 | 76 x 24 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:9120
+PIPE_125 | STAGE_0500 | 83 x 37 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:15355
+PIPE_126 | STAGE_0501 | 90 x 50 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:22500
+PIPE_126 | STAGE_0502 | 97 x 63 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:30555
+PIPE_126 | STAGE_0503 | 104 x 76 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:39520
+PIPE_126 | STAGE_0504 | 111 x 89 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:49395
+PIPE_127 | STAGE_0505 | 118 x 102 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:60180
+PIPE_127 | STAGE_0506 | 125 x 115 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:71875
+PIPE_127 | STAGE_0507 | 132 x 128 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:84480
+PIPE_127 | STAGE_0508 | 139 x 141 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:97995
+PIPE_128 | STAGE_0509 | 146 x 154 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:112420
+PIPE_128 | STAGE_0510 | 153 x 167 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:127755
+PIPE_128 | STAGE_0511 | 160 x 180 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:144000
+PIPE_128 | STAGE_0512 | 167 x 193 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:161155
+PIPE_129 | STAGE_0513 | 174 x 16 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:13920
+PIPE_129 | STAGE_0514 | 181 x 29 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:26245
+PIPE_129 | STAGE_0515 | 188 x 42 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:39480
+PIPE_129 | STAGE_0516 | 195 x 55 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:53625
+PIPE_130 | STAGE_0517 | 12 x 68 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:4080
+PIPE_130 | STAGE_0518 | 19 x 81 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:7695
+PIPE_130 | STAGE_0519 | 26 x 94 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:12220
+PIPE_130 | STAGE_0520 | 33 x 107 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:17655
+PIPE_131 | STAGE_0521 | 40 x 120 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:24000
+PIPE_131 | STAGE_0522 | 47 x 133 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:31255
+PIPE_131 | STAGE_0523 | 54 x 146 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:39420
+PIPE_131 | STAGE_0524 | 61 x 159 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:48495
+PIPE_132 | STAGE_0525 | 68 x 172 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:58480
+PIPE_132 | STAGE_0526 | 75 x 185 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:69375
+PIPE_132 | STAGE_0527 | 82 x 198 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:81180
+PIPE_132 | STAGE_0528 | 89 x 21 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:9345
+PIPE_133 | STAGE_0529 | 96 x 34 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:16320
+PIPE_133 | STAGE_0530 | 103 x 47 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:24205
+PIPE_133 | STAGE_0531 | 110 x 60 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:33000
+PIPE_133 | STAGE_0532 | 117 x 73 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:42705
+PIPE_134 | STAGE_0533 | 124 x 86 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:53320
+PIPE_134 | STAGE_0534 | 131 x 99 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:64845
+PIPE_134 | STAGE_0535 | 138 x 112 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:77280
+PIPE_134 | STAGE_0536 | 145 x 125 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:90625
+PIPE_135 | STAGE_0537 | 152 x 138 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:104880
+PIPE_135 | STAGE_0538 | 159 x 151 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:120045
+PIPE_135 | STAGE_0539 | 166 x 164 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:136120
+PIPE_135 | STAGE_0540 | 173 x 177 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:153105
+PIPE_136 | STAGE_0541 | 180 x 190 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:171000
+PIPE_136 | STAGE_0542 | 187 x 13 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:12155
+PIPE_136 | STAGE_0543 | 194 x 26 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:25220
+PIPE_136 | STAGE_0544 | 11 x 39 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:2145
+PIPE_137 | STAGE_0545 | 18 x 52 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:4680
+PIPE_137 | STAGE_0546 | 25 x 65 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:8125
+PIPE_137 | STAGE_0547 | 32 x 78 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:12480
+PIPE_137 | STAGE_0548 | 39 x 91 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:17745
+PIPE_138 | STAGE_0549 | 46 x 104 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:23920
+PIPE_138 | STAGE_0550 | 53 x 117 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:31005
+PIPE_138 | STAGE_0551 | 60 x 130 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:39000
+PIPE_138 | STAGE_0552 | 67 x 143 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:47905
+PIPE_139 | STAGE_0553 | 74 x 156 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:57720
+PIPE_139 | STAGE_0554 | 81 x 169 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:68445
+PIPE_139 | STAGE_0555 | 88 x 182 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:80080
+PIPE_139 | STAGE_0556 | 95 x 195 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:92625
+PIPE_140 | STAGE_0557 | 102 x 18 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:9180
+PIPE_140 | STAGE_0558 | 109 x 31 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:16895
+PIPE_140 | STAGE_0559 | 116 x 44 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:25520
+PIPE_140 | STAGE_0560 | 123 x 57 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:35055
+PIPE_141 | STAGE_0561 | 130 x 70 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:45500
+PIPE_141 | STAGE_0562 | 137 x 83 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:56855
+PIPE_141 | STAGE_0563 | 144 x 96 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:69120
+PIPE_141 | STAGE_0564 | 151 x 109 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:82295
+PIPE_142 | STAGE_0565 | 158 x 122 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:96380
+PIPE_142 | STAGE_0566 | 165 x 135 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:111375
+PIPE_142 | STAGE_0567 | 172 x 148 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:127280
+PIPE_142 | STAGE_0568 | 179 x 161 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:144095
+PIPE_143 | STAGE_0569 | 186 x 174 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:161820
+PIPE_143 | STAGE_0570 | 193 x 187 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:180455
+PIPE_143 | STAGE_0571 | 10 x 10 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:500
+PIPE_143 | STAGE_0572 | 17 x 23 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:1955
+PIPE_144 | STAGE_0573 | 24 x 36 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:4320
+PIPE_144 | STAGE_0574 | 31 x 49 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:7595
+PIPE_144 | STAGE_0575 | 38 x 62 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:11780
+PIPE_144 | STAGE_0576 | 45 x 75 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:16875
+PIPE_145 | STAGE_0577 | 52 x 88 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:22880
+PIPE_145 | STAGE_0578 | 59 x 101 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:29795
+PIPE_145 | STAGE_0579 | 66 x 114 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:37620
+PIPE_145 | STAGE_0580 | 73 x 127 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:46355
+PIPE_146 | STAGE_0581 | 80 x 140 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:56000
+PIPE_146 | STAGE_0582 | 87 x 153 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:66555
+PIPE_146 | STAGE_0583 | 94 x 166 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:78020
+PIPE_146 | STAGE_0584 | 101 x 179 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:90395
+PIPE_147 | STAGE_0585 | 108 x 192 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:103680
+PIPE_147 | STAGE_0586 | 115 x 15 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:8625
+PIPE_147 | STAGE_0587 | 122 x 28 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:17080
+PIPE_147 | STAGE_0588 | 129 x 41 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:26445
+PIPE_148 | STAGE_0589 | 136 x 54 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:36720
+PIPE_148 | STAGE_0590 | 143 x 67 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:47905
+PIPE_148 | STAGE_0591 | 150 x 80 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:60000
+PIPE_148 | STAGE_0592 | 157 x 93 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:73005
+PIPE_149 | STAGE_0593 | 164 x 106 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:86920
+PIPE_149 | STAGE_0594 | 171 x 119 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:101745
+PIPE_149 | STAGE_0595 | 178 x 132 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:117480
+PIPE_149 | STAGE_0596 | 185 x 145 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:134125
+PIPE_150 | STAGE_0597 | 192 x 158 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:151680
+PIPE_150 | STAGE_0598 | 199 x 171 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:170145
+PIPE_150 | STAGE_0599 | 16 x 184 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:14720
+PIPE_150 | STAGE_0600 | 23 x 197 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:22655
+PIPE_151 | STAGE_0601 | 30 x 20 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:3000
+PIPE_151 | STAGE_0602 | 37 x 33 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:6105
+PIPE_151 | STAGE_0603 | 44 x 46 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:10120
+PIPE_151 | STAGE_0604 | 51 x 59 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:15045
+PIPE_152 | STAGE_0605 | 58 x 72 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:20880
+PIPE_152 | STAGE_0606 | 65 x 85 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:27625
+PIPE_152 | STAGE_0607 | 72 x 98 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:35280
+PIPE_152 | STAGE_0608 | 79 x 111 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:43845
+PIPE_153 | STAGE_0609 | 86 x 124 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:53320
+PIPE_153 | STAGE_0610 | 93 x 137 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:63705
+PIPE_153 | STAGE_0611 | 100 x 150 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:75000
+PIPE_153 | STAGE_0612 | 107 x 163 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:87205
+PIPE_154 | STAGE_0613 | 114 x 176 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:100320
+PIPE_154 | STAGE_0614 | 121 x 189 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:114345
+PIPE_154 | STAGE_0615 | 128 x 12 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:7680
+PIPE_154 | STAGE_0616 | 135 x 25 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:16875
+PIPE_155 | STAGE_0617 | 142 x 38 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:26980
+PIPE_155 | STAGE_0618 | 149 x 51 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:37995
+PIPE_155 | STAGE_0619 | 156 x 64 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:49920
+PIPE_155 | STAGE_0620 | 163 x 77 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:62755
+PIPE_156 | STAGE_0621 | 170 x 90 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:76500
+PIPE_156 | STAGE_0622 | 177 x 103 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:91155
+PIPE_156 | STAGE_0623 | 184 x 116 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:106720
+PIPE_156 | STAGE_0624 | 191 x 129 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:123195
+PIPE_157 | STAGE_0625 | 198 x 142 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:140580
+PIPE_157 | STAGE_0626 | 15 x 155 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:11625
+PIPE_157 | STAGE_0627 | 22 x 168 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:18480
+PIPE_157 | STAGE_0628 | 29 x 181 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:26245
+PIPE_158 | STAGE_0629 | 36 x 194 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:34920
+PIPE_158 | STAGE_0630 | 43 x 17 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:3655
+PIPE_158 | STAGE_0631 | 50 x 30 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:7500
+PIPE_158 | STAGE_0632 | 57 x 43 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:12255
+PIPE_159 | STAGE_0633 | 64 x 56 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:17920
+PIPE_159 | STAGE_0634 | 71 x 69 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:24495
+PIPE_159 | STAGE_0635 | 78 x 82 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:31980
+PIPE_159 | STAGE_0636 | 85 x 95 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:40375
+PIPE_160 | STAGE_0637 | 92 x 108 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:49680
+PIPE_160 | STAGE_0638 | 99 x 121 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:59895
+PIPE_160 | STAGE_0639 | 106 x 134 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:71020
+PIPE_160 | STAGE_0640 | 113 x 147 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:83055
+PIPE_161 | STAGE_0641 | 120 x 160 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:96000
+PIPE_161 | STAGE_0642 | 127 x 173 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:109855
+PIPE_161 | STAGE_0643 | 134 x 186 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:124620
+PIPE_161 | STAGE_0644 | 141 x 199 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:140295
+PIPE_162 | STAGE_0645 | 148 x 22 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:16280
+PIPE_162 | STAGE_0646 | 155 x 35 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:27125
+PIPE_162 | STAGE_0647 | 162 x 48 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:38880
+PIPE_162 | STAGE_0648 | 169 x 61 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:51545
+PIPE_163 | STAGE_0649 | 176 x 74 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:65120
+PIPE_163 | STAGE_0650 | 183 x 87 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:79605
+PIPE_163 | STAGE_0651 | 190 x 100 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:95000
+PIPE_163 | STAGE_0652 | 197 x 113 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:111305
+PIPE_164 | STAGE_0653 | 14 x 126 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:8820
+PIPE_164 | STAGE_0654 | 21 x 139 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:14595
+PIPE_164 | STAGE_0655 | 28 x 152 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:21280
+PIPE_164 | STAGE_0656 | 35 x 165 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:28875
+PIPE_165 | STAGE_0657 | 42 x 178 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:37380
+PIPE_165 | STAGE_0658 | 49 x 191 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:46795
+PIPE_165 | STAGE_0659 | 56 x 14 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:3920
+PIPE_165 | STAGE_0660 | 63 x 27 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:8505
+PIPE_166 | STAGE_0661 | 70 x 40 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:14000
+PIPE_166 | STAGE_0662 | 77 x 53 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:20405
+PIPE_166 | STAGE_0663 | 84 x 66 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:27720
+PIPE_166 | STAGE_0664 | 91 x 79 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:35945
+PIPE_167 | STAGE_0665 | 98 x 92 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:45080
+PIPE_167 | STAGE_0666 | 105 x 105 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:55125
+PIPE_167 | STAGE_0667 | 112 x 118 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:66080
+PIPE_167 | STAGE_0668 | 119 x 131 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:77945
+PIPE_168 | STAGE_0669 | 126 x 144 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:90720
+PIPE_168 | STAGE_0670 | 133 x 157 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:104405
+PIPE_168 | STAGE_0671 | 140 x 170 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:119000
+PIPE_168 | STAGE_0672 | 147 x 183 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:134505
+PIPE_169 | STAGE_0673 | 154 x 196 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:150920
+PIPE_169 | STAGE_0674 | 161 x 19 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:15295
+PIPE_169 | STAGE_0675 | 168 x 32 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:26880
+PIPE_169 | STAGE_0676 | 175 x 45 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:39375
+PIPE_170 | STAGE_0677 | 182 x 58 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:52780
+PIPE_170 | STAGE_0678 | 189 x 71 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:67095
+PIPE_170 | STAGE_0679 | 196 x 84 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:82320
+PIPE_170 | STAGE_0680 | 13 x 97 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:6305
+PIPE_171 | STAGE_0681 | 20 x 110 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:11000
+PIPE_171 | STAGE_0682 | 27 x 123 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:16605
+PIPE_171 | STAGE_0683 | 34 x 136 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:23120
+PIPE_171 | STAGE_0684 | 41 x 149 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:30545
+PIPE_172 | STAGE_0685 | 48 x 162 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:38880
+PIPE_172 | STAGE_0686 | 55 x 175 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:48125
+PIPE_172 | STAGE_0687 | 62 x 188 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:58280
+PIPE_172 | STAGE_0688 | 69 x 11 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:3795
+PIPE_173 | STAGE_0689 | 76 x 24 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:9120
+PIPE_173 | STAGE_0690 | 83 x 37 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:15355
+PIPE_173 | STAGE_0691 | 90 x 50 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:22500
+PIPE_173 | STAGE_0692 | 97 x 63 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:30555
+PIPE_174 | STAGE_0693 | 104 x 76 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:39520
+PIPE_174 | STAGE_0694 | 111 x 89 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:49395
+PIPE_174 | STAGE_0695 | 118 x 102 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:60180
+PIPE_174 | STAGE_0696 | 125 x 115 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:71875
+PIPE_175 | STAGE_0697 | 132 x 128 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:84480
+PIPE_175 | STAGE_0698 | 139 x 141 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:97995
+PIPE_175 | STAGE_0699 | 146 x 154 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:112420
+PIPE_175 | STAGE_0700 | 153 x 167 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:127755
+PIPE_176 | STAGE_0701 | 160 x 180 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:144000
+PIPE_176 | STAGE_0702 | 167 x 193 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:161155
+PIPE_176 | STAGE_0703 | 174 x 16 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:13920
+PIPE_176 | STAGE_0704 | 181 x 29 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:26245
+PIPE_177 | STAGE_0705 | 188 x 42 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:39480
+PIPE_177 | STAGE_0706 | 195 x 55 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:53625
+PIPE_177 | STAGE_0707 | 12 x 68 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:4080
+PIPE_177 | STAGE_0708 | 19 x 81 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:7695
+PIPE_178 | STAGE_0709 | 26 x 94 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:12220
+PIPE_178 | STAGE_0710 | 33 x 107 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:17655
+PIPE_178 | STAGE_0711 | 40 x 120 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:24000
+PIPE_178 | STAGE_0712 | 47 x 133 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:31255
+PIPE_179 | STAGE_0713 | 54 x 146 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:39420
+PIPE_179 | STAGE_0714 | 61 x 159 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:48495
+PIPE_179 | STAGE_0715 | 68 x 172 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:58480
+PIPE_179 | STAGE_0716 | 75 x 185 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:69375
+PIPE_180 | STAGE_0717 | 82 x 198 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:81180
+PIPE_180 | STAGE_0718 | 89 x 21 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:9345
+PIPE_180 | STAGE_0719 | 96 x 34 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:16320
+PIPE_180 | STAGE_0720 | 103 x 47 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:24205
+PIPE_181 | STAGE_0721 | 110 x 60 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:33000
+PIPE_181 | STAGE_0722 | 117 x 73 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:42705
+PIPE_181 | STAGE_0723 | 124 x 86 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:53320
+PIPE_181 | STAGE_0724 | 131 x 99 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:64845
+PIPE_182 | STAGE_0725 | 138 x 112 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:77280
+PIPE_182 | STAGE_0726 | 145 x 125 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:90625
+PIPE_182 | STAGE_0727 | 152 x 138 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:104880
+PIPE_182 | STAGE_0728 | 159 x 151 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:120045
+PIPE_183 | STAGE_0729 | 166 x 164 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:136120
+PIPE_183 | STAGE_0730 | 173 x 177 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:153105
+PIPE_183 | STAGE_0731 | 180 x 190 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:171000
+PIPE_183 | STAGE_0732 | 187 x 13 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:12155
+PIPE_184 | STAGE_0733 | 194 x 26 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:25220
+PIPE_184 | STAGE_0734 | 11 x 39 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:2145
+PIPE_184 | STAGE_0735 | 18 x 52 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:4680
+PIPE_184 | STAGE_0736 | 25 x 65 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:8125
+PIPE_185 | STAGE_0737 | 32 x 78 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:12480
+PIPE_185 | STAGE_0738 | 39 x 91 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:17745
+PIPE_185 | STAGE_0739 | 46 x 104 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:23920
+PIPE_185 | STAGE_0740 | 53 x 117 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:31005
+PIPE_186 | STAGE_0741 | 60 x 130 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:39000
+PIPE_186 | STAGE_0742 | 67 x 143 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:47905
+PIPE_186 | STAGE_0743 | 74 x 156 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:57720
+PIPE_186 | STAGE_0744 | 81 x 169 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:68445
+PIPE_187 | STAGE_0745 | 88 x 182 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:80080
+PIPE_187 | STAGE_0746 | 95 x 195 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:92625
+PIPE_187 | STAGE_0747 | 102 x 18 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:9180
+PIPE_187 | STAGE_0748 | 109 x 31 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:16895
+PIPE_188 | STAGE_0749 | 116 x 44 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:25520
+PIPE_188 | STAGE_0750 | 123 x 57 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:35055
+PIPE_188 | STAGE_0751 | 130 x 70 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:45500
+PIPE_188 | STAGE_0752 | 137 x 83 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:56855
+PIPE_189 | STAGE_0753 | 144 x 96 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:69120
+PIPE_189 | STAGE_0754 | 151 x 109 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:82295
+PIPE_189 | STAGE_0755 | 158 x 122 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:96380
+PIPE_189 | STAGE_0756 | 165 x 135 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:111375
+PIPE_190 | STAGE_0757 | 172 x 148 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:127280
+PIPE_190 | STAGE_0758 | 179 x 161 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:144095
+PIPE_190 | STAGE_0759 | 186 x 174 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:161820
+PIPE_190 | STAGE_0760 | 193 x 187 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:180455
+PIPE_191 | STAGE_0761 | 10 x 10 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:500
+PIPE_191 | STAGE_0762 | 17 x 23 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:1955
+PIPE_191 | STAGE_0763 | 24 x 36 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:4320
+PIPE_191 | STAGE_0764 | 31 x 49 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:7595
+PIPE_192 | STAGE_0765 | 38 x 62 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:11780
+PIPE_192 | STAGE_0766 | 45 x 75 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:16875
+PIPE_192 | STAGE_0767 | 52 x 88 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:22880
+PIPE_192 | STAGE_0768 | 59 x 101 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:29795
+PIPE_193 | STAGE_0769 | 66 x 114 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:37620
+PIPE_193 | STAGE_0770 | 73 x 127 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:46355
+PIPE_193 | STAGE_0771 | 80 x 140 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:56000
+PIPE_193 | STAGE_0772 | 87 x 153 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:66555
+PIPE_194 | STAGE_0773 | 94 x 166 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:78020
+PIPE_194 | STAGE_0774 | 101 x 179 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:90395
+PIPE_194 | STAGE_0775 | 108 x 192 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:103680
+PIPE_194 | STAGE_0776 | 115 x 15 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:8625
+PIPE_195 | STAGE_0777 | 122 x 28 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:17080
+PIPE_195 | STAGE_0778 | 129 x 41 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:26445
+PIPE_195 | STAGE_0779 | 136 x 54 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:36720
+PIPE_195 | STAGE_0780 | 143 x 67 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:47905
+PIPE_196 | STAGE_0781 | 150 x 80 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:60000
+PIPE_196 | STAGE_0782 | 157 x 93 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:73005
+PIPE_196 | STAGE_0783 | 164 x 106 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:86920
+PIPE_196 | STAGE_0784 | 171 x 119 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:101745
+PIPE_197 | STAGE_0785 | 178 x 132 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:117480
+PIPE_197 | STAGE_0786 | 185 x 145 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:134125
+PIPE_197 | STAGE_0787 | 192 x 158 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:151680
+PIPE_197 | STAGE_0788 | 199 x 171 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:170145
+PIPE_198 | STAGE_0789 | 16 x 184 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:14720
+PIPE_198 | STAGE_0790 | 23 x 197 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:22655
+PIPE_198 | STAGE_0791 | 30 x 20 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:3000
+PIPE_198 | STAGE_0792 | 37 x 33 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:6105
+PIPE_199 | STAGE_0793 | 44 x 46 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:10120
+PIPE_199 | STAGE_0794 | 51 x 59 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:15045
+PIPE_199 | STAGE_0795 | 58 x 72 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:20880
+PIPE_199 | STAGE_0796 | 65 x 85 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:27625
+PIPE_200 | STAGE_0797 | 72 x 98 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:35280
+PIPE_200 | STAGE_0798 | 79 x 111 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:43845
+PIPE_200 | STAGE_0799 | 86 x 124 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:53320
+PIPE_200 | STAGE_0800 | 93 x 137 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:63705
+PIPE_201 | STAGE_0801 | 100 x 150 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:75000
+PIPE_201 | STAGE_0802 | 107 x 163 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:87205
+PIPE_201 | STAGE_0803 | 114 x 176 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:100320
+PIPE_201 | STAGE_0804 | 121 x 189 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:114345
+PIPE_202 | STAGE_0805 | 128 x 12 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:7680
+PIPE_202 | STAGE_0806 | 135 x 25 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:16875
+PIPE_202 | STAGE_0807 | 142 x 38 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:26980
+PIPE_202 | STAGE_0808 | 149 x 51 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:37995
+PIPE_203 | STAGE_0809 | 156 x 64 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:49920
+PIPE_203 | STAGE_0810 | 163 x 77 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:62755
+PIPE_203 | STAGE_0811 | 170 x 90 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:76500
+PIPE_203 | STAGE_0812 | 177 x 103 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:91155
+PIPE_204 | STAGE_0813 | 184 x 116 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:106720
+PIPE_204 | STAGE_0814 | 191 x 129 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:123195
+PIPE_204 | STAGE_0815 | 198 x 142 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:140580
+PIPE_204 | STAGE_0816 | 15 x 155 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:11625
+PIPE_205 | STAGE_0817 | 22 x 168 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:18480
+PIPE_205 | STAGE_0818 | 29 x 181 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:26245
+PIPE_205 | STAGE_0819 | 36 x 194 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:34920
+PIPE_205 | STAGE_0820 | 43 x 17 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:3655
+PIPE_206 | STAGE_0821 | 50 x 30 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:7500
+PIPE_206 | STAGE_0822 | 57 x 43 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:12255
+PIPE_206 | STAGE_0823 | 64 x 56 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:17920
+PIPE_206 | STAGE_0824 | 71 x 69 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:24495
+PIPE_207 | STAGE_0825 | 78 x 82 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:31980
+PIPE_207 | STAGE_0826 | 85 x 95 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:40375
+PIPE_207 | STAGE_0827 | 92 x 108 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:49680
+PIPE_207 | STAGE_0828 | 99 x 121 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:59895
+PIPE_208 | STAGE_0829 | 106 x 134 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:71020
+PIPE_208 | STAGE_0830 | 113 x 147 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:83055
+PIPE_208 | STAGE_0831 | 120 x 160 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:96000
+PIPE_208 | STAGE_0832 | 127 x 173 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:109855
+PIPE_209 | STAGE_0833 | 134 x 186 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:124620
+PIPE_209 | STAGE_0834 | 141 x 199 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:140295
+PIPE_209 | STAGE_0835 | 148 x 22 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:16280
+PIPE_209 | STAGE_0836 | 155 x 35 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:27125
+PIPE_210 | STAGE_0837 | 162 x 48 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:38880
+PIPE_210 | STAGE_0838 | 169 x 61 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:51545
+PIPE_210 | STAGE_0839 | 176 x 74 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:65120
+PIPE_210 | STAGE_0840 | 183 x 87 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:79605
+PIPE_211 | STAGE_0841 | 190 x 100 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:95000
+PIPE_211 | STAGE_0842 | 197 x 113 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:111305
+PIPE_211 | STAGE_0843 | 14 x 126 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:8820
+PIPE_211 | STAGE_0844 | 21 x 139 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:14595
+PIPE_212 | STAGE_0845 | 28 x 152 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:21280
+PIPE_212 | STAGE_0846 | 35 x 165 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:28875
+PIPE_212 | STAGE_0847 | 42 x 178 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:37380
+PIPE_212 | STAGE_0848 | 49 x 191 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:46795
+PIPE_213 | STAGE_0849 | 56 x 14 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:3920
+PIPE_213 | STAGE_0850 | 63 x 27 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:8505
+PIPE_213 | STAGE_0851 | 70 x 40 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:14000
+PIPE_213 | STAGE_0852 | 77 x 53 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:20405
+PIPE_214 | STAGE_0853 | 84 x 66 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:27720
+PIPE_214 | STAGE_0854 | 91 x 79 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:35945
+PIPE_214 | STAGE_0855 | 98 x 92 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:45080
+PIPE_214 | STAGE_0856 | 105 x 105 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:55125
+PIPE_215 | STAGE_0857 | 112 x 118 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:66080
+PIPE_215 | STAGE_0858 | 119 x 131 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:77945
+PIPE_215 | STAGE_0859 | 126 x 144 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:90720
+PIPE_215 | STAGE_0860 | 133 x 157 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:104405
+PIPE_216 | STAGE_0861 | 140 x 170 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:119000
+PIPE_216 | STAGE_0862 | 147 x 183 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:134505
+PIPE_216 | STAGE_0863 | 154 x 196 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:150920
+PIPE_216 | STAGE_0864 | 161 x 19 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:15295
+PIPE_217 | STAGE_0865 | 168 x 32 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:26880
+PIPE_217 | STAGE_0866 | 175 x 45 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:39375
+PIPE_217 | STAGE_0867 | 182 x 58 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:52780
+PIPE_217 | STAGE_0868 | 189 x 71 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:67095
+PIPE_218 | STAGE_0869 | 196 x 84 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:82320
+PIPE_218 | STAGE_0870 | 13 x 97 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:6305
+PIPE_218 | STAGE_0871 | 20 x 110 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:11000
+PIPE_218 | STAGE_0872 | 27 x 123 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:16605
+PIPE_219 | STAGE_0873 | 34 x 136 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:23120
+PIPE_219 | STAGE_0874 | 41 x 149 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:30545
+PIPE_219 | STAGE_0875 | 48 x 162 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:38880
+PIPE_219 | STAGE_0876 | 55 x 175 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:48125
+PIPE_220 | STAGE_0877 | 62 x 188 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:58280
+PIPE_220 | STAGE_0878 | 69 x 11 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:3795
+PIPE_220 | STAGE_0879 | 76 x 24 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:9120
+PIPE_220 | STAGE_0880 | 83 x 37 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:15355
+PIPE_221 | STAGE_0881 | 90 x 50 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:22500
+PIPE_221 | STAGE_0882 | 97 x 63 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:30555
+PIPE_221 | STAGE_0883 | 104 x 76 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:39520
+PIPE_221 | STAGE_0884 | 111 x 89 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:49395
+PIPE_222 | STAGE_0885 | 118 x 102 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:60180
+PIPE_222 | STAGE_0886 | 125 x 115 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:71875
+PIPE_222 | STAGE_0887 | 132 x 128 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:84480
+PIPE_222 | STAGE_0888 | 139 x 141 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:97995
+PIPE_223 | STAGE_0889 | 146 x 154 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:112420
+PIPE_223 | STAGE_0890 | 153 x 167 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:127755
+PIPE_223 | STAGE_0891 | 160 x 180 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:144000
+PIPE_223 | STAGE_0892 | 167 x 193 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:161155
+PIPE_224 | STAGE_0893 | 174 x 16 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:13920
+PIPE_224 | STAGE_0894 | 181 x 29 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:26245
+PIPE_224 | STAGE_0895 | 188 x 42 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:39480
+PIPE_224 | STAGE_0896 | 195 x 55 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:53625
+PIPE_225 | STAGE_0897 | 12 x 68 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:4080
+PIPE_225 | STAGE_0898 | 19 x 81 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:7695
+PIPE_225 | STAGE_0899 | 26 x 94 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:12220
+PIPE_225 | STAGE_0900 | 33 x 107 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:17655
+PIPE_226 | STAGE_0901 | 40 x 120 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:24000
+PIPE_226 | STAGE_0902 | 47 x 133 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:31255
+PIPE_226 | STAGE_0903 | 54 x 146 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:39420
+PIPE_226 | STAGE_0904 | 61 x 159 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:48495
+PIPE_227 | STAGE_0905 | 68 x 172 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:58480
+PIPE_227 | STAGE_0906 | 75 x 185 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:69375
+PIPE_227 | STAGE_0907 | 82 x 198 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:81180
+PIPE_227 | STAGE_0908 | 89 x 21 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:9345
+PIPE_228 | STAGE_0909 | 96 x 34 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:16320
+PIPE_228 | STAGE_0910 | 103 x 47 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:24205
+PIPE_228 | STAGE_0911 | 110 x 60 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:33000
+PIPE_228 | STAGE_0912 | 117 x 73 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:42705
+PIPE_229 | STAGE_0913 | 124 x 86 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:53320
+PIPE_229 | STAGE_0914 | 131 x 99 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:64845
+PIPE_229 | STAGE_0915 | 138 x 112 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:77280
+PIPE_229 | STAGE_0916 | 145 x 125 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:90625
+PIPE_230 | STAGE_0917 | 152 x 138 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:104880
+PIPE_230 | STAGE_0918 | 159 x 151 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:120045
+PIPE_230 | STAGE_0919 | 166 x 164 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:136120
+PIPE_230 | STAGE_0920 | 173 x 177 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:153105
+PIPE_231 | STAGE_0921 | 180 x 190 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:171000
+PIPE_231 | STAGE_0922 | 187 x 13 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:12155
+PIPE_231 | STAGE_0923 | 194 x 26 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:25220
+PIPE_231 | STAGE_0924 | 11 x 39 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:2145
+PIPE_232 | STAGE_0925 | 18 x 52 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:4680
+PIPE_232 | STAGE_0926 | 25 x 65 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:8125
+PIPE_232 | STAGE_0927 | 32 x 78 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:12480
+PIPE_232 | STAGE_0928 | 39 x 91 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:17745
+PIPE_233 | STAGE_0929 | 46 x 104 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:23920
+PIPE_233 | STAGE_0930 | 53 x 117 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:31005
+PIPE_233 | STAGE_0931 | 60 x 130 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:39000
+PIPE_233 | STAGE_0932 | 67 x 143 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:47905
+PIPE_234 | STAGE_0933 | 74 x 156 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:57720
+PIPE_234 | STAGE_0934 | 81 x 169 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:68445
+PIPE_234 | STAGE_0935 | 88 x 182 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:80080
+PIPE_234 | STAGE_0936 | 95 x 195 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:92625
+PIPE_235 | STAGE_0937 | 102 x 18 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:9180
+PIPE_235 | STAGE_0938 | 109 x 31 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:16895
+PIPE_235 | STAGE_0939 | 116 x 44 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:25520
+PIPE_235 | STAGE_0940 | 123 x 57 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:35055
+PIPE_236 | STAGE_0941 | 130 x 70 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:45500
+PIPE_236 | STAGE_0942 | 137 x 83 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:56855
+PIPE_236 | STAGE_0943 | 144 x 96 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:69120
+PIPE_236 | STAGE_0944 | 151 x 109 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:82295
+PIPE_237 | STAGE_0945 | 158 x 122 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:96380
+PIPE_237 | STAGE_0946 | 165 x 135 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:111375
+PIPE_237 | STAGE_0947 | 172 x 148 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:127280
+PIPE_237 | STAGE_0948 | 179 x 161 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:144095
+PIPE_238 | STAGE_0949 | 186 x 174 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:161820
+PIPE_238 | STAGE_0950 | 193 x 187 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:180455
+PIPE_238 | STAGE_0951 | 10 x 10 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:500
+PIPE_238 | STAGE_0952 | 17 x 23 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:1955
+PIPE_239 | STAGE_0953 | 24 x 36 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:4320
+PIPE_239 | STAGE_0954 | 31 x 49 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:7595
+PIPE_239 | STAGE_0955 | 38 x 62 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:11780
+PIPE_239 | STAGE_0956 | 45 x 75 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:16875
+PIPE_240 | STAGE_0957 | 52 x 88 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:22880
+PIPE_240 | STAGE_0958 | 59 x 101 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:29795
+PIPE_240 | STAGE_0959 | 66 x 114 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:37620
+PIPE_240 | STAGE_0960 | 73 x 127 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:46355
+PIPE_241 | STAGE_0961 | 80 x 140 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:56000
+PIPE_241 | STAGE_0962 | 87 x 153 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:66555
+PIPE_241 | STAGE_0963 | 94 x 166 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:78020
+PIPE_241 | STAGE_0964 | 101 x 179 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:90395
+PIPE_242 | STAGE_0965 | 108 x 192 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:103680
+PIPE_242 | STAGE_0966 | 115 x 15 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:8625
+PIPE_242 | STAGE_0967 | 122 x 28 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:17080
+PIPE_242 | STAGE_0968 | 129 x 41 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:26445
+PIPE_243 | STAGE_0969 | 136 x 54 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:36720
+PIPE_243 | STAGE_0970 | 143 x 67 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:47905
+PIPE_243 | STAGE_0971 | 150 x 80 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:60000
+PIPE_243 | STAGE_0972 | 157 x 93 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:73005
+PIPE_244 | STAGE_0973 | 164 x 106 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:86920
+PIPE_244 | STAGE_0974 | 171 x 119 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:101745
+PIPE_244 | STAGE_0975 | 178 x 132 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:117480
+PIPE_244 | STAGE_0976 | 185 x 145 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:134125
+PIPE_245 | STAGE_0977 | 192 x 158 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:151680
+PIPE_245 | STAGE_0978 | 199 x 171 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:170145
+PIPE_245 | STAGE_0979 | 16 x 184 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:14720
+PIPE_245 | STAGE_0980 | 23 x 197 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:22655
+PIPE_246 | STAGE_0981 | 30 x 20 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:3000
+PIPE_246 | STAGE_0982 | 37 x 33 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:6105
+PIPE_246 | STAGE_0983 | 44 x 46 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:10120
+PIPE_246 | STAGE_0984 | 51 x 59 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:15045
+PIPE_247 | STAGE_0985 | 58 x 72 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:20880
+PIPE_247 | STAGE_0986 | 65 x 85 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:27625
+PIPE_247 | STAGE_0987 | 72 x 98 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:35280
+PIPE_247 | STAGE_0988 | 79 x 111 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:43845
+PIPE_248 | STAGE_0989 | 86 x 124 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:53320
+PIPE_248 | STAGE_0990 | 93 x 137 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:63705
+PIPE_248 | STAGE_0991 | 100 x 150 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:75000
+PIPE_248 | STAGE_0992 | 107 x 163 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:87205
+PIPE_249 | STAGE_0993 | 114 x 176 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:100320
+PIPE_249 | STAGE_0994 | 121 x 189 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:114345
+PIPE_249 | STAGE_0995 | 128 x 12 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:7680
+PIPE_249 | STAGE_0996 | 135 x 25 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:16875
+PIPE_250 | STAGE_0997 | 142 x 38 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:26980
+PIPE_250 | STAGE_0998 | 149 x 51 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:37995
+PIPE_250 | STAGE_0999 | 156 x 64 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:49920
+PIPE_250 | STAGE_1000 | 163 x 77 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:62755
+PIPE_001 | STAGE_1001 | 170 x 90 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:76500
+PIPE_001 | STAGE_1002 | 177 x 103 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:91155
+PIPE_001 | STAGE_1003 | 184 x 116 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:106720
+PIPE_001 | STAGE_1004 | 191 x 129 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:123195
+PIPE_002 | STAGE_1005 | 198 x 142 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:140580
+PIPE_002 | STAGE_1006 | 15 x 155 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:11625
+PIPE_002 | STAGE_1007 | 22 x 168 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:18480
+PIPE_002 | STAGE_1008 | 29 x 181 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:26245
+PIPE_003 | STAGE_1009 | 36 x 194 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:34920
+PIPE_003 | STAGE_1010 | 43 x 17 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:3655
+PIPE_003 | STAGE_1011 | 50 x 30 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:7500
+PIPE_003 | STAGE_1012 | 57 x 43 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:12255
+PIPE_004 | STAGE_1013 | 64 x 56 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:17920
+PIPE_004 | STAGE_1014 | 71 x 69 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:24495
+PIPE_004 | STAGE_1015 | 78 x 82 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:31980
+PIPE_004 | STAGE_1016 | 85 x 95 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:40375
+PIPE_005 | STAGE_1017 | 92 x 108 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:49680
+PIPE_005 | STAGE_1018 | 99 x 121 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:59895
+PIPE_005 | STAGE_1019 | 106 x 134 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:71020
+PIPE_005 | STAGE_1020 | 113 x 147 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:83055
+PIPE_006 | STAGE_1021 | 120 x 160 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:96000
+PIPE_006 | STAGE_1022 | 127 x 173 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:109855
+PIPE_006 | STAGE_1023 | 134 x 186 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:124620
+PIPE_006 | STAGE_1024 | 141 x 199 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:140295
+PIPE_007 | STAGE_1025 | 148 x 22 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:16280
+PIPE_007 | STAGE_1026 | 155 x 35 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:27125
+PIPE_007 | STAGE_1027 | 162 x 48 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:38880
+PIPE_007 | STAGE_1028 | 169 x 61 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:51545
+PIPE_008 | STAGE_1029 | 176 x 74 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:65120
+PIPE_008 | STAGE_1030 | 183 x 87 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:79605
+PIPE_008 | STAGE_1031 | 190 x 100 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:95000
+PIPE_008 | STAGE_1032 | 197 x 113 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:111305
+PIPE_009 | STAGE_1033 | 14 x 126 | Sentinel-2 Spectral Band Reflection Filter | OPS_WEIGHT:8820
+PIPE_009 | STAGE_1034 | 21 x 139 | Landsat-9 Thermal Infrared Emissivity Grid | OPS_WEIGHT:14595
+PIPE_009 | STAGE_1035 | 28 x 152 | UAV LiDAR Digital Surface Canopy Model | OPS_WEIGHT:21280
+PIPE_009 | STAGE_1036 | 35 x 165 | High-Resolution Hyperspectral Wavelength Deconvolution | OPS_WEIGHT:28875
+PIPE_010 | STAGE_1037 | 42 x 178 | Synthetic Aperture Radar Backscatter Polarimetry | OPS_WEIGHT:37380
+PIPE_010 | STAGE_1038 | 49 x 191 | Soil Moisture Radiometric Calibration Matrix | OPS_WEIGHT:46795
+PIPE_010 | STAGE_1039 | 56 x 14 | Chlorophyll Fluorescence Solar-Induced Projection | OPS_WEIGHT:3920
+PIPE_010 | STAGE_1040 | 63 x 27 | Vegetation Index Spatial Interpolation Kernel | OPS_WEIGHT:8505

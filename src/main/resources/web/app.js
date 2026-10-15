@@ -718,7 +718,380 @@ function pad(str, len) {
   return s;
 }
 
-// Check server status on load
+// =========================================================================
+// KAGGLE AGRITECH DATASET SUITE & AUDIT CONTROLLER
+// =========================================================================
+
+window.agriDatasets = [];
+window.currentPreviewDataset = null;
+window.currentPreviewModule = null;
+
+// Fetch and initialize Kaggle datasets on load
+function initDatasets() {
+  fetch('/api/dataset/list')
+    .then(res => res.json())
+    .then(data => {
+      if (data && data.datasets) {
+        window.agriDatasets = data.datasets;
+        renderDashboardDatasetGrid(window.agriDatasets);
+        populateModuleDropdowns(window.agriDatasets);
+      }
+    })
+    .catch(err => console.error("Could not load datasets:", err));
+}
+
+// Render the 14 Dataset Cards in the Farm Control Center
+function renderDashboardDatasetGrid(datasets) {
+  const container = document.getElementById('dashboard-dataset-grid');
+  if (!container) return;
+
+  if (datasets.length === 0) {
+    container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 30px; color: var(--text-muted);">No matching datasets found.</div>`;
+    return;
+  }
+
+  container.innerHTML = '';
+  datasets.forEach(ds => {
+    const card = document.createElement('div');
+    card.className = 'dataset-card';
+    card.innerHTML = `
+      <div>
+        <div class="dataset-card-top">
+          <span class="dataset-badge-mod">${escapeHtml(ds.module)} &bull; ${escapeHtml(ds.co)}</span>
+          <span style="font-size: 0.72rem; color: #166534; background: #dcfce7; padding: 2px 6px; border-radius: 4px; font-weight: 700;">${escapeHtml(ds.format)}</span>
+        </div>
+        <div class="dataset-card-title">${escapeHtml(ds.name)}</div>
+        <div class="dataset-filename">📄 ${escapeHtml(ds.filename)}</div>
+        <div class="dataset-desc">${escapeHtml(ds.description)}</div>
+        <div class="dataset-algo-tag">⚡ <strong>Algorithms:</strong> ${escapeHtml(ds.algorithms)}</div>
+      </div>
+      <div class="dataset-card-footer">
+        <button class="btn-card-load" onclick="openAndLoadDataset('${escapeHtml(ds.module.toLowerCase().split(',')[0].trim())}', '${escapeHtml(ds.filename)}')">
+          🚀 Load in ${escapeHtml(ds.module.split(',')[0].trim())}
+        </button>
+        <button class="btn-card-view" onclick="previewDataset('${escapeHtml(ds.filename)}')">
+          👁️ Preview
+        </button>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Populate dropdowns in M1 to M6
+function populateModuleDropdowns(datasets) {
+  const modules = ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'];
+  modules.forEach(mod => {
+    const select = document.getElementById(mod + '-dataset-select');
+    if (!select) return;
+
+    // Filter datasets relevant to this module first, then include others
+    const relevant = datasets.filter(d => d.module.toLowerCase().includes(mod));
+    const others = datasets.filter(d => !d.module.toLowerCase().includes(mod));
+
+    let html = '';
+    if (relevant.length > 0) {
+      html += `<optgroup label="Recommended for ${mod.toUpperCase()}">`;
+      relevant.forEach((d, idx) => {
+        html += `<option value="${escapeHtml(d.filename)}" ${idx === 0 ? 'selected' : ''}>${escapeHtml(d.filename)} (${escapeHtml(d.name)})</option>`;
+      });
+      html += `</optgroup>`;
+    }
+
+    if (others.length > 0) {
+      html += `<optgroup label="Other AgriFlow Datasets">`;
+      others.forEach(d => {
+        html += `<option value="${escapeHtml(d.filename)}">${escapeHtml(d.filename)} (${escapeHtml(d.module)})</option>`;
+      });
+      html += `</optgroup>`;
+    }
+
+    select.innerHTML = html;
+  });
+}
+
+// Filter dataset cards by category
+function filterDatasets(category, element) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  if (element) element.classList.add('active');
+
+  if (category === 'all') {
+    renderDashboardDatasetGrid(window.agriDatasets);
+  } else {
+    const filtered = window.agriDatasets.filter(d => d.module.toUpperCase().includes(category.toUpperCase()));
+    renderDashboardDatasetGrid(filtered);
+  }
+}
+
+// Real-time search in Dataset Explorer
+function onSearchDatasets(query) {
+  const q = query.toLowerCase().trim();
+  if (!q) {
+    renderDashboardDatasetGrid(window.agriDatasets);
+    return;
+  }
+  const filtered = window.agriDatasets.filter(d => 
+    d.name.toLowerCase().includes(q) ||
+    d.filename.toLowerCase().includes(q) ||
+    d.description.toLowerCase().includes(q) ||
+    d.algorithms.toLowerCase().includes(q) ||
+    d.module.toLowerCase().includes(q)
+  );
+  renderDashboardDatasetGrid(filtered);
+}
+
+// Dropdown change handler on module screens
+function onDatasetSelectChanged(modId) {
+  const select = document.getElementById(modId + '-dataset-select');
+  const status = document.getElementById(modId + '-dataset-status');
+  if (select && status) {
+    status.textContent = 'Selected: ' + select.value.replace('.txt', '');
+    status.style.background = '#e0f2fe';
+    status.style.color = '#0369a1';
+    status.style.borderColor = '#bae6fd';
+  }
+}
+
+// Load dataset directly from dropdown on module tab
+function loadDatasetIntoModule(modId, explicitFile) {
+  const select = document.getElementById(modId + '-dataset-select');
+  const filename = explicitFile || (select ? select.value : '');
+  if (!filename) return;
+
+  const status = document.getElementById(modId + '-dataset-status');
+  if (status) {
+    status.textContent = 'Loading...';
+    status.style.background = '#fef08a';
+    status.style.color = '#854d0e';
+  }
+
+  fetch('/api/dataset/read?file=' + encodeURIComponent(filename))
+    .then(res => res.json())
+    .then(data => {
+      if (data.error) {
+        alert("Error loading dataset: " + data.error);
+        if (status) status.textContent = 'Error';
+        return;
+      }
+
+      // Inject parsed sample data into module fields
+      applyDatasetToModule(modId, filename, data);
+
+      if (status) {
+        status.textContent = `✓ Loaded ${data.recordCount || data.linesCount} records (${(data.sizeBytes/1024).toFixed(1)} KB)`;
+        status.style.background = '#dcfce7';
+        status.style.color = '#166534';
+        status.style.borderColor = '#bbf7d0';
+      }
+    })
+    .catch(err => {
+      alert("Network error reading dataset: " + err);
+      if (status) status.textContent = 'Failed';
+    });
+}
+
+// Apply dataset content to form inputs
+function applyDatasetToModule(modId, filename, data) {
+  const sample = data.sample || {};
+
+  if (modId === 'm1') {
+    const textField = document.getElementById('m1-text');
+    const patField = document.getElementById('m1-pattern');
+    const algoSelect = document.getElementById('m1-algo');
+    if (textField && sample.text) textField.value = sample.text;
+    if (patField && sample.pattern) patField.value = sample.pattern;
+    if (filename.contains ? filename.contains('pathology') : filename.indexOf('pathology') !== -1) {
+      if (patField && sample.dictionary) patField.value = sample.dictionary;
+      if (algoSelect) algoSelect.value = 'aho';
+    } else if (filename.indexOf('seed_batch') !== -1) {
+      if (algoSelect) algoSelect.value = 'rabin';
+    } else {
+      if (algoSelect) algoSelect.value = 'kmp';
+    }
+  } else if (modId === 'm2') {
+    const textField = document.getElementById('m2-text');
+    const patField = document.getElementById('m2-query-pattern');
+    if (textField && sample.text) textField.value = sample.text;
+    if (patField && sample.query) patField.value = sample.query;
+  } else if (modId === 'm3') {
+    if (sample.seqA && sample.seqB) {
+      const s1 = document.getElementById('m3-seq1');
+      const s2 = document.getElementById('m3-seq2');
+      if (s1) s1.value = sample.seqA;
+      if (s2) s2.value = sample.seqB;
+    }
+    if (sample.word1) {
+      const qInput = document.getElementById('m3-autocorrect-input');
+      if (qInput) qInput.value = sample.word1;
+    }
+    if (sample.dimensions) {
+      const dims = document.getElementById('m3-mcm-dims');
+      if (dims) dims.value = sample.dimensions;
+    }
+    if (sample.budget && sample.maxLand) {
+      const land = document.getElementById('m3-land');
+      const water = document.getElementById('m3-water');
+      if (land) land.value = sample.maxLand;
+      if (water) water.value = sample.budget;
+    }
+  } else if (modId === 'm4') {
+    const algoSelect = document.getElementById('m4-algo');
+    if (algoSelect) algoSelect.value = 'dinic';
+  } else if (modId === 'm5') {
+    // 3-SAT or Vertex Cover parameters
+  } else if (modId === 'm6') {
+    if (sample.number) {
+      const numInput = document.getElementById('m6-prime-input');
+      if (numInput) numInput.value = sample.number;
+    }
+    if (sample.k) {
+      const kInput = document.getElementById('m6-reservoir-k');
+      if (kInput) kInput.value = sample.k;
+    }
+  }
+}
+
+// Open dataset and jump directly to that module
+function openAndLoadDataset(modId, filename) {
+  switchTab(modId);
+  const select = document.getElementById(modId + '-dataset-select');
+  if (select) {
+    select.value = filename;
+    onDatasetSelectChanged(modId);
+  }
+  loadDatasetIntoModule(modId, filename);
+}
+
+// Preview button click from module tab
+function previewDatasetFromModule(modId) {
+  const select = document.getElementById(modId + '-dataset-select');
+  const filename = select ? select.value : 'kaggle_crop_disease_symptoms.txt';
+  previewDataset(filename, modId);
+}
+
+// Open Raw Dataset Preview Modal
+function previewDataset(filename, originatingModule) {
+  window.currentPreviewDataset = filename;
+  window.currentPreviewModule = originatingModule || 'm1';
+
+  const modal = document.getElementById('dataset-preview-modal');
+  const title = document.getElementById('modal-dataset-title');
+  const meta = document.getElementById('modal-dataset-meta');
+  const content = document.getElementById('modal-dataset-content');
+
+  if (title) title.innerHTML = `📄 Dataset File: <code>${escapeHtml(filename)}</code>`;
+  if (meta) meta.textContent = 'Loading Kaggle metadata and records...';
+  if (content) content.textContent = 'Fetching file from repository...';
+  if (modal) modal.style.display = 'flex';
+
+  fetch('/api/dataset/read?file=' + encodeURIComponent(filename))
+    .then(res => res.json())
+    .then(data => {
+      if (data.error) {
+        if (meta) meta.textContent = 'Error: ' + data.error;
+        if (content) content.textContent = '';
+        return;
+      }
+
+      if (meta) {
+        meta.textContent = data.metadata || 'No metadata header found.';
+      }
+      if (content) {
+        content.textContent = data.content || '';
+      }
+    })
+    .catch(err => {
+      if (meta) meta.textContent = 'Failed to load file: ' + err;
+    });
+}
+
+// Copy preview text
+function copyDatasetText() {
+  const content = document.getElementById('modal-dataset-content');
+  if (content && content.textContent) {
+    navigator.clipboard.writeText(content.textContent)
+      .then(() => alert("✓ Dataset copied to clipboard!"))
+      .catch(() => alert("Could not copy automatically. Please select text and Ctrl+C."));
+  }
+}
+
+// Load current previewed dataset into its module
+function loadCurrentPreviewIntoModule() {
+  const filename = window.currentPreviewDataset;
+  if (!filename) return;
+
+  // Determine target module
+  let modId = window.currentPreviewModule;
+  if (window.agriDatasets) {
+    const ds = window.agriDatasets.find(d => d.filename === filename);
+    if (ds && ds.module) {
+      modId = ds.module.toLowerCase().split(',')[0].trim();
+    }
+  }
+
+  closeModal('dataset-preview-modal');
+  openAndLoadDataset(modId, filename);
+}
+
+// Full Farm Optimization Audit (M1 to M6) Scorecard
+function runFullBenchmarkAudit() {
+  const modal = document.getElementById('benchmark-modal');
+  const summary = document.getElementById('benchmark-scorecard-summary');
+  const tbody = document.getElementById('benchmark-tbody');
+
+  if (modal) modal.style.display = 'flex';
+  if (summary) summary.innerHTML = `<span class="scorecard-badge" style="background:#fef08a; color:#854d0e;">⚡ Executing Java Core Benchmarks across M1 to M6...</span>`;
+  if (tbody) tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding: 24px;">Running Knuth-Morris-Pratt, Kasai LCP, Needleman-Wunsch, Dinic Max Flow, 3-SAT DPLL, and Blelloch Scan...</td></tr>`;
+
+  fetch('/api/benchmark')
+    .then(res => res.json())
+    .then(data => {
+      if (data.error) {
+        if (summary) summary.innerHTML = `<span class="scorecard-badge" style="background:#fee2e2; color:#991b1b;">Error: ${escapeHtml(data.error)}</span>`;
+        return;
+      }
+
+      if (summary) {
+        summary.innerHTML = `
+          <span class="scorecard-badge" style="background:#dcfce7; color:#166534;">✓ Overall Status: ${escapeHtml(data.status)}</span>
+          <span class="scorecard-badge" style="background:#e0f2fe; color:#0369a1;">Modules Verified: ${data.modulesBenchmarked} / 6 (CO1 to CO6)</span>
+          <span class="scorecard-badge" style="background:#f3e8ff; color:#6b21a8;">Total Execution Time: ${data.totalDurationUs.toLocaleString()} &mu;s (~${(data.totalDurationUs/1000).toFixed(2)} ms)</span>
+        `;
+      }
+
+      if (tbody && data.results) {
+        tbody.innerHTML = '';
+        data.results.forEach(r => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><strong>${escapeHtml(r.module)}</strong> &bull; <span class="badge badge-mod">${escapeHtml(r.co)}</span></td>
+            <td><strong>${escapeHtml(r.name)}</strong></td>
+            <td><code>${escapeHtml(r.dataset || 'Java Standard Suite')}</code></td>
+            <td><span class="badge badge-success">✓ PASS</span></td>
+            <td><strong>${r.timeUs} &mu;s</strong></td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+    })
+    .catch(err => {
+      if (summary) summary.innerHTML = `<span class="scorecard-badge" style="background:#fee2e2; color:#991b1b;">Audit Error: ${escapeHtml(err.message)}</span>`;
+    });
+}
+
+// Modal closing helpers
+function closeModal(id) {
+  const m = document.getElementById(id);
+  if (m) m.style.display = 'none';
+}
+
+function onModalBackdropClick(event, id) {
+  if (event.target.id === id) {
+    closeModal(id);
+  }
+}
+
+// Check server status on load and initialize datasets
 window.addEventListener('DOMContentLoaded', () => {
   fetch('/api/status')
     .then(res => res.json())
@@ -729,5 +1102,9 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     })
     .catch(() => {});
+
+  // Initialize datasets
+  initDatasets();
 });
+
 

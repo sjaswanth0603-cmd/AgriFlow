@@ -25,27 +25,844 @@
 
   <!-- NAVIGATION TABS -->
   <nav class="nav-tabs container">
-    <button class="tab-btn active" onclick="switchTab('overview')">🌾 Syllabus Overview</button>
-    <button class="tab-btn" onclick="switchTab('m1')">🔍 M1: Strings (CO1)</button>
-    <button class="tab-btn" onclick="switchTab('m2')">📑 M2: Suffix (CO2)</button>
-    <button class="tab-btn" onclick="switchTab('m3')">🧬 M3: DP (CO3)</button>
-    <button class="tab-btn" onclick="switchTab('m4')">🌊 M4: Flow & Matching (CO4)</button>
-    <button class="tab-btn" onclick="switchTab('m5')">⚡ M5: NP & Approx (CO5)</button>
-    <button class="tab-btn" onclick="switchTab('m6')">🚀 M6: Parallel & Streaming (CO6)</button>
+    <button class="tab-btn active" id="btn-tab-dashboard" onclick="switchTab('dashboard')">🚜 Farm Control Center & Datasets</button>
+    <button class="tab-btn" id="btn-tab-m1" onclick="switchTab('m1')">🔍 M1: Strings (CO1)</button>
+    <button class="tab-btn" id="btn-tab-m2" onclick="switchTab('m2')">📑 M2: Suffix (CO2)</button>
+    <button class="tab-btn" id="btn-tab-m3" onclick="switchTab('m3')">🧬 M3: DP (CO3)</button>
+    <button class="tab-btn" id="btn-tab-m4" onclick="switchTab('m4')">🌊 M4: Flow & Matching (CO4)</button>
+    <button class="tab-btn" id="btn-tab-m5" onclick="switchTab('m5')">⚡ M5: NP & Approx (CO5)</button>
+    <button class="tab-btn" id="btn-tab-m6" onclick="switchTab('m6')">🚀 M6: Parallel & Telemetry (CO6)</button>
+    <button class="tab-btn" id="btn-tab-about" onclick="switchTab('about')">📋 About Project & Syllabus</button>
   </nav>
 
   <main class="container">
 
     <!-- ================================================================= -->
-    <!-- TAB: SYLLABUS OVERVIEW                                            -->
+    <!-- TAB: LIVE FARM CONTROL CENTER & KAGGLE DATASET HUB                -->
     <!-- ================================================================= -->
-    <section id="tab-overview" class="tab-content active">
+    <section id="tab-dashboard" class="tab-content active">
+      <div class="hero-dashboard">
+        <h2>🌾 AgriFlow: Precision Farm Live Control Center</h2>
+        <p>
+          Dual-engine agricultural decision intelligence platform combining high-performance Java algorithms with REST web telemetry.
+          Benchmarked across <strong>14 Kaggle-Grade Open Agritech Datasets</strong> addressing real-world agronomy, genomics, irrigation flow, and parallel IoT streaming.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-hero-primary" onclick="runFullBenchmarkAudit()">⚡ Run Full Farm Optimization Audit (M1 - M6)</button>
+          <button class="btn-hero-secondary" onclick="document.getElementById('dataset-explorer-anchor').scrollIntoView({behavior:'smooth'})">📂 Explore Kaggle Datasets (14)</button>
+          <button class="btn-hero-secondary" onclick="switchTab('about')">📋 View Academic Syllabus Mapping</button>
+        </div>
+      </div>
+
+      <!-- Real-Time Operational KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">
+            <span>Canopy Health Index (NDVI)</span>
+            <span>🛰️</span>
+          </div>
+          <div class="kpi-val">0.84</div>
+          <div class="kpi-sub">✓ Vigorous Canopy & Bullish Yield</div>
+        </div>
+
+        <div class="kpi-card" style="border-left-color: #0284c7;">
+          <div class="kpi-title">
+            <span>Canal Max Flow (Dinic)</span>
+            <span>🌊</span>
+          </div>
+          <div class="kpi-val">2,900 L/s</div>
+          <div class="kpi-sub" style="color: #0284c7;">✓ 100% Crop Water Demand Met</div>
+        </div>
+
+        <div class="kpi-card" style="border-left-color: #7c3aed;">
+          <div class="kpi-title">
+            <span>IoT Sensor Mesh (M6)</span>
+            <span>📡</span>
+          </div>
+          <div class="kpi-val">50,000+</div>
+          <div class="kpi-sub" style="color: #7c3aed;">✓ Blelloch Parallel Stream Active</div>
+        </div>
+
+        <div class="kpi-card" style="border-left-color: #ea580c;">
+          <div class="kpi-title">
+            <span>Kaggle Benchmark Suite</span>
+            <span>📂</span>
+          </div>
+          <div class="kpi-val">14 Files</div>
+          <div class="kpi-sub" style="color: #ea580c;">✓ Molded for Modules M1 to M6</div>
+        </div>
+      </div>
+
+      <!-- Kaggle Agritech Dataset Suite Explorer Card -->
+      <div class="card dataset-explorer-section" id="dataset-explorer-anchor">
+        <div class="dataset-explorer-header">
+          <div>
+            <h2 style="font-size: 1.35rem; color: var(--primary); margin-bottom: 4px;">📂 Kaggle Agritech Benchmark Dataset Repository</h2>
+            <p class="desc" style="margin-bottom: 0;">Authentic production text datasets (.txt) modeled after Kaggle Agritech, FAO & USDA standards. Select any dataset to preview or load into its corresponding module.</p>
+          </div>
+          <div class="dataset-search-box">
+            <span class="dataset-search-icon">🔍</span>
+            <input type="text" id="dataset-search-input" class="dataset-search-input" placeholder="Search dataset by name or pathogen..." oninput="onSearchDatasets(this.value)">
+          </div>
+        </div>
+
+        <div class="dataset-filter-chips" style="margin-bottom: 18px;">
+          <button class="filter-chip active" onclick="filterDatasets('all', this)">All Datasets (14)</button>
+          <button class="filter-chip" onclick="filterDatasets('M1', this)">M1: Strings</button>
+          <button class="filter-chip" onclick="filterDatasets('M2', this)">M2: Suffix</button>
+          <button class="filter-chip" onclick="filterDatasets('M3', this)">M3: Dynamic Prog</button>
+          <button class="filter-chip" onclick="filterDatasets('M4', this)">M4: Network Flow</button>
+          <button class="filter-chip" onclick="filterDatasets('M5', this)">M5: NP & Approx</button>
+          <button class="filter-chip" onclick="filterDatasets('M6', this)">M6: Parallel & IoT</button>
+        </div>
+
+        <div class="dataset-grid" id="dashboard-dataset-grid">
+          <!-- Dynamically populated by app.js with 14 dataset cards -->
+        </div>
+      </div>
+
+      <!-- End-to-End Precision Agri Pipeline Flow Visualizer -->
+      <div class="pipeline-container">
+        <div class="pipeline-title">🔄 End-to-End Precision Agriculture Algorithm Pipeline</div>
+        <p class="pipeline-desc">How fundamental computer science algorithms interconnect to power an automated farm management lifecycle:</p>
+        <div class="pipeline-steps">
+          <div class="pipeline-step" onclick="switchTab('m6')">
+            <div class="pipeline-step-num">1</div>
+            <div class="pipeline-step-title">IoT Telemetry</div>
+            <div class="pipeline-step-sub">Reservoir & Parallel Scan (M6)</div>
+          </div>
+          <div class="pipeline-step" onclick="switchTab('m3')">
+            <div class="pipeline-step-num">2</div>
+            <div class="pipeline-step-title">Genomics & Portfolio</div>
+            <div class="pipeline-step-sub">NW / SW & Bitmask DP (M3)</div>
+          </div>
+          <div class="pipeline-step" onclick="switchTab('m4')">
+            <div class="pipeline-step-num">3</div>
+            <div class="pipeline-step-title">Irrigation & Fleet</div>
+            <div class="pipeline-step-sub">Dinic Flow & Matching (M4)</div>
+          </div>
+          <div class="pipeline-step" onclick="switchTab('m5')">
+            <div class="pipeline-step-num">4</div>
+            <div class="pipeline-step-title">Rotation & Security</div>
+            <div class="pipeline-step-sub">3-SAT & Vertex Cover (M5)</div>
+          </div>
+          <div class="pipeline-step" onclick="switchTab('m1')">
+            <div class="pipeline-step-num">5</div>
+            <div class="pipeline-step-title">Disease Screening</div>
+            <div class="pipeline-step-sub">KMP, Z & Aho-Corasick (M1)</div>
+          </div>
+          <div class="pipeline-step" onclick="switchTab('m2')">
+            <div class="pipeline-step-num">6</div>
+            <div class="pipeline-step-title">Protocol Archival</div>
+            <div class="pipeline-step-sub">Suffix Array & Kasai LCP (M2)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 1 (STRING SEARCHING)                                  -->
+    <!-- ================================================================= -->
+    <section id="tab-m1" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 1: Crop & Disease String Search (CO1)</h2>
+          <span class="badge badge-mod">Outcome: CO1</span>
+        </div>
+        <p class="desc">Scans field diagnostic logs, agronomy papers, and barcode logs using <strong>KMP, Z-Algorithm, Rabin-Karp, and Aho-Corasick</strong>.</p>
+        
+        <!-- M1 Kaggle Dataset Selector -->
+        <div class="dataset-bar">
+          <div class="dataset-bar-left">
+            <span class="dataset-bar-label">📂 Kaggle Dataset:</span>
+            <select id="m1-dataset-select" class="dataset-select" onchange="onDatasetSelectChanged('m1')">
+              <option value="kaggle_crop_disease_symptoms.txt" selected>kaggle_crop_disease_symptoms.txt (Foliar Diagnostics)</option>
+              <option value="kaggle_seed_batch_manifest.txt">kaggle_seed_batch_manifest.txt (Chemical & Seed Lots)</option>
+              <option value="kaggle_pathology_bulletin_corpus.txt">kaggle_pathology_bulletin_corpus.txt (Extension Bulletin)</option>
+            </select>
+          </div>
+          <div class="dataset-bar-right">
+            <button type="button" class="btn-load-dataset" onclick="loadDatasetIntoModule('m1')">📥 Load into Inputs</button>
+            <button type="button" class="btn-preview-dataset" onclick="previewDatasetFromModule('m1')">👁️ View Raw File</button>
+            <span class="dataset-status-pill" id="m1-dataset-status">Kaggle Verified</span>
+          </div>
+        </div>
+
+        <div class="presets-row">
+          <span class="preset-label">Quick Presets:</span>
+          <button class="btn-chip" onclick="presetM1('blight')">🌾 Foliage Blight Outbreak</button>
+          <button class="btn-chip" onclick="presetM1('batch')">🏷️ Chemical & Seed Batch Codes</button>
+          <button class="btn-chip" onclick="presetM1('multi')">🔬 Multi-Pathogen Screening</button>
+        </div>
+
+        <div class="form-group">
+          <label for="m1-text">Agricultural Field Inspection Report Text:</label>
+          <textarea id="m1-text" rows="4">Field inspection in Sector 7 identified early blight on potato foliage. Late blight was also detected on tomato leaves in Zone B. Immediate copper fungicide treatment recommended.</textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group flex-2">
+            <label for="m1-pattern">Search Keyword / Disease Terms (comma-separated for Aho-Corasick):</label>
+            <input type="text" id="m1-pattern" value="blight">
+          </div>
+          <div class="form-group flex-1">
+            <label for="m1-algo">Algorithm Engine:</label>
+            <select id="m1-algo">
+              <option value="kmp">Knuth-Morris-Pratt (KMP)</option>
+              <option value="z">Z-Algorithm</option>
+              <option value="rabin">Rabin-Karp Rolling Hash</option>
+              <option value="aho">Aho-Corasick (Multi-Pattern)</option>
+              <option value="compare">⚡ Compare All 4 Algorithms</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" onclick="runM1()">Run String Search</button>
+          <button class="btn btn-secondary" onclick="runM1Compare()">Side-by-Side Benchmark</button>
+        </div>
+
+        <!-- M1 Results -->
+        <div class="result-box" id="m1-result" style="display:none;">
+          <div class="result-header">
+            <h3 id="m1-res-title">Search Results</h3>
+            <span class="badge" id="m1-res-badge">0 matches</span>
+          </div>
+
+          <!-- Highlighted Text Display -->
+          <div id="m1-highlight-container" style="display:none;">
+            <label class="sub-label">Document with Highlighted Matches:</label>
+            <div class="text-highlight-box" id="m1-highlight-box"></div>
+          </div>
+
+          <!-- Output Details -->
+          <pre id="m1-output"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 2 (SUFFIX STRUCTURES)                                 -->
+    <!-- ================================================================= -->
+    <section id="tab-m2" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 2: Suffix Structures & Document Analysis (CO2)</h2>
+          <span class="badge badge-mod">Outcome: CO2</span>
+        </div>
+        <p class="desc">Lexical document indexing and repeated treatment discovery using <strong>Suffix Array, Kasai's LCP Array, and Suffix Automaton (DAWG)</strong>.</p>
+        
+        <!-- M2 Kaggle Dataset Selector -->
+        <div class="dataset-bar">
+          <div class="dataset-bar-left">
+            <span class="dataset-bar-label">📂 Kaggle Dataset:</span>
+            <select id="m2-dataset-select" class="dataset-select" onchange="onDatasetSelectChanged('m2')">
+              <option value="kaggle_treatment_protocols_lcp.txt" selected>kaggle_treatment_protocols_lcp.txt (Spray Protocols)</option>
+              <option value="kaggle_pathology_bulletin_corpus.txt">kaggle_pathology_bulletin_corpus.txt (Extension Bulletin)</option>
+              <option value="kaggle_crop_disease_symptoms.txt">kaggle_crop_disease_symptoms.txt (Pathology Corpus)</option>
+            </select>
+          </div>
+          <div class="dataset-bar-right">
+            <button type="button" class="btn-load-dataset" onclick="loadDatasetIntoModule('m2')">📥 Load into Inputs</button>
+            <button type="button" class="btn-preview-dataset" onclick="previewDatasetFromModule('m2')">👁️ View Raw File</button>
+            <span class="dataset-status-pill" id="m2-dataset-status">Kaggle Verified</span>
+          </div>
+        </div>
+
+        <div class="presets-row">
+          <span class="preset-label">Document Presets:</span>
+          <button class="btn-chip" onclick="presetM2('fertilizer')">🌿 Potassium Fertilizer Bulletin</button>
+          <button class="btn-chip" onclick="presetM2('soil')">🧪 Soil Micro-Nutrient Protocol</button>
+        </div>
+
+        <div class="form-group">
+          <label for="m2-text">Agricultural Research or Advisory Bulletin:</label>
+          <textarea id="m2-text" rows="4">Apply organic potassium fertilizer during early flowering. Soil inspection required. Apply organic potassium fertilizer during early flowering for maximum fruit set.</textarea>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" onclick="runM2()">Analyze Suffix Structures & LCP</button>
+        </div>
+
+        <div class="result-box" id="m2-result" style="display:none;">
+          <h3>Suffix Structures & Duplication Discovery</h3>
+          <pre id="m2-output"></pre>
+
+          <!-- Top Suffixes Table -->
+          <div id="m2-table-container" style="display:none; margin-top:16px;">
+            <label class="sub-label">Lexicographically Sorted Suffixes (Preview):</label>
+            <table class="data-table" id="m2-sa-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Starting Position</th>
+                  <th>Suffix Text Preview</th>
+                </tr>
+              </thead>
+              <tbody id="m2-sa-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- Suffix Automaton Interactive Query -->
+        <div class="sub-section">
+          <h3>⚡ Interactive Suffix Automaton Pattern Query (O(M) Query Time)</h3>
+          <p class="desc">Tests if any agricultural phrase or keyword exists in the indexed document in linear query time proportional only to pattern length.</p>
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m2-query-pattern">Pattern Substring to Query:</label>
+              <input type="text" id="m2-query-pattern" value="potassium">
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-secondary" onclick="runM2Query()" style="width: 100%;">Check Existence (O(M))</button>
+            </div>
+          </div>
+          <div class="result-box" id="m2-query-result" style="display:none;">
+            <pre id="m2-query-output"></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 3 (ADVANCED DYNAMIC PROGRAMMING)                      -->
+    <!-- ================================================================= -->
+    <section id="tab-m3" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 3: Advanced Dynamic Programming (CO3)</h2>
+          <span class="badge badge-mod">Outcome: CO3</span>
+        </div>
+        <p class="desc">Crop DNA Alignment, Multi-Crop Bitmask Optimization, Typo Autocorrection, and Matrix Chain Multiplication.</p>
+        
+        <!-- M3 Kaggle Dataset Selector -->
+        <div class="dataset-bar">
+          <div class="dataset-bar-left">
+            <span class="dataset-bar-label">📂 Kaggle Dataset:</span>
+            <select id="m3-dataset-select" class="dataset-select" onchange="onDatasetSelectChanged('m3')">
+              <option value="kaggle_crop_dna_germplasm.txt" selected>kaggle_crop_dna_germplasm.txt (FASTA Crop Germplasm)</option>
+              <option value="kaggle_farmer_advisory_queries.txt">kaggle_farmer_advisory_queries.txt (Farmer Voice Typo Queries)</option>
+              <option value="kaggle_crop_portfolio_economics.txt">kaggle_crop_portfolio_economics.txt (Multi-Crop Yields & Water)</option>
+              <option value="kaggle_sensor_fusion_matrices.txt">kaggle_sensor_fusion_matrices.txt (Sensor Fusion Dimensions)</option>
+            </select>
+          </div>
+          <div class="dataset-bar-right">
+            <button type="button" class="btn-load-dataset" onclick="loadDatasetIntoModule('m3')">📥 Load into Inputs</button>
+            <button type="button" class="btn-preview-dataset" onclick="previewDatasetFromModule('m3')">👁️ View Raw File</button>
+            <span class="dataset-status-pill" id="m3-dataset-status">Kaggle Verified</span>
+          </div>
+        </div>
+
+        <!-- 3.1 DNA Alignment -->
+        <div class="sub-section">
+          <h3>3.1 Crop DNA Sequence Alignment</h3>
+          <p class="desc">Compares crop genomic sequences: Global Alignment (Needleman-Wunsch) or Local Motif Discovery (Smith-Waterman).</p>
+          
+          <div class="presets-row">
+            <span class="preset-label">Genomic Presets:</span>
+            <button class="btn-chip" onclick="presetM3DNA('drought')">🌾 Drought-Resistant Hybrid vs Ancestral Rice</button>
+            <button class="btn-chip" onclick="presetM3DNA('motif')">🧬 Conserved Fungal Resistance Allele</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m3-seq1">Genomic Strand 1 (Wild / Ancestral Variety):</label>
+              <input type="text" id="m3-seq1" value="ATGCGTACAGTAGCTAGCT">
+            </div>
+            <div class="form-group">
+              <label for="m3-seq2">Genomic Strand 2 (Cultivar Hybrid):</label>
+              <input type="text" id="m3-seq2" value="ATGCTACGGTAGCTAGCT">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="m3-align-type">Alignment Mode:</label>
+            <select id="m3-align-type">
+              <option value="global">Global Alignment &bull; Needleman-Wunsch (Full Sequence Identity)</option>
+              <option value="local">Local Alignment &bull; Smith-Waterman (Conserved Disease-Resistance Motif)</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="runM3Align()">Align Crop DNA Sequences</button>
+          <div class="result-box" id="m3-align-result" style="display:none;">
+            <pre id="m3-align-output" class="mono-box"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 3.2 Bitmask DP -->
+        <div class="sub-section">
+          <h3>3.2 Bitmask DP: Optimal Multi-Crop Portfolio Optimization</h3>
+          <p class="desc">Selects the optimal subset of candidate crops to maximize projected harvest profit without exceeding land acreage or water budgets, accounting for companion planting synergies.</p>
+          
+          <div class="table-responsive" style="margin-bottom: 12px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Crop Variety</th>
+                  <th>Land Needed</th>
+                  <th>Water Needed</th>
+                  <th>Projected Profit</th>
+                  <th>Agronomic Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Organic Wheat</td><td>30 Acres</td><td>40 kL</td><td>$12,000</td><td>Staple grain</td></tr>
+                <tr><td>Soybean</td><td>25 Acres</td><td>25 kL</td><td>$9,500</td><td>Nitrogen-fixing legume (+ $2,000 synergy with Wheat)</td></tr>
+                <tr><td>Sweet Corn</td><td>35 Acres</td><td>55 kL</td><td>$14,000</td><td>High-demand summer crop</td></tr>
+                <tr><td>Tomatoes</td><td>15 Acres</td><td>30 kL</td><td>$11,000</td><td>Intensive horticulture</td></tr>
+                <tr><td>Alfalfa</td><td>20 Acres</td><td>20 kL</td><td>$6,000</td><td>Livestock fodder</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m3-land">Max Farm Land Limit (Acres):</label>
+              <input type="number" id="m3-land" value="65" min="10" max="200">
+            </div>
+            <div class="form-group">
+              <label for="m3-water">Max Irrigation Water Budget (kL):</label>
+              <input type="number" id="m3-water" value="85" min="10" max="300">
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="runM3Bitmask()">Solve Optimal Crop Portfolio (Bitmask DP)</button>
+          <div class="result-box" id="m3-bitmask-result" style="display:none;">
+            <pre id="m3-bitmask-output"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 3.3 Levenshtein Autocorrect -->
+        <div class="sub-section">
+          <h3>3.3 Farmer Voice/SMS Typo Autocorrection (Levenshtein & Damerau)</h3>
+          <p class="desc">Detects typographical errors and key slips in farmer queries and suggests the nearest agronomic dictionary term.</p>
+          
+          <div class="presets-row">
+            <span class="preset-label">Test Common Typos:</span>
+            <button class="btn-chip" onclick="setM3Query('fertlzr')">fertlzr</button>
+            <button class="btn-chip" onclick="setM3Query('tmtos')">tmtos</button>
+            <button class="btn-chip" onclick="setM3Query('blite')">blite</button>
+            <button class="btn-chip" onclick="setM3Query('potasium')">potasium</button>
+            <button class="btn-chip" onclick="setM3Query('irigation')">irigation</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m3-query">Farmer Input Query:</label>
+              <input type="text" id="m3-query" value="fertlzr">
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-secondary" onclick="runM3Autocorrect()" style="width: 100%;">Autocorrect Query</button>
+            </div>
+          </div>
+          <div class="result-box" id="m3-autocorrect-result" style="display:none;">
+            <pre id="m3-autocorrect-output"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 3.4 Matrix Chain Multiplication -->
+        <div class="sub-section">
+          <h3>3.4 Matrix Chain Multiplication (MCM) Geo-Sensor Pipeline</h3>
+          <p class="desc">Minimizes scalar multiplications when chaining drone LIDAR elevations, soil probe vectors, satellite NDVI bands, and yield projections.</p>
+          
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m3-mcm-dims">Matrix Dimensions Array (dims):</label>
+              <input type="text" id="m3-mcm-dims" value="10, 100, 5, 50, 1">
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-secondary" onclick="runM3Mcm()" style="width: 100%;">Optimize Geo-Pipeline</button>
+            </div>
+          </div>
+          <div class="result-box" id="m3-mcm-result" style="display:none;">
+            <pre id="m3-mcm-output"></pre>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 4 (NETWORK FLOW & MATCHING)                           -->
+    <!-- ================================================================= -->
+    <section id="tab-m4" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 4: Irrigation Flow & Resource Matching (CO4)</h2>
+          <span class="badge badge-mod">Outcome: CO4</span>
+        </div>
+        <p class="desc">Canal network max-flow throughput, S-T min-cut bottleneck detection, and bipartite machinery allocation.</p>
+
+        <!-- M4 Kaggle Dataset Selector -->
+        <div class="dataset-bar">
+          <div class="dataset-bar-left">
+            <span class="dataset-bar-label">📂 Kaggle Dataset:</span>
+            <select id="m4-dataset-select" class="dataset-select" onchange="onDatasetSelectChanged('m4')">
+              <option value="kaggle_irrigation_canal_network.txt" selected>kaggle_irrigation_canal_network.txt (Canal Flow Network)</option>
+              <option value="kaggle_farm_machinery_matching.txt">kaggle_farm_machinery_matching.txt (Bipartite Equipment Demands)</option>
+            </select>
+          </div>
+          <div class="dataset-bar-right">
+            <button type="button" class="btn-load-dataset" onclick="loadDatasetIntoModule('m4')">📥 Load into Inputs</button>
+            <button type="button" class="btn-preview-dataset" onclick="previewDatasetFromModule('m4')">👁️ View Raw File</button>
+            <span class="dataset-status-pill" id="m4-dataset-status">Kaggle Verified</span>
+          </div>
+        </div>
+
+        <!-- 4.1 Max Flow & S-T Min-Cut -->
+        <div class="sub-section">
+          <h3>4.1 Canal Network Max Flow & Bottleneck Analysis</h3>
+          <p class="desc">Calculates maximum water discharge rate (kL/hr) from the Main Reservoir (Source) to Farm Plots (Sink) and pinpoints saturated bottleneck canals.</p>
+
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m4-algo">Algorithm Engine:</label>
+              <select id="m4-algo">
+                <option value="dinic">Dinic's Algorithm (Level Graph + Blocking Flow) &bull; O(V² E)</option>
+                <option value="edmonds">Edmonds-Karp (BFS Augmenting Paths) &bull; O(V E²)</option>
+              </select>
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-primary" onclick="runM4MaxFlow()" style="width: 100%;">Compute Canal Flow</button>
+            </div>
+          </div>
+
+          <div class="result-box" id="m4-flow-result" style="display:none;">
+            <pre id="m4-flow-output"></pre>
+            <div id="m4-bottlenecks-container" style="display:none; margin-top:16px;">
+              <label class="sub-label">⚠️ Critical Canal Bottlenecks (S-T Minimum Cut):</label>
+              <table class="data-table" id="m4-bottlenecks-table">
+                <thead>
+                  <tr>
+                    <th>From Station</th>
+                    <th>To Destination</th>
+                    <th>Canal Capacity Limit</th>
+                  </tr>
+                </thead>
+                <tbody id="m4-bottlenecks-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 4.2 Bipartite Machinery Allocation -->
+        <div class="sub-section">
+          <h3>4.2 Bipartite Machinery & Shared Equipment Matching</h3>
+          <p class="desc">Allocates regional tractors, spray drones, and harvesters to requesting farm sectors based on soil compatibility and crop season needs.</p>
+
+          <div class="actions">
+            <button class="btn btn-secondary" onclick="runM4Bipartite()">Run Bipartite Machinery Allocation</button>
+          </div>
+
+          <div class="result-box" id="m4-match-result" style="display:none;">
+            <pre id="m4-match-output"></pre>
+            <div id="m4-match-table-container" style="display:none; margin-top:16px;">
+              <label class="sub-label">🚜 Assigned Farm-Equipment Matches:</label>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Farm Sector</th>
+                    <th>Matched Heavy Implement</th>
+                  </tr>
+                </thead>
+                <tbody id="m4-match-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 5 (NP-COMPLETENESS & APPROXIMATION)                    -->
+    <!-- ================================================================= -->
+    <section id="tab-m5" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 5: NP-Completeness & Approximation (CO5)</h2>
+          <span class="badge badge-mod">Outcome: CO5</span>
+        </div>
+        <p class="desc">Crop rotation satisfaction using <strong>3-SAT DPLL</strong>, polynomial reduction to <strong>CLIQUE</strong>, and <strong>2-Approximation Vertex Cover</strong> watchtower placement.</p>
+
+        <!-- M5 Kaggle Dataset Selector -->
+        <div class="dataset-bar">
+          <div class="dataset-bar-left">
+            <span class="dataset-bar-label">📂 Kaggle Dataset:</span>
+            <select id="m5-dataset-select" class="dataset-select" onchange="onDatasetSelectChanged('m5')">
+              <option value="kaggle_crop_rotation_constraints_3sat.txt" selected>kaggle_crop_rotation_constraints_3sat.txt (3-CNF Rotation Clauses)</option>
+              <option value="kaggle_farm_road_junctions_graph.txt">kaggle_farm_road_junctions_graph.txt (Road Network Graph)</option>
+            </select>
+          </div>
+          <div class="dataset-bar-right">
+            <button type="button" class="btn-load-dataset" onclick="loadDatasetIntoModule('m5')">📥 Load into Inputs</button>
+            <button type="button" class="btn-preview-dataset" onclick="previewDatasetFromModule('m5')">👁️ View Raw File</button>
+            <span class="dataset-status-pill" id="m5-dataset-status">Kaggle Verified</span>
+          </div>
+        </div>
+
+        <!-- 5.1 3-SAT DPLL & CLIQUE Reduction -->
+        <div class="sub-section">
+          <h3>5.1 Crop Rotation Constraint Satisfaction (3-SAT DPLL)</h3>
+          <p class="desc">Solves agricultural agronomy constraints (e.g. Corn vs Soybeans, Nitrogen soil demands) using DPLL backtracking search, and maps the formula to a CLIQUE reduction graph.</p>
+
+          <div class="table-responsive" style="margin-bottom: 12px;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Clause #</th>
+                  <th>Agronomic Rule</th>
+                  <th>Boolean Representation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>C1</td><td>Must plant either Corn OR Soybeans</td><td><code>(x1 &or; x2)</code></td></tr>
+                <tr><td>C2</td><td>Cannot plant both Corn AND Soybeans in same zone</td><td><code>(&not;x1 &or; &not;x2)</code></td></tr>
+                <tr><td>C3</td><td>Corn requires High Nitrogen soil supplement</td><td><code>(&not;x1 &or; x3)</code></td></tr>
+                <tr><td>C4</td><td>Soybeans must NOT receive high nitrogen (causes lodging)</td><td><code>(&not;x2 &or; &not;x3)</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" onclick="runM5Sat()">Solve 3-SAT DPLL & Build CLIQUE Reduction</button>
+          </div>
+
+          <div class="result-box" id="m5-sat-result" style="display:none;">
+            <pre id="m5-sat-output"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 5.2 2-Approximation Vertex Cover -->
+        <div class="sub-section">
+          <h3>5.2 2-Approximation Watchtower & Patrol Station Placement</h3>
+          <p class="desc">Finds near-optimal junction vertices to place security towers and drone stations covering 100% of farm perimeter roads with a guaranteed 2-factor bound.</p>
+
+          <div class="actions">
+            <button class="btn btn-secondary" onclick="runM5VertexCover()">Calculate 2-Approx Vertex Cover</button>
+          </div>
+
+          <div class="result-box" id="m5-vc-result" style="display:none;">
+            <pre id="m5-vc-output"></pre>
+            <div id="m5-vc-table-container" style="display:none; margin-top:16px;">
+              <label class="sub-label">📡 Selected Watchtower Locations:</label>
+              <ul id="m5-vc-list" style="margin-left: 20px; line-height: 1.8;"></ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TAB: MODULE 6 (PARALLEL & RANDOMIZED ALGORITHMS)                  -->
+    <!-- ================================================================= -->
+    <section id="tab-m6" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h2>Module 6: Randomized & Parallel Sensor Telemetry (CO6)</h2>
+          <span class="badge badge-mod">Outcome: CO6</span>
+        </div>
+        <p class="desc">IoT field telemetry streaming, work-efficient parallel prefix scans, Brent's scheduling, Monte Carlo primality, and parallel reduction.</p>
+
+        <!-- M6 Kaggle Dataset Selector -->
+        <div class="dataset-bar">
+          <div class="dataset-bar-left">
+            <span class="dataset-bar-label">📂 Kaggle Dataset:</span>
+            <select id="m6-dataset-select" class="dataset-select" onchange="onDatasetSelectChanged('m6')">
+              <option value="kaggle_iot_telemetry_stream.txt" selected>kaggle_iot_telemetry_stream.txt (High-Frequency IoT Stream)</option>
+              <option value="kaggle_seed_security_primality_keys.txt">kaggle_seed_security_primality_keys.txt (Crypto Keys & Yields)</option>
+            </select>
+          </div>
+          <div class="dataset-bar-right">
+            <button type="button" class="btn-load-dataset" onclick="loadDatasetIntoModule('m6')">📥 Load into Inputs</button>
+            <button type="button" class="btn-preview-dataset" onclick="previewDatasetFromModule('m6')">👁️ View Raw File</button>
+            <span class="dataset-status-pill" id="m6-dataset-status">Kaggle Verified</span>
+          </div>
+        </div>
+
+        <!-- 6.1 Reservoir Sampling -->
+        <div class="sub-section">
+          <h3>6.1 Reservoir Sampling (Algorithm R) on Continuous IoT Streams</h3>
+          <p class="desc">Maintains an unbiased uniform random sample of size <code>k</code> from an unbounded live sensor stream using $O(k)$ memory.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m6-reservoir-k">Sample Reservoir Size (k):</label>
+              <input type="number" id="m6-reservoir-k" value="5" min="1" max="20">
+            </div>
+            <div class="form-group">
+              <label for="m6-stream-size">Continuous Stream Length:</label>
+              <input type="number" id="m6-stream-size" value="1000" min="50" max="100000">
+            </div>
+          </div>
+
+          <button class="btn btn-primary" onclick="runM6Reservoir()">Run Reservoir Sampling</button>
+
+          <div class="result-box" id="m6-reservoir-result" style="display:none;">
+            <pre id="m6-reservoir-output"></pre>
+            <div id="m6-sample-table-container" style="display:none; margin-top:16px;">
+              <label class="sub-label">📊 Uniformly Selected Sensor Readings:</label>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Sensor ID</th>
+                    <th>Soil Moisture (%)</th>
+                    <th>Temperature (°C)</th>
+                  </tr>
+                </thead>
+                <tbody id="m6-sample-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 6.2 Blelloch Scan -->
+        <div class="sub-section">
+          <h3>6.2 Blelloch Work-Efficient Parallel Prefix Scan</h3>
+          <p class="desc">Tree-based parallel prefix scan ($O(N)$ work, $O(\log N)$ span) calculating cumulative rainfall and moisture absorption over 8 days.</p>
+
+          <div class="actions">
+            <button class="btn btn-secondary" onclick="runM6Blelloch()">Compute Blelloch Parallel Scan</button>
+          </div>
+
+          <div class="result-box" id="m6-blelloch-result" style="display:none;">
+            <pre id="m6-blelloch-output"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 6.3 Brent's Scheduling -->
+        <div class="sub-section">
+          <h3>6.3 Brent's Theorem Multi-Core Processor Scheduling Analyzer</h3>
+          <p class="desc">Evaluates theoretical time bounds $T_p \le T_1/p + T_\infty$ and parallel speedup across processor cores for aerial drone imagery processing.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m6-brent-work">Total Work T₁ (Operations):</label>
+              <input type="number" id="m6-brent-work" value="2000000">
+            </div>
+            <div class="form-group">
+              <label for="m6-brent-depth">Critical Path Depth T∞</label>
+              <input type="number" id="m6-brent-depth" value="40">
+            </div>
+            <div class="form-group">
+              <label for="m6-brent-cores">Max Test Cores:</label>
+              <input type="number" id="m6-brent-cores" value="8" min="2" max="64">
+            </div>
+          </div>
+
+          <button class="btn btn-secondary" onclick="runM6Brent()">Analyze Multi-Core Scaling</button>
+
+          <div class="result-box" id="m6-brent-result" style="display:none;">
+            <pre id="m6-brent-output"></pre>
+            <div id="m6-brent-table-container" style="display:none; margin-top:16px;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Cores (p)</th>
+                    <th>Time Bound (Tp)</th>
+                    <th>Speedup</th>
+                    <th>Parallel Efficiency</th>
+                  </tr>
+                </thead>
+                <tbody id="m6-brent-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 6.4 Miller-Rabin Primality -->
+        <div class="sub-section">
+          <h3>6.4 Miller-Rabin Cryptographic Seed Batch Authenticator</h3>
+          <p class="desc">Monte Carlo randomized primality test verifying digital security certificate serials on organic seed shipments with error probability &le; 4⁻¹⁰.</p>
+
+          <div class="presets-row">
+            <span class="preset-label">Test Numbers:</span>
+            <button class="btn-chip" onclick="setM6Prime('104729')">104,729 (Prime)</button>
+            <button class="btn-chip" onclick="setM6Prime('1000003')">1,000,003 (Composite)</button>
+            <button class="btn-chip" onclick="setM6Prime('2147483647')">2,147,483,647 (Mersenne Prime)</button>
+            <button class="btn-chip" onclick="setM6Prime('561')">561 (Carmichael)</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="m6-prime-num">Candidate Serial Integer:</label>
+              <input type="text" id="m6-prime-num" value="104729">
+            </div>
+            <div class="form-group flex-1" style="align-self: flex-end;">
+              <button class="btn btn-secondary" onclick="runM6Prime()" style="width: 100%;">Verify Primality</button>
+            </div>
+          </div>
+
+          <div class="result-box" id="m6-prime-result" style="display:none;">
+            <pre id="m6-prime-output"></pre>
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- 6.5 Parallel Reduce & Randomized QuickSort -->
+        <div class="sub-section">
+          <h3>6.5 Fork-Join Parallel Sensor Reduce & Randomized QuickSort</h3>
+          <p class="desc">Parallel divide-and-conquer telemetry aggregation across 50,000 IoT sensors, alongside Randomized QuickSort for farm yield rankings.</p>
+
+          <div class="actions">
+            <button class="btn btn-primary" onclick="runM6Reduce()">Run 50,000 Sensor Parallel Reduce</button>
+            <button class="btn btn-secondary" onclick="runM6QuickSort()">Sort Yield League (Randomized QuickSort)</button>
+          </div>
+
+          <div class="result-box" id="m6-reduce-result" style="display:none;">
+            <pre id="m6-reduce-output"></pre>
+          </div>
+
+          <div class="result-box" id="m6-sort-result" style="display:none; margin-top:16px;">
+            <pre id="m6-sort-output"></pre>
+            <div id="m6-sort-table-container" style="display:none; margin-top:16px;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Farm Sector</th>
+                    <th>Crop Type</th>
+                    <th>Harvest Yield (Tons/Acre)</th>
+                  </tr>
+                </thead>
+                <tbody id="m6-sort-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+    <!-- ================================================================= -->
+    <!-- TAB: ABOUT PROJECT & SYLLABUS ARCHITECTURE (KEPT LAST)            -->
+    <!-- ================================================================= -->
+    <section id="tab-about" class="tab-content container" style="margin-top: 24px;">
       <div class="card">
         <div class="hero-banner">
-          <h2>🌾 Smart Agriculture Powered by Advanced Algorithms</h2>
+          <h2>📋 AgriFlow: Academic Architecture & Syllabus Mapping</h2>
           <p class="hero-desc">
-            AgriFlow demonstrates how fundamental computer science algorithms solve real-world agricultural engineering challenges.
-            Full syllabus coverage across <strong>Modules 1 to 6 (Course Outcomes CO1 through CO6)</strong>.
+            AgriFlow maps fundamental computer science data structures and algorithms to core agricultural engineering problems.
+            Comprehensive syllabus coverage across <strong>Modules 1 through 6 (Course Outcomes CO1 through CO6)</strong>.
           </p>
         </div>
 
@@ -226,606 +1043,59 @@
             </tbody>
           </table>
         </div>
-
-        <div class="actions" style="margin-top: 24px;">
-          <button class="btn btn-primary" onclick="switchTab('m1')">Start with Module 1: Strings &rarr;</button>
-          <button class="btn btn-secondary" onclick="runAutomatedSuite()">⚡ Run Automated Test Suite</button>
-        </div>
       </div>
     </section>
 
-    <!-- ================================================================= -->
-    <!-- TAB: MODULE 1 (STRING SEARCHING)                                  -->
-    <!-- ================================================================= -->
-    <section id="tab-m1" class="tab-content">
-      <div class="card">
-        <div class="card-header">
-          <h2>Module 1: Crop & Disease String Search (CO1)</h2>
-          <span class="badge badge-mod">Outcome: CO1</span>
-        </div>
-        <p class="desc">Scans field diagnostic logs, agronomy papers, and barcode logs using <strong>KMP, Z-Algorithm, Rabin-Karp, and Aho-Corasick</strong>.</p>
-        
-        <div class="presets-row">
-          <span class="preset-label">Quick Presets:</span>
-          <button class="btn-chip" onclick="presetM1('blight')">🌾 Foliage Blight Outbreak</button>
-          <button class="btn-chip" onclick="presetM1('batch')">🏷️ Chemical & Seed Batch Codes</button>
-          <button class="btn-chip" onclick="presetM1('multi')">🔬 Multi-Pathogen Screening</button>
-        </div>
-
-        <div class="form-group">
-          <label for="m1-text">Agricultural Field Inspection Report Text:</label>
-          <textarea id="m1-text" rows="4">Field inspection in Sector 7 identified early blight on potato foliage. Late blight was also detected on tomato leaves in Zone B. Immediate copper fungicide treatment recommended.</textarea>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group flex-2">
-            <label for="m1-pattern">Search Keyword / Disease Terms (comma-separated for Aho-Corasick):</label>
-            <input type="text" id="m1-pattern" value="blight">
-          </div>
-          <div class="form-group flex-1">
-            <label for="m1-algo">Algorithm Engine:</label>
-            <select id="m1-algo">
-              <option value="kmp">Knuth-Morris-Pratt (KMP)</option>
-              <option value="z">Z-Algorithm</option>
-              <option value="rabin">Rabin-Karp Rolling Hash</option>
-              <option value="aho">Aho-Corasick (Multi-Pattern)</option>
-              <option value="compare">⚡ Compare All 4 Algorithms</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button class="btn btn-primary" onclick="runM1()">Run String Search</button>
-          <button class="btn btn-secondary" onclick="runM1Compare()">Side-by-Side Benchmark</button>
-        </div>
-
-        <!-- M1 Results -->
-        <div class="result-box" id="m1-result" style="display:none;">
-          <div class="result-header">
-            <h3 id="m1-res-title">Search Results</h3>
-            <span class="badge" id="m1-res-badge">0 matches</span>
-          </div>
-
-          <!-- Highlighted Text Display -->
-          <div id="m1-highlight-container" style="display:none;">
-            <label class="sub-label">Document with Highlighted Matches:</label>
-            <div class="text-highlight-box" id="m1-highlight-box"></div>
-          </div>
-
-          <!-- Output Details -->
-          <pre id="m1-output"></pre>
-        </div>
+  <!-- MODAL: RAW KAGGLE DATASET PREVIEW -->
+  <div class="modal-overlay" id="dataset-preview-modal" onclick="onModalBackdropClick(event, 'dataset-preview-modal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-dataset-title">📄 Dataset File Preview</h3>
+        <button class="modal-close-btn" onclick="closeModal('dataset-preview-modal')">&times;</button>
       </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- TAB: MODULE 2 (SUFFIX STRUCTURES)                                 -->
-    <!-- ================================================================= -->
-    <section id="tab-m2" class="tab-content">
-      <div class="card">
-        <div class="card-header">
-          <h2>Module 2: Suffix Structures & Document Analysis (CO2)</h2>
-          <span class="badge badge-mod">Outcome: CO2</span>
-        </div>
-        <p class="desc">Lexical document indexing and repeated treatment discovery using <strong>Suffix Array, Kasai's LCP Array, and Suffix Automaton (DAWG)</strong>.</p>
-        
-        <div class="presets-row">
-          <span class="preset-label">Document Presets:</span>
-          <button class="btn-chip" onclick="presetM2('fertilizer')">🌿 Potassium Fertilizer Bulletin</button>
-          <button class="btn-chip" onclick="presetM2('soil')">🧪 Soil Micro-Nutrient Protocol</button>
-        </div>
-
-        <div class="form-group">
-          <label for="m2-text">Agricultural Research or Advisory Bulletin:</label>
-          <textarea id="m2-text" rows="4">Apply organic potassium fertilizer during early flowering. Soil inspection required. Apply organic potassium fertilizer during early flowering for maximum fruit set.</textarea>
-        </div>
-
-        <div class="actions">
-          <button class="btn btn-primary" onclick="runM2()">Analyze Suffix Structures & LCP</button>
-        </div>
-
-        <div class="result-box" id="m2-result" style="display:none;">
-          <h3>Suffix Structures & Duplication Discovery</h3>
-          <pre id="m2-output"></pre>
-
-          <!-- Top Suffixes Table -->
-          <div id="m2-table-container" style="display:none; margin-top:16px;">
-            <label class="sub-label">Lexicographically Sorted Suffixes (Preview):</label>
-            <table class="data-table" id="m2-sa-table">
-              <thead>
-                <tr>
-                  <th>Rank</th>
-                  <th>Starting Position</th>
-                  <th>Suffix Text Preview</th>
-                </tr>
-              </thead>
-              <tbody id="m2-sa-tbody"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- Suffix Automaton Interactive Query -->
-        <div class="sub-section">
-          <h3>⚡ Interactive Suffix Automaton Pattern Query (O(M) Query Time)</h3>
-          <p class="desc">Tests if any agricultural phrase or keyword exists in the indexed document in linear query time proportional only to pattern length.</p>
-          <div class="form-row">
-            <div class="form-group flex-2">
-              <label for="m2-query-pattern">Pattern Substring to Query:</label>
-              <input type="text" id="m2-query-pattern" value="potassium">
-            </div>
-            <div class="form-group flex-1" style="align-self: flex-end;">
-              <button class="btn btn-secondary" onclick="runM2Query()" style="width: 100%;">Check Existence (O(M))</button>
-            </div>
-          </div>
-          <div class="result-box" id="m2-query-result" style="display:none;">
-            <pre id="m2-query-output"></pre>
-          </div>
-        </div>
+      <div class="modal-body">
+        <div class="modal-meta-box" id="modal-dataset-meta">Loading dataset headers...</div>
+        <pre class="modal-code-viewer" id="modal-dataset-content"></pre>
       </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- TAB: MODULE 3 (ADVANCED DYNAMIC PROGRAMMING)                      -->
-    <!-- ================================================================= -->
-    <section id="tab-m3" class="tab-content">
-      <div class="card">
-        <div class="card-header">
-          <h2>Module 3: Advanced Dynamic Programming (CO3)</h2>
-          <span class="badge badge-mod">Outcome: CO3</span>
-        </div>
-        <p class="desc">Crop DNA Alignment, Multi-Crop Bitmask Optimization, Typo Autocorrection, and Matrix Chain Multiplication.</p>
-        
-        <!-- 3.1 DNA Alignment -->
-        <div class="sub-section">
-          <h3>3.1 Crop DNA Sequence Alignment</h3>
-          <p class="desc">Compares crop genomic sequences: Global Alignment (Needleman-Wunsch) or Local Motif Discovery (Smith-Waterman).</p>
-          
-          <div class="presets-row">
-            <span class="preset-label">Genomic Presets:</span>
-            <button class="btn-chip" onclick="presetM3DNA('drought')">🌾 Drought-Resistant Hybrid vs Ancestral Rice</button>
-            <button class="btn-chip" onclick="presetM3DNA('motif')">🧬 Conserved Fungal Resistance Allele</button>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="m3-seq1">Genomic Strand 1 (Wild / Ancestral Variety):</label>
-              <input type="text" id="m3-seq1" value="ATGCGTACAGTAGCTAGCT">
-            </div>
-            <div class="form-group">
-              <label for="m3-seq2">Genomic Strand 2 (Cultivar Hybrid):</label>
-              <input type="text" id="m3-seq2" value="ATGCTACGGTAGCTAGCT">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="m3-align-type">Alignment Mode:</label>
-            <select id="m3-align-type">
-              <option value="global">Global Alignment &bull; Needleman-Wunsch (Full Sequence Identity)</option>
-              <option value="local">Local Alignment &bull; Smith-Waterman (Conserved Disease-Resistance Motif)</option>
-            </select>
-          </div>
-          <button class="btn btn-primary" onclick="runM3Align()">Align Crop DNA Sequences</button>
-          <div class="result-box" id="m3-align-result" style="display:none;">
-            <pre id="m3-align-output" class="mono-box"></pre>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 3.2 Bitmask DP -->
-        <div class="sub-section">
-          <h3>3.2 Bitmask DP: Optimal Multi-Crop Portfolio Optimization</h3>
-          <p class="desc">Selects the optimal subset of candidate crops to maximize projected harvest profit without exceeding land acreage or water budgets, accounting for companion planting synergies.</p>
-          
-          <div class="table-responsive" style="margin-bottom: 12px;">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Crop Variety</th>
-                  <th>Land Needed</th>
-                  <th>Water Needed</th>
-                  <th>Projected Profit</th>
-                  <th>Agronomic Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Organic Wheat</td><td>30 Acres</td><td>40 kL</td><td>$12,000</td><td>Staple grain</td></tr>
-                <tr><td>Soybean</td><td>25 Acres</td><td>25 kL</td><td>$9,500</td><td>Nitrogen-fixing legume (+ $2,000 synergy with Wheat)</td></tr>
-                <tr><td>Sweet Corn</td><td>35 Acres</td><td>55 kL</td><td>$14,000</td><td>High-demand summer crop</td></tr>
-                <tr><td>Tomatoes</td><td>15 Acres</td><td>30 kL</td><td>$11,000</td><td>Intensive horticulture</td></tr>
-                <tr><td>Alfalfa</td><td>20 Acres</td><td>20 kL</td><td>$6,000</td><td>Livestock fodder</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="m3-land">Max Farm Land Limit (Acres):</label>
-              <input type="number" id="m3-land" value="65" min="10" max="200">
-            </div>
-            <div class="form-group">
-              <label for="m3-water">Max Irrigation Water Budget (kL):</label>
-              <input type="number" id="m3-water" value="85" min="10" max="300">
-            </div>
-          </div>
-          <button class="btn btn-primary" onclick="runM3Bitmask()">Solve Optimal Crop Portfolio (Bitmask DP)</button>
-          <div class="result-box" id="m3-bitmask-result" style="display:none;">
-            <pre id="m3-bitmask-output"></pre>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 3.3 Levenshtein Autocorrect -->
-        <div class="sub-section">
-          <h3>3.3 Farmer Voice/SMS Typo Autocorrection (Levenshtein & Damerau)</h3>
-          <p class="desc">Detects typographical errors and key slips in farmer queries and suggests the nearest agronomic dictionary term.</p>
-          
-          <div class="presets-row">
-            <span class="preset-label">Test Common Typos:</span>
-            <button class="btn-chip" onclick="setM3Query('fertlzr')">fertlzr</button>
-            <button class="btn-chip" onclick="setM3Query('tmtos')">tmtos</button>
-            <button class="btn-chip" onclick="setM3Query('blite')">blite</button>
-            <button class="btn-chip" onclick="setM3Query('potasium')">potasium</button>
-            <button class="btn-chip" onclick="setM3Query('irigation')">irigation</button>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group flex-2">
-              <label for="m3-query">Farmer Input Query:</label>
-              <input type="text" id="m3-query" value="fertlzr">
-            </div>
-            <div class="form-group flex-1" style="align-self: flex-end;">
-              <button class="btn btn-secondary" onclick="runM3Autocorrect()" style="width: 100%;">Autocorrect Query</button>
-            </div>
-          </div>
-          <div class="result-box" id="m3-autocorrect-result" style="display:none;">
-            <pre id="m3-autocorrect-output"></pre>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 3.4 Matrix Chain Multiplication -->
-        <div class="sub-section">
-          <h3>3.4 Matrix Chain Multiplication (MCM) Geo-Sensor Pipeline</h3>
-          <p class="desc">Minimizes scalar multiplications when chaining drone LIDAR elevations, soil probe vectors, satellite NDVI bands, and yield projections.</p>
-          
-          <div class="form-row">
-            <div class="form-group flex-2">
-              <label for="m3-mcm-dims">Matrix Dimensions Array (dims):</label>
-              <input type="text" id="m3-mcm-dims" value="10, 100, 5, 50, 1">
-            </div>
-            <div class="form-group flex-1" style="align-self: flex-end;">
-              <button class="btn btn-secondary" onclick="runM3Mcm()" style="width: 100%;">Optimize Geo-Pipeline</button>
-            </div>
-          </div>
-          <div class="result-box" id="m3-mcm-result" style="display:none;">
-            <pre id="m3-mcm-output"></pre>
-          </div>
-        </div>
-
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="copyDatasetText()">📋 Copy Dataset Text</button>
+        <button class="btn btn-primary" onclick="loadCurrentPreviewIntoModule()">📥 Load into Current Module</button>
+        <button class="btn btn-secondary" onclick="closeModal('dataset-preview-modal')">Close</button>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- ================================================================= -->
-    <!-- TAB: MODULE 4 (NETWORK FLOW & MATCHING)                           -->
-    <!-- ================================================================= -->
-    <section id="tab-m4" class="tab-content">
-      <div class="card">
-        <div class="card-header">
-          <h2>Module 4: Irrigation Flow & Resource Matching (CO4)</h2>
-          <span class="badge badge-mod">Outcome: CO4</span>
-        </div>
-        <p class="desc">Canal network max-flow throughput, S-T min-cut bottleneck detection, and bipartite machinery allocation.</p>
-
-        <!-- 4.1 Max Flow & S-T Min-Cut -->
-        <div class="sub-section">
-          <h3>4.1 Canal Network Max Flow & Bottleneck Analysis</h3>
-          <p class="desc">Calculates maximum water discharge rate (kL/hr) from the Main Reservoir (Source) to Farm Plots (Sink) and pinpoints saturated bottleneck canals.</p>
-
-          <div class="form-row">
-            <div class="form-group flex-2">
-              <label for="m4-algo">Algorithm Engine:</label>
-              <select id="m4-algo">
-                <option value="dinic">Dinic's Algorithm (Level Graph + Blocking Flow) &bull; O(V² E)</option>
-                <option value="edmonds">Edmonds-Karp (BFS Augmenting Paths) &bull; O(V E²)</option>
-              </select>
-            </div>
-            <div class="form-group flex-1" style="align-self: flex-end;">
-              <button class="btn btn-primary" onclick="runM4MaxFlow()" style="width: 100%;">Compute Canal Flow</button>
-            </div>
-          </div>
-
-          <div class="result-box" id="m4-flow-result" style="display:none;">
-            <pre id="m4-flow-output"></pre>
-            <div id="m4-bottlenecks-container" style="display:none; margin-top:16px;">
-              <label class="sub-label">⚠️ Critical Canal Bottlenecks (S-T Minimum Cut):</label>
-              <table class="data-table" id="m4-bottlenecks-table">
-                <thead>
-                  <tr>
-                    <th>From Station</th>
-                    <th>To Destination</th>
-                    <th>Canal Capacity Limit</th>
-                  </tr>
-                </thead>
-                <tbody id="m4-bottlenecks-tbody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 4.2 Bipartite Machinery Allocation -->
-        <div class="sub-section">
-          <h3>4.2 Bipartite Machinery & Shared Equipment Matching</h3>
-          <p class="desc">Allocates regional tractors, spray drones, and harvesters to requesting farm sectors based on soil compatibility and crop season needs.</p>
-
-          <div class="actions">
-            <button class="btn btn-secondary" onclick="runM4Bipartite()">Run Bipartite Machinery Allocation</button>
-          </div>
-
-          <div class="result-box" id="m4-match-result" style="display:none;">
-            <pre id="m4-match-output"></pre>
-            <div id="m4-match-table-container" style="display:none; margin-top:16px;">
-              <label class="sub-label">🚜 Assigned Farm-Equipment Matches:</label>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Farm Sector</th>
-                    <th>Matched Heavy Implement</th>
-                  </tr>
-                </thead>
-                <tbody id="m4-match-tbody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
+  <!-- MODAL: FULL AUTOMATED AUDIT BENCHMARK SCORECARD -->
+  <div class="modal-overlay" id="benchmark-modal" onclick="onModalBackdropClick(event, 'benchmark-modal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚡ Full Farm Optimization Audit (Modules 1 to 6)</h3>
+        <button class="modal-close-btn" onclick="closeModal('benchmark-modal')">&times;</button>
       </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- TAB: MODULE 5 (NP-COMPLETENESS & APPROXIMATION)                    -->
-    <!-- ================================================================= -->
-    <section id="tab-m5" class="tab-content">
-      <div class="card">
-        <div class="card-header">
-          <h2>Module 5: NP-Completeness & Approximation (CO5)</h2>
-          <span class="badge badge-mod">Outcome: CO5</span>
+      <div class="modal-body">
+        <div class="scorecard-summary" id="benchmark-scorecard-summary">
+          <span class="scorecard-badge">Status: RUNNING...</span>
         </div>
-        <p class="desc">Crop rotation satisfaction using <strong>3-SAT DPLL</strong>, polynomial reduction to <strong>CLIQUE</strong>, and <strong>2-Approximation Vertex Cover</strong> watchtower placement.</p>
-
-        <!-- 5.1 3-SAT DPLL & CLIQUE Reduction -->
-        <div class="sub-section">
-          <h3>5.1 Crop Rotation Constraint Satisfaction (3-SAT DPLL)</h3>
-          <p class="desc">Solves agricultural agronomy constraints (e.g. Corn vs Soybeans, Nitrogen soil demands) using DPLL backtracking search, and maps the formula to a CLIQUE reduction graph.</p>
-
-          <div class="table-responsive" style="margin-bottom: 12px;">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Clause #</th>
-                  <th>Agronomic Rule</th>
-                  <th>Boolean Representation</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>C1</td><td>Must plant either Corn OR Soybeans</td><td><code>(x1 &or; x2)</code></td></tr>
-                <tr><td>C2</td><td>Cannot plant both Corn AND Soybeans in same zone</td><td><code>(&not;x1 &or; &not;x2)</code></td></tr>
-                <tr><td>C3</td><td>Corn requires High Nitrogen soil supplement</td><td><code>(&not;x1 &or; x3)</code></td></tr>
-                <tr><td>C4</td><td>Soybeans must NOT receive high nitrogen (causes lodging)</td><td><code>(&not;x2 &or; &not;x3)</code></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="actions">
-            <button class="btn btn-primary" onclick="runM5Sat()">Solve 3-SAT DPLL & Build CLIQUE Reduction</button>
-          </div>
-
-          <div class="result-box" id="m5-sat-result" style="display:none;">
-            <pre id="m5-sat-output"></pre>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 5.2 2-Approximation Vertex Cover -->
-        <div class="sub-section">
-          <h3>5.2 2-Approximation Watchtower & Patrol Station Placement</h3>
-          <p class="desc">Finds near-optimal junction vertices to place security towers and drone stations covering 100% of farm perimeter roads with a guaranteed 2-factor bound.</p>
-
-          <div class="actions">
-            <button class="btn btn-secondary" onclick="runM5VertexCover()">Calculate 2-Approx Vertex Cover</button>
-          </div>
-
-          <div class="result-box" id="m5-vc-result" style="display:none;">
-            <pre id="m5-vc-output"></pre>
-            <div id="m5-vc-table-container" style="display:none; margin-top:16px;">
-              <label class="sub-label">📡 Selected Watchtower Locations:</label>
-              <ul id="m5-vc-list" style="margin-left: 20px; line-height: 1.8;"></ul>
-            </div>
-          </div>
-        </div>
-
+        <table class="data-table" id="benchmark-table">
+          <thead>
+            <tr>
+              <th>Module & CO</th>
+              <th>Algorithm Engine</th>
+              <th>Benchmark Scope / Dataset</th>
+              <th>Status</th>
+              <th>Execution Time (&mu;s)</th>
+            </tr>
+          </thead>
+          <tbody id="benchmark-tbody">
+            <tr><td colspan="5" style="text-align:center; padding: 20px;">Executing benchmark across Java DSA core...</td></tr>
+          </tbody>
+        </table>
       </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <!-- TAB: MODULE 6 (PARALLEL & RANDOMIZED ALGORITHMS)                  -->
-    <!-- ================================================================= -->
-    <section id="tab-m6" class="tab-content">
-      <div class="card">
-        <div class="card-header">
-          <h2>Module 6: Randomized & Parallel Sensor Telemetry (CO6)</h2>
-          <span class="badge badge-mod">Outcome: CO6</span>
-        </div>
-        <p class="desc">IoT field telemetry streaming, work-efficient parallel prefix scans, Brent's scheduling, Monte Carlo primality, and parallel reduction.</p>
-
-        <!-- 6.1 Reservoir Sampling -->
-        <div class="sub-section">
-          <h3>6.1 Reservoir Sampling (Algorithm R) on Continuous IoT Streams</h3>
-          <p class="desc">Maintains an unbiased uniform random sample of size <code>k</code> from an unbounded live sensor stream using $O(k)$ memory.</p>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="m6-reservoir-k">Sample Reservoir Size (k):</label>
-              <input type="number" id="m6-reservoir-k" value="5" min="1" max="20">
-            </div>
-            <div class="form-group">
-              <label for="m6-stream-size">Continuous Stream Length:</label>
-              <input type="number" id="m6-stream-size" value="1000" min="50" max="100000">
-            </div>
-          </div>
-
-          <button class="btn btn-primary" onclick="runM6Reservoir()">Run Reservoir Sampling</button>
-
-          <div class="result-box" id="m6-reservoir-result" style="display:none;">
-            <pre id="m6-reservoir-output"></pre>
-            <div id="m6-sample-table-container" style="display:none; margin-top:16px;">
-              <label class="sub-label">📊 Uniformly Selected Sensor Readings:</label>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Sensor ID</th>
-                    <th>Soil Moisture (%)</th>
-                    <th>Temperature (°C)</th>
-                  </tr>
-                </thead>
-                <tbody id="m6-sample-tbody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 6.2 Blelloch Scan -->
-        <div class="sub-section">
-          <h3>6.2 Blelloch Work-Efficient Parallel Prefix Scan</h3>
-          <p class="desc">Tree-based parallel prefix scan ($O(N)$ work, $O(\log N)$ span) calculating cumulative rainfall and moisture absorption over 8 days.</p>
-
-          <div class="actions">
-            <button class="btn btn-secondary" onclick="runM6Blelloch()">Compute Blelloch Parallel Scan</button>
-          </div>
-
-          <div class="result-box" id="m6-blelloch-result" style="display:none;">
-            <pre id="m6-blelloch-output"></pre>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 6.3 Brent's Scheduling -->
-        <div class="sub-section">
-          <h3>6.3 Brent's Theorem Multi-Core Processor Scheduling Analyzer</h3>
-          <p class="desc">Evaluates theoretical time bounds $T_p \le T_1/p + T_\infty$ and parallel speedup across processor cores for aerial drone imagery processing.</p>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="m6-brent-work">Total Work T₁ (Operations):</label>
-              <input type="number" id="m6-brent-work" value="2000000">
-            </div>
-            <div class="form-group">
-              <label for="m6-brent-depth">Critical Path Depth T∞</label>
-              <input type="number" id="m6-brent-depth" value="40">
-            </div>
-            <div class="form-group">
-              <label for="m6-brent-cores">Max Test Cores:</label>
-              <input type="number" id="m6-brent-cores" value="8" min="2" max="64">
-            </div>
-          </div>
-
-          <button class="btn btn-secondary" onclick="runM6Brent()">Analyze Multi-Core Scaling</button>
-
-          <div class="result-box" id="m6-brent-result" style="display:none;">
-            <pre id="m6-brent-output"></pre>
-            <div id="m6-brent-table-container" style="display:none; margin-top:16px;">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Cores (p)</th>
-                    <th>Time Bound (Tp)</th>
-                    <th>Speedup</th>
-                    <th>Parallel Efficiency</th>
-                  </tr>
-                </thead>
-                <tbody id="m6-brent-tbody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 6.4 Miller-Rabin Primality -->
-        <div class="sub-section">
-          <h3>6.4 Miller-Rabin Cryptographic Seed Batch Authenticator</h3>
-          <p class="desc">Monte Carlo randomized primality test verifying digital security certificate serials on organic seed shipments with error probability &le; 4⁻¹⁰.</p>
-
-          <div class="presets-row">
-            <span class="preset-label">Test Numbers:</span>
-            <button class="btn-chip" onclick="setM6Prime('104729')">104,729 (Prime)</button>
-            <button class="btn-chip" onclick="setM6Prime('1000003')">1,000,003 (Composite)</button>
-            <button class="btn-chip" onclick="setM6Prime('2147483647')">2,147,483,647 (Mersenne Prime)</button>
-            <button class="btn-chip" onclick="setM6Prime('561')">561 (Carmichael)</button>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group flex-2">
-              <label for="m6-prime-num">Candidate Serial Integer:</label>
-              <input type="text" id="m6-prime-num" value="104729">
-            </div>
-            <div class="form-group flex-1" style="align-self: flex-end;">
-              <button class="btn btn-secondary" onclick="runM6Prime()" style="width: 100%;">Verify Primality</button>
-            </div>
-          </div>
-
-          <div class="result-box" id="m6-prime-result" style="display:none;">
-            <pre id="m6-prime-output"></pre>
-          </div>
-        </div>
-
-        <hr>
-
-        <!-- 6.5 Parallel Reduce & Randomized QuickSort -->
-        <div class="sub-section">
-          <h3>6.5 Fork-Join Parallel Sensor Reduce & Randomized QuickSort</h3>
-          <p class="desc">Parallel divide-and-conquer telemetry aggregation across 50,000 IoT sensors, alongside Randomized QuickSort for farm yield rankings.</p>
-
-          <div class="actions">
-            <button class="btn btn-primary" onclick="runM6Reduce()">Run 50,000 Sensor Parallel Reduce</button>
-            <button class="btn btn-secondary" onclick="runM6QuickSort()">Sort Yield League (Randomized QuickSort)</button>
-          </div>
-
-          <div class="result-box" id="m6-reduce-result" style="display:none;">
-            <pre id="m6-reduce-output"></pre>
-          </div>
-
-          <div class="result-box" id="m6-sort-result" style="display:none; margin-top:16px;">
-            <pre id="m6-sort-output"></pre>
-            <div id="m6-sort-table-container" style="display:none; margin-top:16px;">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>Rank</th>
-                    <th>Farm Sector</th>
-                    <th>Crop Type</th>
-                    <th>Harvest Yield (Tons/Acre)</th>
-                  </tr>
-                </thead>
-                <tbody id="m6-sort-tbody"></tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-
+      <div class="modal-footer">
+        <button class="btn btn-primary" onclick="closeModal('benchmark-modal')">Close Scorecard</button>
       </div>
-    </section>
-
-  </main>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="footer container">

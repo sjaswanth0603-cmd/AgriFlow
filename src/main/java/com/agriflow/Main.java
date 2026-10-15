@@ -45,8 +45,9 @@ public class Main {
             System.out.println("  [6] Module 6: Randomized & Parallel (Reservoir Stream, Blelloch Scan, Brent, Miller-Rabin, QuickSort)");
             System.out.println("  [7] Run Full Automated Benchmark across ALL 6 Modules (M1 to M6)");
             System.out.println("  [8] Open Web Dashboard in Browser (http://localhost:" + activePort + ")");
+            System.out.println("  [9] Explore Kaggle Agritech Dataset Suite (14 Production .txt Files)");
             System.out.println("  [0] Exit Application");
-            System.out.print("\nEnter your choice (0-8): ");
+            System.out.print("\nEnter your choice (0-9): ");
 
             if (!scanner.hasNextLine()) break;
             String choice = scanner.nextLine().trim();
@@ -64,12 +65,13 @@ public class Main {
                     AgriFlowServer.openBrowser(activePort);
                     pauseForUser(scanner);
                 }
+                case "9" -> handleDatasetExplorer(scanner);
                 case "0" -> {
                     System.out.println("\nShutting down AgriFlow. Goodbye! 🌾");
                     running = false;
                 }
                 default -> {
-                    System.out.println("\n[!] Invalid choice. Please select 0 to 8.");
+                    System.out.println("\n[!] Invalid choice. Please select 0 to 9.");
                     pauseForUser(scanner);
                 }
             }
@@ -1046,5 +1048,90 @@ public class Main {
         runModule6Demo();
         System.out.println("\nAll algorithms across Modules 1 to 6 executed successfully!");
         System.out.println("Web dashboard is active at http://localhost:" + activePort);
+    }
+
+    private static void handleDatasetExplorer(Scanner scanner) {
+        String[] files = {
+            "kaggle_crop_disease_symptoms.txt",
+            "kaggle_seed_batch_manifest.txt",
+            "kaggle_pathology_bulletin_corpus.txt",
+            "kaggle_treatment_protocols_lcp.txt",
+            "kaggle_crop_dna_germplasm.txt",
+            "kaggle_farmer_advisory_queries.txt",
+            "kaggle_crop_portfolio_economics.txt",
+            "kaggle_sensor_fusion_matrices.txt",
+            "kaggle_irrigation_canal_network.txt",
+            "kaggle_farm_machinery_matching.txt",
+            "kaggle_crop_rotation_constraints_3sat.txt",
+            "kaggle_farm_road_junctions_graph.txt",
+            "kaggle_iot_telemetry_stream.txt",
+            "kaggle_seed_security_primality_keys.txt"
+        };
+
+        String[] modules = {
+            "M1: String Searching (KMP / Z-Algo)",
+            "M1: String Searching (Rabin-Karp Barcodes)",
+            "M1 & M2: Multi-Pattern & Suffix Automaton",
+            "M2: Suffix Structures (Kasai LCP Duplications)",
+            "M3: Advanced DP (Crop DNA Sequence Alignment)",
+            "M3: Advanced DP (Farmer Typo Levenshtein)",
+            "M3: Advanced DP (Bitmask Crop Portfolio)",
+            "M3: Advanced DP (Matrix Chain Multiplication)",
+            "M4: Network Flow (Dinic Canal Flow & Min-Cut)",
+            "M4: Network Flow (Bipartite Machinery Matching)",
+            "M5: NP & Approx (3-SAT DPLL Crop Rotation)",
+            "M5: NP & Approx (2-Approx Watchtower Vertex Cover)",
+            "M6: Parallel & Stream (Reservoir & Blelloch Scan)",
+            "M6: Parallel & Random (Miller-Rabin & QuickSort)"
+        };
+
+        boolean viewing = true;
+        while (viewing) {
+            System.out.println("\n==================================================================");
+            System.out.println("   📂 KAGGLE AGRITECH BENCHMARK DATASET REPOSITORY (14 FILES)    ");
+            System.out.println("==================================================================");
+            for (int i = 0; i < files.length; i++) {
+                System.out.printf("  [%2d] %-42s -> %s%n", (i + 1), files[i], modules[i]);
+            }
+            System.out.println("  [ 0] Return to Main Menu");
+            System.out.print("\nEnter dataset index to view (0-14): ");
+
+            if (!scanner.hasNextLine()) break;
+            String in = scanner.nextLine().trim();
+            if ("0".equals(in)) {
+                viewing = false;
+                break;
+            }
+
+            try {
+                int idx = Integer.parseInt(in) - 1;
+                if (idx >= 0 && idx < files.length) {
+                    String selected = files[idx];
+                    System.out.println("\n------------------------------------------------------------------");
+                    System.out.println("Reading Dataset: " + selected);
+                    System.out.println("------------------------------------------------------------------");
+                    java.nio.file.Path p = java.nio.file.Paths.get("data", selected);
+                    if (!java.nio.file.Files.exists(p)) {
+                        p = java.nio.file.Paths.get("src/main/resources/data", selected);
+                    }
+                    if (java.nio.file.Files.exists(p)) {
+                        List<String> lines = java.nio.file.Files.readAllLines(p);
+                        for (int lineNum = 0; lineNum < Math.min(25, lines.size()); lineNum++) {
+                            System.out.println(lines.get(lineNum));
+                        }
+                        if (lines.size() > 25) {
+                            System.out.println("... (" + (lines.size() - 25) + " more lines in file | Total: " + lines.size() + " lines)");
+                        }
+                    } else {
+                        System.out.println("[Notice] Dataset file found via classpath /data/" + selected);
+                    }
+                    pauseForUser(scanner);
+                } else {
+                    System.out.println("[!] Please enter a number between 0 and 14.");
+                }
+            } catch (Exception e) {
+                System.out.println("[!] Invalid input: " + e.getMessage());
+            }
+        }
     }
 }
